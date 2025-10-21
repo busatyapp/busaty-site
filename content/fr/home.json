@@ -1,0 +1,118 @@
+{
+  "category": "page",
+  "title": "Busaty – Transport scolaire intelligent",
+  "description": "Busaty réunit parents, accompagnateurs et écoles autour d’une plateforme complète avec suivi en direct et alertes proactives.",
+  "hero": {
+    "title": "Busaty – La solution intelligente pour le transport scolaire",
+    "subtitle": "Parents, accompagnateurs et écoles profitent d’un suivi sécurisé en temps réel."
+  },
+  "sections": [
+    {
+      "heading": "Pourquoi Busaty",
+      "body": "Une plateforme unifiée qui garantit des trajets efficaces et transparents.",
+      "items": [
+        {
+          "title": "Suivi en temps réel",
+          "body": "Suivez les bus sur la carte et validez chaque montée et descente."
+        },
+        {
+          "title": "Alertes intelligentes",
+          "body": "Recevez des notifications dès le départ, l’arrivée ou en cas de retard."
+        },
+        {
+          "title": "Analyses exploitables",
+          "body": "Accédez à des tableaux de bord dédiés aux écoles et accompagnateurs."
+        }
+      ]
+    },
+    {
+      "heading": "Trois expériences sur mesure",
+      "body": "Choisissez l’application correspondant à votre rôle et démarrez en quelques minutes.",
+      "items": [
+        {
+          "body": "Suivez les bus, gérez les élèves et restez informé où que vous soyez."
+        },
+        {
+          "body": "Gérez les trajets, confirmez les arrêts et contactez les parents instantanément."
+        },
+        {
+          "body": "Gardez des horaires fiables et pilotez votre flotte avec précision."
+        }
+      ]
+    },
+    {
+      "heading": "Sécurité 24h/24",
+      "body": "Nous protégeons chaque passager et chaque donnée grâce à des standards élevés.",
+      "items": [
+        {
+          "body": "Chiffrement complet des données"
+        },
+        {
+          "body": "Accès par rôle pour chaque profil"
+        },
+        {
+          "body": "Support réactif à toute heure"
+        }
+      ]
+    },
+    {
+      "heading": "Support immédiat",
+      "body": "Toutes les réponses sur les applications Busaty réunies au même endroit."
+    }
+  ],
+  "appDetails": {
+    "heading": "Tutoriels et téléchargements des applications",
+    "intro": "Choisissez l’expérience Busaty qui vous correspond, regardez la vidéo de présentation puis téléchargez la version adaptée à votre appareil.",
+    "parent": {
+      "title": "Busaty Parents",
+      "description": "Offrez sérénité aux familles grâce au suivi en direct du bus, aux alertes instantanées et aux mises à jour claires des trajets.",
+      "videoUrl": "https://www.youtube.com/watch?v=En5YVePrpus",
+      "videoTitle": "Présentation de l’application Busaty Parents",
+      "features": [
+        "Suivi de la position du bus en temps réel sur la carte.",
+        "Notifications immédiates pour les départs, arrivées et changements de trajet.",
+        "Gestion simplifiée du profil élève et des préférences de contact.",
+        "Communication directe avec l’école ou l’accompagnateur en cas de besoin."
+      ],
+      "downloads": [
+        { "label": "Télécharger Android", "url": "https://bit.ly/busaty-parent" },
+        { "label": "Télécharger AppGallery", "url": "https://bit.ly/busaty-parent-appGallery" },
+        { "label": "Télécharger iOS", "url": "https://apple.co/4b8VgBh" }
+      ]
+    },
+    "supervisor": {
+      "title": "Busaty Accompagnateurs & Chauffeurs",
+      "description": "Une application dédiée pour organiser les trajets, vérifier la présence des élèves et prévenir les parents en temps réel.",
+      "videoUrl": "https://www.youtube.com/watch?v=kHPa7VI5IME",
+      "videoTitle": "Présentation de l’application Busaty Accompagnateurs",
+      "features": [
+        "Accès complet aux listes d’élèves avec adresses et points de prise en charge.",
+        "Validation des montées et descentes, gestion rapide des absences.",
+        "Envoi d’alertes instantanées aux parents sur l’état du trajet.",
+        "Suivi de l’itinéraire et ajustement des horaires en temps réel."
+      ],
+      "downloads": [
+        { "label": "Télécharger Android", "url": "https://bit.ly/busaty-bus" },
+        { "label": "Télécharger AppGallery", "url": "https://bit.ly/busaty-bus-appGallery" },
+        { "label": "Télécharger iOS", "url": "https://bit.ly/busaty-bus-ios" }
+      ]
+    },
+    "school": {
+      "title": "Portail Busaty École",
+      "description": "Un tableau de bord complet pour les établissements afin de gérer le parc de bus, affecter les élèves et analyser les performances.",
+      "videoUrl": "https://www.youtube.com/watch?v=zm5kpYXSTN0&t=30s",
+      "videoTitle": "Présentation du portail Busaty École",
+      "features": [
+        "Ajout des élèves avec toutes les informations de contact et de localisation.",
+        "Affectation des bus, organisation des itinéraires et suivi des trajets en direct.",
+        "Rapports de présence et de ponctualité pour optimiser les opérations.",
+        "Coordination instantanée avec les accompagnateurs et diffusion d’informations aux familles."
+      ],
+      "downloads": [
+        { "label": "Télécharger Android", "url": "https://bit.ly/busaty-school" },
+        { "label": "Télécharger AppGallery", "url": "https://bit.ly/busaty-school-AppGallery" },
+        { "label": "Télécharger iOS", "url": "https://bit.ly/busaty-school-ios" }
+      ]
+    }
+  }
+}

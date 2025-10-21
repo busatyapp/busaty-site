@@ -1,0 +1,8 @@
+{
+  "logoPath": "/assets/images/logo.png",
+  "appsLinks": {
+    "parent": "/index.html#app-parent-section",
+    "supervisor": "/index.html#app-supervisor-section",
+    "school": "/index.html#app-school-section"
+  }
+}

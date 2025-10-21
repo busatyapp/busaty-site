@@ -1,0 +1,33 @@
+
+
+افتح مجلد المشروع
+
+اضغط على قائمة Start واكتب “PowerShell”.
+افتح PowerShell.
+في PowerShell اكتب:
+cd "e:\private\work\Bussat\site\site ai\site"
+ثم اضغط Enter.
+خلّي PowerShell يعرف مكان Node (مرة واحدة لكل جلسة)
+
+انسخ السطر ده وحطه في PowerShell واضغط Enter:
+$env:Path = (Resolve-Path 'node-v20.11.1-win-x64').Path + ';' + $env:Path
+ثبّت الحزم (أول مرة فقط أو لو مسحت مجلد node_modules)
+
+اكتب:
+npm install
+واستنى لحد ما يخلص.
+شغّل الموقع
+
+اكتب:
+npm run dev -- --host 127.0.0.1 --port 5173
+هتلاقي في PowerShell سطر بيقولك العنوان (عادة http://127.0.0.1:5173/).
+افتح المتصفح
+
+افتح Chrome أو Edge، وفي شريط العنوان اكتب:
+http://127.0.0.1:5173/
+واضغط Enter. هتشوف الموقع بكامل التنسيق.
+لما تخلص
+
+ارجع لنافذة PowerShell واضغط Ctrl + C علشان توقف السيرفر، أو أقفل النافذة.
+لو أي خطوة وقفت معاك قولي هاساعدك.
+

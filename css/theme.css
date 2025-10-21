@@ -1,0 +1,28 @@
+:root {
+  --brand: #0ea5b7;
+  --brand-600: #0b8896;
+  --accent: #2563eb;
+  --bg: #f7fafc;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --success: #16a34a;
+  --warning: #f59e0b;
+  --danger: #dc2626;
+  --radius: 16px;
+  --font-ar: 'Cairo', system-ui;
+  --font-lat: 'Inter', system-ui;
+}
+
+html[dir="rtl"] body {
+  direction: rtl;
+}
+
+html[lang="ar"] body {
+  font-family: var(--font-ar);
+}
+
+html[lang="en"] body,
+html[lang="fr"] body {
+  font-family: var(--font-lat);
+}

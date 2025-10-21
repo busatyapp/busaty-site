@@ -1,0 +1,44 @@
+{
+  "parent": [
+    {
+      "q": "How do I create a parent account?",
+      "a": "Download the parent app, enter your details plus the student’s info, and your account will be activated in minutes."
+    },
+    {
+      "q": "Can I follow multiple children?",
+      "a": "Yes, add every child to your profile and monitor each trip from one dashboard."
+    },
+    {
+      "q": "How do I receive alerts?",
+      "a": "Enable notifications in the app and allow permissions on your device to stay informed."
+    }
+  ],
+  "supervisor": [
+    {
+      "q": "How do I enable trip tracking?",
+      "a": "Start the trip inside the app and allow background location permissions for precise tracking."
+    },
+    {
+      "q": "Can I adjust a route?",
+      "a": "You can re-order stops or contact administration to update the route assignments."
+    },
+    {
+      "q": "What if there is an emergency?",
+      "a": "Use the quick alert button to message the school and guardians with the latest status."
+    }
+  ],
+  "school": [
+    {
+      "q": "How do I add a new bus?",
+      "a": "Open the school portal, choose fleet management, then add the driver and vehicle details."
+    },
+    {
+      "q": "Can I export trip reports?",
+      "a": "Yes, download daily or monthly summaries in CSV or PDF format."
+    },
+    {
+      "q": "Which permissions can staff receive?",
+      "a": "Assign roles with tailored permissions so each staff member sees just what they need."
+    }
+  ]
+}

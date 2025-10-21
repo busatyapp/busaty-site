@@ -1,0 +1,37 @@
+{
+  "category": "page",
+  "title": "Centre d’aide Busaty",
+  "description": "Apprenez à utiliser Busaty efficacement grâce à des guides rapides, des FAQ et des conseils pratiques.",
+  "hero": {
+    "title": "Centre d’aide",
+    "subtitle": "Guides et ressources pour profiter pleinement de Busaty."
+  },
+  "sections": [
+    {
+      "heading": "Commencer avec Busaty",
+      "body": "Téléchargez l’application adaptée, créez votre profil et ajoutez élèves ou bus en quelques étapes."
+    },
+    {
+      "heading": "Conseils pour les accompagnateurs",
+      "body": "Activez le mode conduite, gardez les notifications actives et validez chaque arrêt pour rester ponctuel."
+    },
+    {
+      "heading": "Questions fréquentes",
+      "body": "Sélectionnez l’application pour obtenir immédiatement les réponses dont vous avez besoin."
+    },
+    {
+      "heading": "Guides et ressources",
+      "items": [
+        {
+          "body": "Vidéos courtes pour l’inscription, le suivi et l’activation des alertes."
+        },
+        {
+          "body": "PDF imprimables avec les étapes d’onboarding pour les parents."
+        },
+        {
+          "body": "Plan d’intervention d’urgence destiné aux équipes scolaires."
+        }
+      ]
+    }
+  ]
+}

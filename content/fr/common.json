@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "À propos",
+    "help": "Aide",
+    "terms": "Conditions"
+  },
+  "cta": {
+    "whatsapp": "WhatsApp",
+    "downloadParent": "Application Parent",
+    "downloadSupervisor": "Application Accompagnateur",
+    "downloadSchool": "Portail École"
+  },
+  "faq": {
+    "title": "Questions fréquentes",
+    "tabs": {
+      "parent": "Application Parent",
+      "supervisor": "Application Accompagnateur",
+      "school": "Portail École"
+    }
+  },
+  "footer": {
+    "tagline": "Busaty : un transport scolaire plus intelligent et plus simple.",
+    "links": "Liens",
+    "contact": "Contact",
+    "apps": "Applications"
+  },
+  "apps": {
+    "parent": "Application Parent",
+    "supervisor": "Application Accompagnateur",
+    "school": "Portail École"
+  },
+  "form": {
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "send": "Envoyer"
+  },
+  "contact": {
+    "title": "Contactez-nous",
+    "subtitle": "Notre équipe support répond à vos questions toute la semaine."
+  }
+}

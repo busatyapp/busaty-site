@@ -1,0 +1,40 @@
+{
+  "category": "page",
+  "title": "À propos de Busaty",
+  "description": "Découvrez la mission et l’équipe derrière Busaty, la plateforme de transport scolaire plus intelligente.",
+  "hero": {
+    "title": "Rencontrez l’équipe Busaty",
+    "subtitle": "Née dans les salles de classe, notre aventure accompagne désormais chaque parent, accompagnateur et école."
+  },
+  "sections": [
+    {
+      "heading": "Notre mission",
+      "body": "Offrir un transport scolaire sûr, efficace et humain en réunissant technologie et accompagnement."
+    },
+    {
+      "heading": "Notre vision",
+      "body": "Devenir le partenaire de confiance des écoles à la recherche de solutions intelligentes et des familles en quête de sérénité."
+    },
+    {
+      "heading": "Nos valeurs",
+      "items": [
+        {
+          "title": "Sécurité absolue",
+          "body": "La protection des élèves et de leurs données guide chacune de nos décisions."
+        },
+        {
+          "title": "Transparence",
+          "body": "Des informations en temps réel pour garder tout le monde aligné."
+        },
+        {
+          "title": "Innovation",
+          "body": "Des solutions modernes pour répondre aux défis du transport scolaire."
+        }
+      ]
+    },
+    {
+      "heading": "Une équipe pluridisciplinaire",
+      "body": "Des experts en éducation, mobilité et technologie unissent leurs forces pour répondre aux besoins locaux."
+    }
+  ]
+}

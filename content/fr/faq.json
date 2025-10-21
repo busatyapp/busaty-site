@@ -1,0 +1,44 @@
+{
+  "parent": [
+    {
+      "q": "Comment créer un compte parent ?",
+      "a": "Téléchargez l’application Parent, saisissez vos informations et celles de l’élève ; votre compte sera activé en quelques minutes."
+    },
+    {
+      "q": "Puis-je suivre plusieurs enfants ?",
+      "a": "Oui, ajoutez chaque enfant à votre profil et surveillez tous les trajets depuis un seul tableau de bord."
+    },
+    {
+      "q": "Comment recevoir les alertes ?",
+      "a": "Activez les notifications dans l’application et autorisez-les sur votre appareil pour rester informé."
+    }
+  ],
+  "supervisor": [
+    {
+      "q": "Comment activer le suivi d’un trajet ?",
+      "a": "Lancez le trajet dans l’application et accordez les droits de localisation en arrière-plan pour un suivi précis."
+    },
+    {
+      "q": "Puis-je modifier un itinéraire ?",
+      "a": "Vous pouvez réorganiser les arrêts ou contacter l’administration pour ajuster l’affectation."
+    },
+    {
+      "q": "Que faire en cas d’urgence ?",
+      "a": "Utilisez le bouton d’alerte pour prévenir immédiatement l’école et les parents."
+    }
+  ],
+  "school": [
+    {
+      "q": "Comment ajouter un nouveau bus ?",
+      "a": "Depuis le portail École, ouvrez la gestion de flotte puis ajoutez le conducteur et les informations du véhicule."
+    },
+    {
+      "q": "Puis-je exporter des rapports de trajets ?",
+      "a": "Oui, téléchargez des synthèses quotidiennes ou mensuelles aux formats CSV ou PDF."
+    },
+    {
+      "q": "Quelles permissions attribuer au personnel ?",
+      "a": "Assignez des rôles avec des droits personnalisés pour que chacun accède aux bonnes informations."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "category": "page",
+  "title": "About Busaty",
+  "description": "Learn about the mission and team behind Busaty, the smarter school transportation platform.",
+  "hero": {
+    "title": "Meet the Busaty team",
+    "subtitle": "We started in classrooms and now support every parent, supervisor, and school."
+  },
+  "sections": [
+    {
+      "heading": "Our mission",
+      "body": "We believe school transportation should be safe, efficient, and human-centered, so we built Busaty to combine technology with care."
+    },
+    {
+      "heading": "Our vision",
+      "body": "Become the trusted partner for schools seeking smart transportation and families seeking real peace of mind."
+    },
+    {
+      "heading": "Core values",
+      "items": [
+        {
+          "title": "Safety first",
+          "body": "We prioritise student safety and data privacy across every feature."
+        },
+        {
+          "title": "Transparency",
+          "body": "Live information keeps every user informed and aligned."
+        },
+        {
+          "title": "Innovation",
+          "body": "We deliver modern solutions for everyday transportation challenges."
+        }
+      ]
+    },
+    {
+      "heading": "Multidisciplinary team",
+      "body": "Our experts in education, mobility, and technology collaborate to deliver a product that matches regional needs."
+    }
+  ]
+}

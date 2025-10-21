@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://busaty.org/sitemap.xml

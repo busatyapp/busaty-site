@@ -1,0 +1,43 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "help": "Help",
+    "terms": "Terms"
+  },
+  "cta": {
+    "whatsapp": "WhatsApp",
+    "downloadParent": "Parent App",
+    "downloadSupervisor": "Supervisor App",
+    "downloadSchool": "School Portal"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "tabs": {
+      "parent": "Parent App",
+      "supervisor": "Supervisor App",
+      "school": "School Portal"
+    }
+  },
+  "footer": {
+    "tagline": "Busaty: Smarter, easier school transportation.",
+    "links": "Links",
+    "contact": "Contact",
+    "apps": "Apps"
+  },
+  "apps": {
+    "parent": "Parent App",
+    "supervisor": "Supervisor App",
+    "school": "School Portal"
+  },
+  "form": {
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send"
+  },
+  "contact": {
+    "title": "Get in touch",
+    "subtitle": "Our support team is ready to help you all week long."
+  }
+}

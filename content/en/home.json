@@ -1,0 +1,118 @@
+{
+  "category": "page",
+  "title": "Busaty – Smart School Transportation",
+  "description": "Busaty delivers a complete school transportation platform for parents, supervisors, and schools with live tracking and proactive alerts.",
+  "hero": {
+    "title": "Busaty – The smart way to move students",
+    "subtitle": "Peace of mind for parents, supervisors, and schools with safe, live monitoring."
+  },
+  "sections": [
+    {
+      "heading": "Why Busaty",
+      "body": "A unified platform that keeps every trip efficient and transparent.",
+      "items": [
+        {
+          "title": "Real-time tracking",
+          "body": "Follow buses on the map and confirm every pick-up and drop-off."
+        },
+        {
+          "title": "Smart notifications",
+          "body": "Receive instant alerts for departures, arrivals, and unexpected delays."
+        },
+        {
+          "title": "Actionable analytics",
+          "body": "Review performance dashboards tailored for schools and supervisors."
+        }
+      ]
+    },
+    {
+      "heading": "Three tailored experiences",
+      "body": "Choose the app that matches your role and get started in minutes.",
+      "items": [
+        {
+          "body": "Track buses, manage students, and stay informed wherever you are."
+        },
+        {
+          "body": "Manage routes, confirm attendance, and message guardians instantly."
+        },
+        {
+          "body": "Keep schedules accurate and manage your fleet with precise controls."
+        }
+      ]
+    },
+    {
+      "heading": "Security around the clock",
+      "body": "We invest in enterprise-grade safeguards to protect every rider and data point.",
+      "items": [
+        {
+          "body": "End-to-end data encryption"
+        },
+        {
+          "body": "Role-based access for every stakeholder"
+        },
+        {
+          "body": "Responsive support whenever you need it"
+        }
+      ]
+    },
+    {
+      "heading": "Support on demand",
+      "body": "Everything you need to learn about Busaty’s apps in one place."
+    }
+  ],
+  "appDetails": {
+    "heading": "App tutorials and downloads",
+    "intro": "Pick the right Busaty experience, watch the quick walkthrough, then grab the build for your device.",
+    "parent": {
+      "title": "Busaty Parent App",
+      "description": "Give families peace of mind with live bus tracking, instant alerts, and clear trip updates.",
+      "videoUrl": "https://www.youtube.com/watch?v=En5YVePrpus",
+      "videoTitle": "Busaty Parent App overview",
+      "features": [
+        "Track the bus live on the map and view current location.",
+        "Receive instant notifications for departures, arrivals, or route changes.",
+        "Manage each student profile and keep contact preferences updated.",
+        "Reach out to the school or supervisor whenever support is needed."
+      ],
+      "downloads": [
+        { "label": "Download Android", "url": "https://bit.ly/busaty-parent" },
+        { "label": "Download AppGallery", "url": "https://bit.ly/busaty-parent-appGallery" },
+        { "label": "Download iOS", "url": "https://apple.co/4b8VgBh" }
+      ]
+    },
+    "supervisor": {
+      "title": "Busaty Supervisor & Driver App",
+      "description": "Equip supervisors and drivers with the tools to run routes smoothly and notify guardians instantly.",
+      "videoUrl": "https://www.youtube.com/watch?v=kHPa7VI5IME",
+      "videoTitle": "Busaty Supervisor App walkthrough",
+      "features": [
+        "Access complete student manifests with addresses and map locations.",
+        "Confirm boarding, manage absences, and keep rosters accurate.",
+        "Send real-time alerts to guardians about trip status and updates.",
+        "Monitor route progress and adjust schedules on the go."
+      ],
+      "downloads": [
+        { "label": "Download Android", "url": "https://bit.ly/busaty-bus" },
+        { "label": "Download AppGallery", "url": "https://bit.ly/busaty-bus-appGallery" },
+        { "label": "Download iOS", "url": "https://bit.ly/busaty-bus-ios" }
+      ]
+    },
+    "school": {
+      "title": "Busaty School Portal",
+      "description": "A powerful dashboard for schools to orchestrate fleets, assign students, and analyse trip performance.",
+      "videoUrl": "https://www.youtube.com/watch?v=zm5kpYXSTN0&t=30s",
+      "videoTitle": "Busaty School Portal overview",
+      "features": [
+        "Add students with full contact details and map-based pickup points.",
+        "Assign buses, manage routes, and monitor journeys live.",
+        "Generate attendance and punctuality insights to improve operations.",
+        "Coordinate quickly with supervisors and broadcast updates to families."
+      ],
+      "downloads": [
+        { "label": "Download Android", "url": "https://bit.ly/busaty-school" },
+        { "label": "Download AppGallery", "url": "https://bit.ly/busaty-school-AppGallery" },
+        { "label": "Download iOS", "url": "https://bit.ly/busaty-school-ios" }
+      ]
+    }
+  }
+}

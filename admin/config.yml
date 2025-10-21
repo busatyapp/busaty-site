@@ -1,0 +1,197 @@
+backend:
+  name: github
+  repo: YOUR_GITHUB_USER/busaty-site
+  branch: main
+  base_url: https://YOUR-OAUTH-BRIDGE.example.com
+  auth_endpoint: /auth
+
+media_folder: "assets/images"
+public_folder: "/assets/images"
+
+locale: ar
+
+site_url: https://busaty.org
+display_url: https://busaty.org
+
+slug:
+  encoding: unicode
+  clean_accents: true
+
+collections:
+  - name: settings
+    label: إعدادات عامة
+    files:
+      - file: "content/common.json"
+        name: common
+        label: إعدادات مشتركة
+        fields:
+          - label: مسار اللوجو
+            name: logoPath
+            widget: image
+            media_library:
+              allow_multiple: false
+          - label: روابط التطبيقات
+            name: appsLinks
+            widget: object
+            fields:
+              - { label: "ولي الأمر", name: parent, widget: string }
+              - { label: "المشرف", name: supervisor, widget: string }
+              - { label: "المدرسة", name: school, widget: string }
+
+  - &content_ar
+    name: content_ar
+    label: محتوى (العربية)
+    folder: "content/ar"
+    create: true
+    extension: "json"
+    filter: { field: category, value: page }
+    fields: &content_fields
+      - { label: النوع, name: category, widget: hidden, default: page }
+      - label: عنوان الصفحة
+        name: title
+        widget: string
+      - label: وصف
+        name: description
+        widget: text
+        required: false
+      - label: قسم البطل
+        name: hero
+        widget: object
+        required: false
+        fields:
+          - { label: عنوان, name: title, widget: string, required: false }
+          - { label: وصف, name: subtitle, widget: text, required: false }
+      - label: أقسام
+        name: sections
+        widget: list
+        collapsed: false
+        fields:
+          - { label: عنوان, name: heading, widget: string, required: false }
+          - { label: نص, name: body, widget: text, required: false }
+          - label: عناصر
+            name: items
+            widget: list
+            required: false
+            fields:
+              - { label: عنوان العنصر, name: title, widget: string, required: false }
+              - { label: نص العنصر, name: body, widget: text }
+      - label: تفاصيل التطبيقات
+        name: appDetails
+        widget: object
+        required: false
+        fields:
+          - { label: عنوان القسم, name: heading, widget: string, required: false }
+          - { label: مقدمة, name: intro, widget: text, required: false }
+          - label: تطبيق ولي الأمر
+            name: parent
+            widget: object
+            required: false
+            fields:
+              - { label: عنوان, name: title, widget: string, required: false }
+              - { label: وصف قصير, name: description, widget: text, required: false }
+              - { label: رابط فيديو YouTube, name: videoUrl, widget: string, required: false }
+              - { label: عنوان الفيديو, name: videoTitle, widget: string, required: false }
+              - label: ميزات
+                name: features
+                widget: list
+                required: false
+                field: { label: نص الميزة, name: text, widget: string }
+              - label: روابط التحميل
+                name: downloads
+                widget: list
+                required: false
+                fields:
+                  - { label: التسمية, name: label, widget: string }
+                  - { label: الرابط, name: url, widget: string }
+          - label: تطبيق المشرف
+            name: supervisor
+            widget: object
+            required: false
+            fields:
+              - { label: عنوان, name: title, widget: string, required: false }
+              - { label: وصف قصير, name: description, widget: text, required: false }
+              - { label: رابط فيديو YouTube, name: videoUrl, widget: string, required: false }
+              - { label: عنوان الفيديو, name: videoTitle, widget: string, required: false }
+              - label: ميزات
+                name: features
+                widget: list
+                required: false
+                field: { label: نص الميزة, name: text, widget: string }
+              - label: روابط التحميل
+                name: downloads
+                widget: list
+                required: false
+                fields:
+                  - { label: التسمية, name: label, widget: string }
+                  - { label: الرابط, name: url, widget: string }
+          - label: لوحة المدرسة
+            name: school
+            widget: object
+            required: false
+            fields:
+              - { label: عنوان, name: title, widget: string, required: false }
+              - { label: وصف قصير, name: description, widget: text, required: false }
+              - { label: رابط فيديو YouTube, name: videoUrl, widget: string, required: false }
+              - { label: عنوان الفيديو, name: videoTitle, widget: string, required: false }
+              - label: ميزات
+                name: features
+                widget: list
+                required: false
+                field: { label: نص الميزة, name: text, widget: string }
+              - label: روابط التحميل
+                name: downloads
+                widget: list
+                required: false
+                fields:
+                  - { label: التسمية, name: label, widget: string }
+                  - { label: الرابط, name: url, widget: string }
+
+  - name: content_en
+    label: Content (English)
+    folder: "content/en"
+    create: true
+    extension: "json"
+    filter: { field: category, value: page }
+    fields: *content_fields
+
+  - name: content_fr
+    label: Contenu (Français)
+    folder: "content/fr"
+    create: true
+    extension: "json"
+    filter: { field: category, value: page }
+    fields: *content_fields
+
+  - name: faq
+    label: الأسئلة الشائعة
+    files:
+      - file: "content/ar/faq.json"
+        name: faq_ar
+        label: FAQ (AR)
+        fields: &faq_fields
+          - label: تطبيق ولي الأمر
+            name: parent
+            widget: list
+            fields:
+              - { label: سؤال, name: q, widget: string }
+              - { label: جواب, name: a, widget: text }
+          - label: تطبيق المشرف
+            name: supervisor
+            widget: list
+            fields:
+              - { label: سؤال, name: q, widget: string }
+              - { label: جواب, name: a, widget: text }
+          - label: لوحة المدرسة
+            name: school
+            widget: list
+            fields:
+              - { label: سؤال, name: q, widget: string }
+              - { label: جواب, name: a, widget: text }
+      - file: "content/en/faq.json"
+        name: faq_en
+        label: FAQ (EN)
+        fields: *faq_fields
+      - file: "content/fr/faq.json"
+        name: faq_fr
+        label: FAQ (FR)
+        fields: *faq_fields

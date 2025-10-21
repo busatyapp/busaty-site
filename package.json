@@ -1,0 +1,11 @@
+{
+  "name": "busaty-site",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && node scripts/sitemap.js"
+  },
+  "devDependencies": {
+    "vite": "^5.4.0"
+  }
+}

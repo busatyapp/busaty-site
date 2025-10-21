@@ -1,0 +1,31 @@
+{
+  "category": "page",
+  "title": "Terms & Conditions",
+  "description": "Understand the terms that govern your use of Busaty’s platform and applications.",
+  "hero": {
+    "title": "Terms & Conditions",
+    "subtitle": "By accessing Busaty you agree to follow the policies outlined below."
+  },
+  "sections": [
+    {
+      "heading": "1. Definitions",
+      "body": "\"Services\" refers to the Busaty platform and applications. A \"user\" is any guardian, supervisor, or school representative who creates an account or uses the platform."
+    },
+    {
+      "heading": "2. User obligations",
+      "body": "Users must provide accurate information, keep credentials safe, and avoid sharing unlawful or abusive content."
+    },
+    {
+      "heading": "3. Data privacy",
+      "body": "We protect student and guardian data and only share it with third parties when consent is granted or when required by law."
+    },
+    {
+      "heading": "4. Liability limits",
+      "body": "Busaty is not liable for damages caused by misuse of the app or outages beyond our control, although we aim to resolve issues quickly."
+    },
+    {
+      "heading": "5. Updates",
+      "body": "We may adjust these terms from time to time and will publish the latest version here with an updated timestamp."
+    }
+  ]
+}

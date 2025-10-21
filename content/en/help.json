@@ -1,0 +1,37 @@
+{
+  "category": "page",
+  "title": "Busaty Help Center",
+  "description": "Discover how to use Busaty effectively with quick lessons, FAQs, and tips for supervisors and families.",
+  "hero": {
+    "title": "Help Center",
+    "subtitle": "Quick guides and resources to make every Busaty experience smooth."
+  },
+  "sections": [
+    {
+      "heading": "Get started",
+      "body": "Download the right app, create your profile, and add students or buses in a few steps."
+    },
+    {
+      "heading": "Supervisor tips",
+      "body": "Use driving mode, keep notifications on, and confirm every stop to stay on schedule."
+    },
+    {
+      "heading": "Frequently asked questions",
+      "body": "Pick an app to find the answers you need in seconds."
+    },
+    {
+      "heading": "Guides and resources",
+      "items": [
+        {
+          "body": "Short videos showing sign-up, tracking, and alert activation."
+        },
+        {
+          "body": "Printable PDFs with onboarding steps for guardians."
+        },
+        {
+          "body": "Emergency response checklist for school administrators."
+        }
+      ]
+    }
+  ]
+}
