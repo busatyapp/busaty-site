@@ -5,7 +5,7 @@
     "dev": "vite",
     "build": "vite build && node scripts/sitemap.js"
   },
-  "devDependencies": {
+  "dependencies": {
     "vite": "^5.4.0"
   }
 }
