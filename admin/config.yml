@@ -1,8 +1,8 @@
-backend:
+﻿backend:
   name: github
-  repo: YOUR_GITHUB_USER/busaty-site
+  repo: busatyapp/busaty-site
   branch: main
-  base_url: https://YOUR-OAUTH-BRIDGE.example.com
+  base_url: https://busaty-oauth.vercel.app
   auth_endpoint: /auth
 
 media_folder: "assets/images"
@@ -195,3 +195,5 @@ collections:
         name: faq_fr
         label: FAQ (FR)
         fields: *faq_fields
+
+
