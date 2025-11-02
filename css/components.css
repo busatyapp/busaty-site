@@ -139,3 +139,22 @@ details[open] summary::after {
   color: #fff;
   border-color: transparent;
 }
+
+.footer-social {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 12px 0 0;
+  padding: 0;
+}
+
+.footer-social a {
+  color: inherit;
+  font-size: 0.95rem;
+}
+
+.footer-social a:hover,
+.footer-social a:focus-visible {
+  text-decoration: underline;
+}

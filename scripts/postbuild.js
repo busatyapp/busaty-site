@@ -1,8 +1,10 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const sourceDir = path.resolve(__dirname, '..', 'admin');
-const outputDir = path.resolve(__dirname, '..', 'dist', 'admin');
+const adminSourceDir = path.resolve(__dirname, "..", "admin");
+const adminOutputDir = path.resolve(__dirname, "..", "dist", "admin");
+const contentSourceDir = path.resolve(__dirname, "..", "content");
+const contentOutputDir = path.resolve(__dirname, "..", "dist", "content");
 
 function copyDirectory(src, dest) {
   if (!fs.existsSync(dest)) {
@@ -21,14 +23,18 @@ function copyDirectory(src, dest) {
   }
 }
 
-if (!fs.existsSync(sourceDir)) {
-  console.warn('Admin directory not found, skipping copy.');
-  process.exit(0);
+function safeCopy(src, dest, label) {
+  if (!fs.existsSync(src)) {
+    console.warn(`${label} directory not found, skipping copy.`);
+    return;
+  }
+  if (fs.existsSync(dest)) {
+    fs.rmSync(dest, { recursive: true, force: true });
+  }
+  copyDirectory(src, dest);
+  const relative = path.relative(path.resolve(__dirname, ".."), dest);
+  console.log(`${label} copied to ${relative}`);
 }
 
-if (fs.existsSync(outputDir)) {
-  fs.rmSync(outputDir, { recursive: true, force: true });
-}
-
-copyDirectory(sourceDir, outputDir);
-console.log('Admin dashboard copied to dist/admin');
+safeCopy(adminSourceDir, adminOutputDir, "Admin dashboard");
+safeCopy(contentSourceDir, contentOutputDir, "Content JSON");

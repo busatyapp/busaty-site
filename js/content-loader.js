@@ -19,6 +19,101 @@ function resolveValue(dict, path) {
   }, dict);
 }
 
+function createWhatsappLink(config) {
+  if (!config) return null;
+  if (typeof config === 'string') {
+    return config.startsWith('http') ? config : `https://wa.me/${config.replace(/[^\d]/g, '')}`;
+  }
+  if (config.link) {
+    return config.link;
+  }
+  if (!config.number) return null;
+  const digits = config.number.toString().replace(/[^\d]/g, '');
+  let url = `https://wa.me/${digits}`;
+  if (config.message) {
+    url += `?text=${encodeURIComponent(config.message)}`;
+  }
+  return url;
+}
+
+function applyContactInfo(contact) {
+  if (!contact) return;
+  if (contact.email) {
+    document.querySelectorAll('[data-contact-link="email"]').forEach(anchor => {
+      anchor.setAttribute('href', `mailto:${contact.email}`);
+      anchor.textContent = contact.email;
+    });
+  }
+  const whatsappHref = createWhatsappLink(contact.whatsapp);
+  if (whatsappHref) {
+    document.querySelectorAll('[data-contact-link="whatsapp"]').forEach(anchor => {
+      anchor.setAttribute('href', whatsappHref);
+    });
+  }
+  if (contact.phone) {
+    document.querySelectorAll('[data-contact-link="phone"]').forEach(anchor => {
+      anchor.setAttribute('href', `tel:${contact.phone}`);
+      anchor.textContent = contact.phone;
+    });
+  }
+}
+
+function formatSocialLabel(key) {
+  const labels = {
+    facebook: 'Facebook',
+    linkedin: 'LinkedIn',
+    youtube: 'YouTube',
+    twitter: 'Twitter',
+    instagram: 'Instagram',
+    tiktok: 'TikTok'
+  };
+  return labels[key] || key.charAt(0).toUpperCase() + key.slice(1);
+}
+
+function applySocialLinks(social) {
+  const list = document.querySelector('[data-social-list]');
+  if (!list) return;
+  list.innerHTML = '';
+  if (!social) {
+    list.remove();
+    return;
+  }
+  Object.entries(social).forEach(([network, url]) => {
+    if (!url) return;
+    const li = document.createElement('li');
+    const anchor = document.createElement('a');
+    anchor.href = url;
+    anchor.target = '_blank';
+    anchor.rel = 'noopener';
+    anchor.textContent = formatSocialLabel(network);
+    li.appendChild(anchor);
+    list.appendChild(li);
+  });
+  if (!list.children.length) {
+    list.remove();
+  }
+}
+
+function updateStructuredData(globalContent) {
+  const script = document.querySelector('script[type="application/ld+json"]');
+  if (!script) return;
+  try {
+    const json = JSON.parse(script.textContent);
+    if (globalContent.logoPath) {
+      json.logo = `${window.location.origin}${globalContent.logoPath}`;
+    }
+    if (globalContent.seoDefaults?.siteName) {
+      json.name = globalContent.seoDefaults.siteName;
+    }
+    if (Array.isArray(globalContent.seoDefaults?.sameAs)) {
+      json.sameAs = globalContent.seoDefaults.sameAs;
+    }
+    script.textContent = JSON.stringify(json, null, 2);
+  } catch (error) {
+    console.warn('Unable to update structured data', error);
+  }
+}
+
 function normaliseVideoUrl(url) {
   if (!url) return '';
   try {
@@ -162,6 +257,10 @@ async function loadContent() {
       el.textContent = value;
     }
   });
+
+  applyContactInfo(globalContent.contact);
+  applySocialLinks(globalContent.social);
+  updateStructuredData(globalContent);
 
   if (dict.appDetails) {
     populateAppDetails(dict.appDetails);

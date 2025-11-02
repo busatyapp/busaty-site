@@ -4,5 +4,26 @@
     "parent": "/index.html#app-parent-section",
     "supervisor": "/index.html#app-supervisor-section",
     "school": "/index.html#app-school-section"
+  },
+  "contact": {
+    "email": "support@busaty.org",
+    "phone": "+20 10 9892 4835",
+    "whatsapp": {
+      "number": "+201098924835",
+      "message": "مرحبًا، أود معرفة المزيد عن حلول Busaty."
+    },
+    "address": "القاهرة، مصر"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/busaty",
+    "linkedin": "https://www.linkedin.com/company/busaty",
+    "youtube": "https://www.youtube.com/@busaty"
+  },
+  "seoDefaults": {
+    "siteName": "Busaty",
+    "sameAs": [
+      "https://www.facebook.com/busaty",
+      "https://www.linkedin.com/company/busaty"
+    ]
   }
 }

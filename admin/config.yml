@@ -37,6 +37,47 @@ collections:
               - { label: "ولي الأمر", name: parent, widget: string }
               - { label: "المشرف", name: supervisor, widget: string }
               - { label: "المدرسة", name: school, widget: string }
+          - label: بيانات التواصل
+            name: contact
+            widget: object
+            required: false
+            collapsed: true
+            fields:
+              - { label: البريد الإلكتروني, name: email, widget: string }
+              - { label: الهاتف, name: phone, widget: string, required: false }
+              - label: واتساب
+                name: whatsapp
+                widget: object
+                required: false
+                fields:
+                  - { label: الرقم, name: number, widget: string, required: false }
+                  - { label: رابط مخصص, name: link, widget: string, required: false }
+                  - { label: رسالة افتراضية, name: message, widget: text, required: false }
+              - { label: العنوان, name: address, widget: text, required: false }
+          - label: روابط التواصل الاجتماعي
+            name: social
+            widget: object
+            required: false
+            collapsed: true
+            fields:
+              - { label: Facebook, name: facebook, widget: string, required: false }
+              - { label: LinkedIn, name: linkedin, widget: string, required: false }
+              - { label: YouTube, name: youtube, widget: string, required: false }
+              - { label: Twitter / X, name: twitter, widget: string, required: false }
+              - { label: Instagram, name: instagram, widget: string, required: false }
+              - { label: TikTok, name: tiktok, widget: string, required: false }
+          - label: إعدادات SEO افتراضية
+            name: seoDefaults
+            widget: object
+            required: false
+            collapsed: true
+            fields:
+              - { label: اسم الموقع, name: siteName, widget: string, default: "Busaty" }
+              - label: روابط تعريف العلامة (sameAs)
+                name: sameAs
+                widget: list
+                required: false
+                field: { label: رابط, name: url, widget: string }
 
   - &content_ar
     name: content_ar
@@ -68,6 +109,7 @@ collections:
         fields:
           - { label: عنوان, name: heading, widget: string, required: false }
           - { label: نص, name: body, widget: text, required: false }
+          - { label: ترتيب العرض (اختياري), name: layout, widget: select, options: ["default", "split", "grid"], required: false, default: "default" }
           - label: عناصر
             name: items
             widget: list
@@ -75,6 +117,9 @@ collections:
             fields:
               - { label: عنوان العنصر, name: title, widget: string, required: false }
               - { label: نص العنصر, name: body, widget: text }
+              - { label: الرابط, name: link, widget: string, required: false }
+              - { label: نص الزر, name: ctaLabel, widget: string, required: false }
+              - { label: أيقونة أو صورة (اختياري), name: icon, widget: string, required: false, hint: "يمكن إدخال مسار صورة أو اسم أيقونة لاستخدامها بصريًا" }
       - label: تفاصيل التطبيقات
         name: appDetails
         widget: object
