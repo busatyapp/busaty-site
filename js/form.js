@@ -1,17 +1,31 @@
-document.addEventListener('submit', async event => {
+function ensureStatusElement(form) {
+  const message = form.querySelector('.form-message');
+  if (!message) return null;
+  if (!message.hasAttribute('role')) {
+    message.setAttribute('role', 'status');
+    message.setAttribute('aria-live', 'polite');
+  }
+  return message;
+}
+
+async function handleSubmission(event) {
   const form = event.target;
   if (!form.matches('[data-formspree]')) return;
   event.preventDefault();
+
   const endpoint = form.getAttribute('action');
   if (!endpoint) return;
-  const data = new FormData(form);
+
+  const message = ensureStatusElement(form);
+  const payload = new FormData(form);
+
   try {
     const response = await fetch(endpoint, {
       method: 'POST',
-      body: data,
+      body: payload,
       headers: { Accept: 'application/json' }
     });
-    const message = form.querySelector('.form-message');
+
     if (!message) return;
     if (response.ok) {
       message.textContent = form.dataset.success || 'تم الإرسال بنجاح';
@@ -19,10 +33,13 @@ document.addEventListener('submit', async event => {
     } else {
       message.textContent = form.dataset.error || 'حدث خطأ، حاول لاحقًا';
     }
-  } catch (error) {
-    const message = form.querySelector('.form-message');
+  } catch {
     if (message) {
       message.textContent = form.dataset.error || 'حدث خطأ، حاول لاحقًا';
     }
   }
-});
+}
+
+export function initFormHandler() {
+  document.addEventListener('submit', handleSubmission);
+}

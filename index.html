@@ -22,16 +22,13 @@
 
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="manifest" href="/manifest.webmanifest">
 
   <link rel="stylesheet" href="/css/base.css">
   <link rel="stylesheet" href="/css/layout.css">
   <link rel="stylesheet" href="/css/components.css">
   <link rel="stylesheet" href="/css/theme.css">
 
-  <script type="module" src="/js/i18n.js"></script>
-  <script type="module" src="/js/content-loader.js"></script>
-  <script type="module" src="/js/faq.js"></script>
-  <script type="module" src="/js/form.js"></script>
   <script type="module" src="/js/main.js"></script>
 
   <script type="application/ld+json">
@@ -48,13 +45,14 @@
   }
   </script>
 </head>
-<body>
+<body data-page="home">
+<a class="skip-link" href="#main-content">تخطي إلى المحتوى الرئيس</a>
 <header class="site-header">
   <div class="container">
     <a href="/index.html" class="logo">
       <img id="site-logo" src="/assets/images/logo.png" alt="Busaty" width="140" height="40" loading="eager">
     </a>
-    <nav class="main-nav">
+    <nav class="main-nav" aria-label="التنقل الرئيسي">
       <a href="/index.html" data-i18n="nav.home">الرئيسية</a>
       <a href="/about.html" data-i18n="nav.about">عنا</a>
       <a href="/help.html" data-i18n="nav.help">المساعدة</a>
@@ -71,7 +69,7 @@
   </div>
 </header>
 
-<main>
+<main id="main-content">
   <section class="hero" id="hero">
     <div class="container">
       <div class="hero-content">
@@ -208,9 +206,9 @@
       <h2 data-i18n="faq.title">الأسئلة الشائعة</h2>
       <p class="section-intro" data-i18n="sections.3.body">كل ما تحتاج معرفته حول تطبيقات باصاتي.</p>
       <div class="faq-tabs">
-        <button data-app="parent" class="active" data-i18n="faq.tabs.parent">تطبيق ولي الأمر</button>
-        <button data-app="supervisor" data-i18n="faq.tabs.supervisor">تطبيق المشرف</button>
-        <button data-app="school" data-i18n="faq.tabs.school">تطبيق المدرسة</button>
+      <button type="button" data-app="parent" class="active" data-i18n="faq.tabs.parent">تطبيق ولي الأمر</button>
+      <button type="button" data-app="supervisor" data-i18n="faq.tabs.supervisor">تطبيق المشرف</button>
+      <button type="button" data-app="school" data-i18n="faq.tabs.school">تطبيق المدرسة</button>
       </div>
       <div class="faq-list" id="faq-list"></div>
     </div>
@@ -246,20 +244,22 @@
         <img src="/assets/images/logo.png" alt="Busaty" width="120" height="34" loading="lazy">
         <p data-i18n="footer.tagline">باصاتي: نقل مدرسي أذكى وأسهل.</p>
       </div>
-      <div>
+      <nav aria-label="روابط أساسية">
         <h3 data-i18n="footer.links">روابط</h3>
         <ul>
           <li><a href="/about.html" data-i18n="nav.about">عنا</a></li>
           <li><a href="/help.html" data-i18n="nav.help">المساعدة</a></li>
           <li><a href="/terms.html" data-i18n="nav.terms">الشروط والأحكام</a></li>
         </ul>
-      </div>
-      <div>
+      </nav>
+      <address>
         <h3 data-i18n="footer.contact">تواصل</h3>
         <p><a class="btn btn-whatsapp" href="https://wa.me/+201098924835" data-contact-link="whatsapp" target="_blank" rel="noopener" data-i18n="cta.whatsapp">تواصل عبر واتساب</a></p>
         <p><a href="mailto:support@busaty.org" data-contact-link="email">support@busaty.org</a></p>
-        <ul class="footer-social" data-social-list></ul>
-      </div>
+        <p><a data-contact-link="phone"></a></p>
+        <p data-contact-address></p>
+        <ul class="footer-social" data-social-list aria-label="روابط التواصل الاجتماعي"></ul>
+      </address>
       <div>
         <h3 data-i18n="footer.apps">التطبيقات</h3>
         <ul>

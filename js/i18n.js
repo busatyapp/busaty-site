@@ -8,7 +8,24 @@ const COUNTRY_LANG_MAP = {
   FR: 'fr'
 };
 
-async function detectLang() {
+async function fetchGeoIpLang(defaultLang) {
+  try {
+    const cached = JSON.parse(localStorage.getItem('geoip') || 'null');
+    const stale = !cached || Date.now() - cached.t > 86_400_000;
+    if (stale) {
+      const response = await fetch('https://ipapi.co/json/');
+      const json = await response.json();
+      const countryCode = json.country_code;
+      localStorage.setItem('geoip', JSON.stringify({ t: Date.now(), c: countryCode }));
+      return COUNTRY_LANG_MAP[countryCode] || defaultLang;
+    }
+    return COUNTRY_LANG_MAP[cached.c] || defaultLang;
+  } catch {
+    return defaultLang;
+  }
+}
+
+export async function detectLang() {
   const stored = localStorage.getItem('lang');
   if (stored && SUPPORTED_LANGS.includes(stored)) {
     return stored;
@@ -23,44 +40,30 @@ async function detectLang() {
     return lang;
   }
 
-  try {
-    const cached = JSON.parse(localStorage.getItem('geoip') || 'null');
-    if (!cached || Date.now() - cached.t > 86_400_000) {
-      const response = await fetch('https://ipapi.co/json/');
-      const json = await response.json();
-      localStorage.setItem('geoip', JSON.stringify({ t: Date.now(), c: json.country_code }));
-      lang = COUNTRY_LANG_MAP[json.country_code] || lang;
-    } else {
-      lang = COUNTRY_LANG_MAP[cached.c] || lang;
-    }
-  } catch (error) {
-    // silent fallback to detected language
-  }
-
-  return lang;
+  return fetchGeoIpLang(lang);
 }
 
-async function applyLang(lang) {
+export async function applyLang(lang) {
   const resolved = SUPPORTED_LANGS.includes(lang) ? lang : 'ar';
   document.documentElement.lang = resolved;
   document.documentElement.dir = resolved === 'ar' ? 'rtl' : 'ltr';
   localStorage.setItem('lang', resolved);
+  return resolved;
 }
 
-async function initLang() {
+export async function initLang() {
   const select = document.getElementById('lang-switcher');
   const lang = await detectLang();
-  await applyLang(lang);
+  const resolved = await applyLang(lang);
+
   if (select) {
-    select.value = lang;
+    select.value = resolved;
     select.addEventListener('change', event => {
       applyLang(event.target.value).then(() => {
         window.location.reload();
       });
     });
   }
+
+  return resolved;
 }
-
-document.addEventListener('DOMContentLoaded', initLang);
-
-window.applyLang = applyLang;

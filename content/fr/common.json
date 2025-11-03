@@ -34,7 +34,9 @@
     "name": "Nom",
     "email": "Email",
     "message": "Message",
-    "send": "Envoyer"
+    "send": "Envoyer",
+    "success": "Merci ! Nous avons bien reçu votre message et reviendrons vers vous rapidement.",
+    "error": "L’envoi a échoué. Veuillez réessayer plus tard."
   },
   "contact": {
     "title": "Contactez-nous",

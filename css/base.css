@@ -15,6 +15,7 @@ body {
   font-family: var(--font-ar, 'Cairo', system-ui);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  overflow-wrap: anywhere;
 }
 
 img, picture, video, canvas, svg {
@@ -28,7 +29,7 @@ a {
 }
 
 a:hover,
-a:focus {
+a:focus-visible {
   text-decoration: underline;
   text-decoration-color: currentColor;
 }
@@ -43,6 +44,27 @@ textarea {
 
 button {
   cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.55);
+  outline-offset: 3px;
+}
+
+.skip-link {
+  position: absolute;
+  inset-inline-start: 12px;
+  top: -200px;
+  padding: 12px 18px;
+  background: #0f172a;
+  color: #f8fafc;
+  border-radius: 999px;
+  z-index: 200;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus-visible {
+  top: 12px;
 }
 
 section {
@@ -77,4 +99,13 @@ ul {
   inset-inline-start: 0;
   color: var(--success);
   font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

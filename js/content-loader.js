@@ -1,3 +1,7 @@
+import { renderFaq, setFaqData } from './faq.js';
+
+const PAGE_KEY_MAP = { index: 'home' };
+
 async function loadJSON(path) {
   const response = await fetch(path, { cache: 'no-store' });
   if (!response.ok) {
@@ -6,10 +10,14 @@ async function loadJSON(path) {
   return response.json();
 }
 
-function pageKey() {
+function resolvePageKey() {
+  const fromDataset = document.body?.dataset?.page;
+  if (fromDataset) {
+    return fromDataset;
+  }
   const filename = window.location.pathname.split('/').pop() || 'index.html';
-  const key = filename.replace('.html', '');
-  return key || 'index';
+  const key = filename.replace('.html', '') || 'index';
+  return PAGE_KEY_MAP[key] || key;
 }
 
 function resolveValue(dict, path) {
@@ -38,22 +46,31 @@ function createWhatsappLink(config) {
 
 function applyContactInfo(contact) {
   if (!contact) return;
+
   if (contact.email) {
     document.querySelectorAll('[data-contact-link="email"]').forEach(anchor => {
       anchor.setAttribute('href', `mailto:${contact.email}`);
       anchor.textContent = contact.email;
     });
   }
+
   const whatsappHref = createWhatsappLink(contact.whatsapp);
   if (whatsappHref) {
     document.querySelectorAll('[data-contact-link="whatsapp"]').forEach(anchor => {
       anchor.setAttribute('href', whatsappHref);
     });
   }
+
   if (contact.phone) {
     document.querySelectorAll('[data-contact-link="phone"]').forEach(anchor => {
       anchor.setAttribute('href', `tel:${contact.phone}`);
       anchor.textContent = contact.phone;
+    });
+  }
+
+  if (contact.address) {
+    document.querySelectorAll('[data-contact-address]').forEach(element => {
+      element.textContent = contact.address;
     });
   }
 }
@@ -73,11 +90,13 @@ function formatSocialLabel(key) {
 function applySocialLinks(social) {
   const list = document.querySelector('[data-social-list]');
   if (!list) return;
+
   list.innerHTML = '';
   if (!social) {
-    list.remove();
+    list.hidden = true;
     return;
   }
+
   Object.entries(social).forEach(([network, url]) => {
     if (!url) return;
     const li = document.createElement('li');
@@ -86,27 +105,51 @@ function applySocialLinks(social) {
     anchor.target = '_blank';
     anchor.rel = 'noopener';
     anchor.textContent = formatSocialLabel(network);
+    anchor.setAttribute('aria-label', formatSocialLabel(network));
     li.appendChild(anchor);
     list.appendChild(li);
   });
-  if (!list.children.length) {
-    list.remove();
-  }
+
+  list.hidden = !list.children.length;
 }
 
-function updateStructuredData(globalContent) {
+function normaliseSameAs(value) {
+  if (!Array.isArray(value)) return [];
+  return value
+    .map(entry => {
+      if (typeof entry === 'string') return entry;
+      if (entry && typeof entry.url === 'string') return entry.url;
+      return null;
+    })
+    .filter(Boolean);
+}
+
+function updateStructuredData(globalContent, pageContent = {}) {
   const script = document.querySelector('script[type="application/ld+json"]');
   if (!script) return;
+
   try {
     const json = JSON.parse(script.textContent);
-    if (globalContent.logoPath) {
+    const seo = pageContent.seo || {};
+    const defaults = globalContent.seoDefaults || {};
+
+    if (seo.logoPath) {
+      json.logo = seo.logoPath.startsWith('http')
+        ? seo.logoPath
+        : `${window.location.origin}${seo.logoPath}`;
+    } else if (globalContent.logoPath) {
       json.logo = `${window.location.origin}${globalContent.logoPath}`;
     }
-    if (globalContent.seoDefaults?.siteName) {
-      json.name = globalContent.seoDefaults.siteName;
+
+    if (seo.siteName) {
+      json.name = seo.siteName;
+    } else if (defaults.siteName) {
+      json.name = defaults.siteName;
     }
-    if (Array.isArray(globalContent.seoDefaults?.sameAs)) {
-      json.sameAs = globalContent.seoDefaults.sameAs;
+
+    const sameAs = normaliseSameAs(seo.sameAs || defaults.sameAs);
+    if (sameAs.length) {
+      json.sameAs = sameAs;
     }
     script.textContent = JSON.stringify(json, null, 2);
   } catch (error) {
@@ -204,22 +247,14 @@ function populateAppDetails(details) {
   });
 }
 
-async function loadContent() {
-  const lang = document.documentElement.lang || 'ar';
-  const page = pageKey();
-  const base = `/content/${lang}`;
-
-  const globalContent = await loadJSON('/content/common.json').catch(() => ({}));
-  const langCommon = await loadJSON(`${base}/common.json`).catch(() => ({}));
-  const pageContent = await loadJSON(`${base}/${page}.json`).catch(() => ({}));
-
-  const dict = { ...langCommon, ...pageContent };
-
-  // Document title and description
-  if (pageContent.title) {
-    document.title = `${pageContent.title} – Busaty`;
+function updateMetaTags(pageContent, langCommon) {
+  const seo = pageContent.seo || {};
+  const title = seo.title || pageContent.title;
+  if (title) {
+    document.title = `${title} – Busaty`;
   }
-  const description = pageContent.description || langCommon.description;
+
+  const description = seo.description || pageContent.description || langCommon.description;
   if (description) {
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) {
@@ -230,7 +265,37 @@ async function loadContent() {
     meta.setAttribute('content', description);
   }
 
-  // Logo and apps links
+  const canonicalUrl = seo.canonical;
+  if (canonicalUrl) {
+    let canonicalLink = document.querySelector('link[rel="canonical"]');
+    if (!canonicalLink) {
+      canonicalLink = document.createElement('link');
+      canonicalLink.setAttribute('rel', 'canonical');
+      document.head.appendChild(canonicalLink);
+    }
+    canonicalLink.setAttribute('href', canonicalUrl);
+  }
+
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle && title) {
+    ogTitle.setAttribute('content', title);
+  }
+
+  const ogDescription = document.querySelector('meta[property="og:description"]');
+  if (ogDescription && description) {
+    ogDescription.setAttribute('content', description);
+  }
+
+  const ogImage = seo.ogImage || seo.ogImageUrl;
+  if (ogImage) {
+    const ogImageMeta = document.querySelector('meta[property="og:image"]');
+    if (ogImageMeta) {
+      ogImageMeta.setAttribute('content', ogImage);
+    }
+  }
+}
+
+function applyLogoAndApps(pageContent, langCommon, globalContent) {
   const logoPath = pageContent.logoPath || langCommon.logoPath || globalContent.logoPath;
   if (logoPath) {
     const logo = document.getElementById('site-logo');
@@ -248,34 +313,72 @@ async function loadContent() {
       });
     });
   }
-
-  // Apply translations
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    const value = resolveValue(dict, key);
-    if (typeof value === 'string') {
-      el.textContent = value;
-    }
-  });
-
-  applyContactInfo(globalContent.contact);
-  applySocialLinks(globalContent.social);
-  updateStructuredData(globalContent);
-
-  if (dict.appDetails) {
-    populateAppDetails(dict.appDetails);
-  }
-
-  // FAQ data
-  try {
-    const faq = await loadJSON(`${base}/faq.json`);
-    window.__FAQ = faq;
-    if (document.getElementById('faq-list')) {
-      window.renderFAQ('parent');
-    }
-  } catch (error) {
-    window.__FAQ = null;
-  }
 }
 
-document.addEventListener('DOMContentLoaded', loadContent);
+function applyTranslations(dict) {
+  document.querySelectorAll('[data-i18n]').forEach(element => {
+    const key = element.getAttribute('data-i18n');
+    const value = resolveValue(dict, key);
+    if (typeof value === 'string') {
+      element.textContent = value;
+    }
+  });
+}
+
+export async function loadContent(options = {}) {
+  const lang = options.lang || document.documentElement.lang || 'ar';
+  const page = resolvePageKey();
+  const base = `/content/${lang}`;
+
+  const globalContent = await loadJSON('/content/common.json').catch(() => ({}));
+  const langCommon = await loadJSON(`${base}/common.json`).catch(() => ({}));
+  const pageContent = await loadJSON(`${base}/${page}.json`).catch(() => ({}));
+
+  const dictionary = { ...langCommon, ...pageContent };
+
+  updateMetaTags(pageContent, langCommon);
+  applyTranslations(dictionary);
+  applyLogoAndApps(pageContent, langCommon, globalContent);
+
+  const formMessages = dictionary.form;
+  if (formMessages && typeof formMessages === 'object') {
+    document.querySelectorAll('[data-formspree]').forEach(form => {
+      if (formMessages.success) {
+        form.dataset.success = formMessages.success;
+      }
+      if (formMessages.error) {
+        form.dataset.error = formMessages.error;
+      }
+    });
+  }
+
+  const contact = pageContent.contact || langCommon.contact || globalContent.contact;
+  applyContactInfo(contact);
+
+  const social = pageContent.social || langCommon.social || globalContent.social;
+  applySocialLinks(social);
+
+  updateStructuredData(globalContent, pageContent);
+
+  if (dictionary.appDetails) {
+    populateAppDetails(dictionary.appDetails);
+  }
+
+  try {
+    const faq = await loadJSON(`${base}/faq.json`);
+    setFaqData(faq);
+    if (document.getElementById('faq-list')) {
+      renderFaq(options.defaultFaqKey || 'parent');
+    }
+  } catch {
+    setFaqData(null);
+  }
+
+  return {
+    lang,
+    pageKey: page,
+    globalContent,
+    langCommon,
+    pageContent
+  };
+}

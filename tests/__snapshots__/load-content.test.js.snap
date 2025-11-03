@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`loadContent > hydrates the DOM using fetched content and updates datasets 1`] = `
+"
+      <header>
+        <img id="site-logo" src="/assets/images/logo.png" alt="">
+      </header>
+      <main>
+        <h1 data-i18n="hero.title">عنوان البطل</h1>
+        <p data-i18n="hero.subtitle">نص توضيحي</p>
+      </main>
+      <section data-app-detail="parent">
+        <ul data-role="app-features"><li>ميزة 1</li></ul>
+        <div data-role="app-downloads"><a class="btn btn-download" href="https://example.com/app.apk" target="_blank" rel="noopener">تحميل</a></div>
+        <iframe data-role="app-video" src="https://www.youtube.com/embed/abc123" title="فيديو"></iframe>
+      </section>
+      <div id="faq-list"></div>
+      <ul data-social-list=""><li><a href="https://facebook.example.com" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a></li></ul>
+      <form data-formspree="" data-success="تم الإرسال!" data-error="حدث خطأ">
+        <p class="form-message"></p>
+      </form>
+    "
+`;

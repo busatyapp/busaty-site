@@ -3,10 +3,18 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "node ./node_modules/vite/bin/vite.js build && node scripts/postbuild.js && node scripts/sitemap.js"
+    "build": "vite build && node scripts/postbuild.js && node scripts/sitemap.js",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "lint:perf": "lhci autorun --config=.lighthouserc.json"
   },
-  "dependencies": {
-    "vite": "^5.4.0"
+  "dependencies": {},
+  "devDependencies": {
+    "@lhci/cli": "^0.14.0",
+    "@testing-library/dom": "^9.3.4",
+    "jsdom": "^24.1.0",
+    "vite": "^5.4.0",
+    "vitest": "^2.1.4"
   },
   "engines": {
     "node": ">=18.0.0"

@@ -1,43 +1,83 @@
 # Busaty Static Site
 
-Static multilingual marketing site for Busaty built with vanilla HTML, CSS, and JS. Content is driven through JSON files and managed via Decap CMS.
+Static multilingual marketing site for Busaty built with vanilla HTML, CSS, and JS. Content is stored in JSON (per language) and managed through Decap CMS.
 
 ## Features
-- Arabic, English, and French localisation with RTL support.
-- Content-driven pages: home, about, help, and terms.
-- FAQ component powered by JSON content.
-- Contact form wired to Formspree (update the endpoint before launch).
-- WhatsApp CTA replicated across header, hero, and footer.
-- Decap CMS configuration for easy content management.
-- Vite bundling and sitemap generation script for SEO.
+- Arabic, English, and French localisation with RTL switching and automatic language detection (navigator + optional GeoIP).
+- CMS-driven pages (`home`, `about`, `help`, `terms`) with reusable sections, FAQ tabs, downloadable app cards, and translated Formspree success/error copy.
+- Accessible UI: skip links, focus-visible styles, keyboard-friendly tabs/buttons, and ARIA-friendly feedback messaging.
+- Vite-based pipeline with service worker + manifest for offline caching, post-build packaging of `admin/` + `content/`, and automated `sitemap.xml` generation.
+- Decap CMS configuration covering logos, app links, contact info, social links, SEO defaults, and per-page blocks.
+- Automated DOM regression test (Vitest snapshot) and Lighthouse CI configuration to guard performance, accessibility, and SEO budgets.
 
 ## Getting Started
-```bash
-npm install
-npm run dev
-```
+1. Install Node.js ≥ 18 (portable build available under `node-v20.11.1-win-x64/` for Windows users).
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+   > Without Node on `PATH`, run commands with `.\node-v20.11.1-win-x64\npm.cmd`.
+3. Run the dev server:
+   ```bash
+   npm run dev
+   ```
 
-## Building for Production
-```bash
-npm run build
-```
-The build command runs Vite and then generates `sitemap.xml`. Deploy the contents of the `dist/` folder (plus `sitemap.xml`) to your hosting (FTP/cPanel, etc.).
+## Building & Previewing
+- Production build (`dist/` output):
+  ```bash
+  npm run build
+  ```
+  Produces minified HTML/CSS/JS, copies `admin/` + `content/`, includes `sw.js`, `manifest.webmanifest`, and writes `dist/sitemap.xml` with `lastmod` stamps.
+- Preview the built bundle locally:
+  ```bash
+  npm run preview
+  ```
+
+### Build Artifacts
+`dist/` contains:
+- `index.html`, `about.html`, `help.html`, `terms.html`
+- `assets/` (static files served from `public/assets/`)
+- `content/` (runtime JSON for the site and CMS)
+- `admin/` (Decap CMS bundle)
+- `sw.js`, `manifest.webmanifest`, `robots.txt`, `sitemap.xml`
+
+Deploy **all** of `dist/` to your hosting provider (Vercel, FTP, cPanel, etc.).
 
 ## Content & CMS
-- Update `admin/config.yml` with your GitHub repo (`backend.repo`) and OAuth bridge URL (`backend.base_url`).
-- Replace `YOUR-OAUTH-BRIDGE.example.com` with the URL of a hosted `netlify-cms-github-oauth-provider`.
-- Edit content through `/admin/` once GitHub authentication is configured.
-- Replace the Formspree endpoint `https://formspree.io/f/XXXXXXX` with your own ID.
-- Assets uploaded via the CMS are stored in `assets/images/`.
+- Update `admin/config.yml`:
+  - `backend.repo`: `busatyapp/busaty-site`
+  - `backend.base_url`: `https://busaty-oauth.vercel.app`
+  - `auth_endpoint`: `/auth`
+- Once OAuth is configured, open `/admin/` to edit content.
+- Shared strings live in `content/common.json`; per-language copies override via `content/<lang>/common.json`.
+- Page-specific data lives in `content/<lang>/<page>.json` (`home.json` drives `index.html` through the `data-page="home"` marker).
+- Formspree endpoint: swap `https://formspree.io/f/XXXXXXX` for your project. Success/error messages are sourced from each language’s `form` block.
+- Assets uploaded through the CMS are stored in `public/assets/images/` and bundled automatically.
+
+## QA & Budgets
+- DOM regression tests:
+  ```bash
+  npm run test
+  ```
+- Lighthouse checks (requires a local Chrome install):
+  ```bash
+  npm run build
+  npm run lint:perf
+  ```
+  Budgets enforced by `.lighthouserc.json`:
+  - Performance ≥ 0.90 (warn)
+  - Accessibility ≥ 0.95 (error)
+  - Best Practices ≥ 0.95 (warn)
+  - SEO ≥ 0.95 (warn)
 
 ## Deployment Checklist
-- Configure DNS/hosting to serve the built files.
-- Ensure HTTPS is enabled (required for GeoIP and modern browsers).
-- Update `content/common.json` with the production logo path and app download URLs.
-- Enable GeoIP detection by setting `USE_GEOIP = true` in `js/i18n.js` if you have the quota.
-- Verify WhatsApp links and social profiles inside the JSON-LD schema.
+- Configure DNS + HTTPS for the production domain.
+- Set OAuth bridge environment variables (`ORIGINS`, `CLIENT_ID`, `CLIENT_SECRET`) on the Vercel project.
+- Rotate/Formspree credentials and confirm contact emails in `content/common.json`.
+- Enable GeoIP by toggling `USE_GEOIP = true` in `js/i18n.js` (requires public fetch access).
+- After CMS updates, wait for the GitHub commit + Vercel redeploy, then hard-refresh to invalidate CDN caches.
 
 ## Notes
-- Replace placeholder images in `assets/images/` with optimised WebP/AVIF/PNG assets.
-- Add real translations through the CMS as content becomes available.
-- Run `npm install` in your deployment pipeline to download `vite` before building.
+- Optimise the images in `public/assets/images/` (AVIF/WebP/PNG).
+- Add high-resolution icons to `public/manifest.webmanifest` if a full PWA experience is desired.
+- Refer to `CHANGELOG.md` for improvement history and `TODO.md` for future enhancements.

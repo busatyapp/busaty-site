@@ -1,10 +1,13 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require('fs');
+const path = require('path');
 
-const adminSourceDir = path.resolve(__dirname, "..", "admin");
-const adminOutputDir = path.resolve(__dirname, "..", "dist", "admin");
-const contentSourceDir = path.resolve(__dirname, "..", "content");
-const contentOutputDir = path.resolve(__dirname, "..", "dist", "content");
+const projectRoot = path.resolve(__dirname, '..');
+const distDir = path.join(projectRoot, 'dist');
+const adminSourceDir = path.join(projectRoot, 'admin');
+const adminOutputDir = path.join(distDir, 'admin');
+const contentSourceDir = path.join(projectRoot, 'content');
+const contentOutputDir = path.join(distDir, 'content');
+const staticFiles = [];
 
 function copyDirectory(src, dest) {
   if (!fs.existsSync(dest)) {
@@ -23,7 +26,7 @@ function copyDirectory(src, dest) {
   }
 }
 
-function safeCopy(src, dest, label) {
+function safeCopyDirectory(src, dest, label) {
   if (!fs.existsSync(src)) {
     console.warn(`${label} directory not found, skipping copy.`);
     return;
@@ -32,9 +35,26 @@ function safeCopy(src, dest, label) {
     fs.rmSync(dest, { recursive: true, force: true });
   }
   copyDirectory(src, dest);
-  const relative = path.relative(path.resolve(__dirname, ".."), dest);
+  const relative = path.relative(projectRoot, dest);
   console.log(`${label} copied to ${relative}`);
 }
 
-safeCopy(adminSourceDir, adminOutputDir, "Admin dashboard");
-safeCopy(contentSourceDir, contentOutputDir, "Content JSON");
+function safeCopyFile(filename, label) {
+  const src = path.join(projectRoot, filename);
+  const dest = path.join(distDir, filename);
+  if (!fs.existsSync(src)) {
+    console.warn(`${label} file not found, skipping copy.`);
+    return;
+  }
+  fs.copyFileSync(src, dest);
+  const relative = path.relative(projectRoot, dest);
+  console.log(`${label} copied to ${relative}`);
+}
+
+if (!fs.existsSync(distDir)) {
+  fs.mkdirSync(distDir, { recursive: true });
+}
+
+safeCopyDirectory(adminSourceDir, adminOutputDir, 'Admin dashboard');
+safeCopyDirectory(contentSourceDir, contentOutputDir, 'Content JSON');
+staticFiles.forEach(file => safeCopyFile(file, file));

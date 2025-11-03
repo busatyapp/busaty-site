@@ -34,7 +34,9 @@
     "name": "Name",
     "email": "Email",
     "message": "Message",
-    "send": "Send"
+    "send": "Send",
+    "success": "Thank you! We received your message and will reply shortly.",
+    "error": "We couldn’t submit the form. Please try again later."
   },
   "contact": {
     "title": "Get in touch",
