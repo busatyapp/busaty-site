@@ -16,7 +16,7 @@
         background: #0f172a;
         color: #f8fafc;
       }
-      .admin-layout {
+      .admin-container {
         min-height: 100vh;
         display: flex;
       }
@@ -27,6 +27,9 @@
         display: flex;
         flex-direction: column;
         gap: 16px;
+        position: sticky;
+        top: 0;
+        height: 100vh;
       }
       .sidebar h1 {
         font-size: 1.25rem;
@@ -66,20 +69,22 @@
         min-height: 100vh;
         background: #fff;
         color: #0f172a;
+        padding: 24px;
       }
       @media (max-width: 900px) {
-        .admin-layout {
+        .admin-container {
           flex-direction: column;
         }
         .sidebar {
           width: 100%;
+          height: auto;
           border-bottom: 1px solid rgba(248, 250, 252, 0.1);
         }
       }
     </style>
   </head>
   <body>
-    <div class="admin-layout">
+    <div class="admin-container">
       <aside class="sidebar">
         <h1>لوحة تحكم باصاتي</h1>
         <p>اختر ما تريد تعديله أو راقب التحليلات.</p>
