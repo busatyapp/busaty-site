@@ -27,9 +27,6 @@
         display: flex;
         flex-direction: column;
         gap: 16px;
-        position: sticky;
-        top: 0;
-        height: 100vh;
       }
       .sidebar h1 {
         font-size: 1.25rem;
@@ -71,14 +68,15 @@
         color: #0f172a;
         padding: 24px;
       }
-      @media (max-width: 900px) {
-        .admin-container {
-          flex-direction: column;
-        }
+      @media (max-width: 1200px) {
         .sidebar {
+          position: static;
           width: 100%;
           height: auto;
           border-bottom: 1px solid rgba(248, 250, 252, 0.1);
+        }
+        #nc-root {
+          padding: 16px;
         }
       }
     </style>
