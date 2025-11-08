@@ -8,7 +8,7 @@
   },
   "sections": [
     {
-      "heading": "ميزات باصاتي",
+      "heading": "مميزات باصاتي",
       "body": "حل شامل للنقل المدرسي للأهالي والمشرفين والمدارس.",
       "items": [
         {
@@ -75,9 +75,18 @@
         "قنوات تواصل مباشرة مع المدرسة والمشرف عند الحاجة."
       ],
       "downloads": [
-        { "label": "تحميل Android", "url": "https://bit.ly/busaty-parent" },
-        { "label": "تحميل AppGallery", "url": "https://bit.ly/busaty-parent-appGallery" },
-        { "label": "تحميل iOS", "url": "https://apple.co/4b8VgBh" }
+        {
+          "label": "تحميل Android",
+          "url": "https://bit.ly/busaty-parent"
+        },
+        {
+          "label": "تحميل AppGallery",
+          "url": "https://bit.ly/busaty-parent-appGallery"
+        },
+        {
+          "label": "تحميل iOS",
+          "url": "https://apple.co/4b8VgBh"
+        }
       ]
     },
     "supervisor": {
@@ -92,9 +101,18 @@
         "تتبع مسار الحافلة وأي تغييرات على الجدول في الوقت الفعلي."
       ],
       "downloads": [
-        { "label": "تحميل Android", "url": "https://bit.ly/busaty-bus" },
-        { "label": "تحميل AppGallery", "url": "https://bit.ly/busaty-bus-appGallery" },
-        { "label": "تحميل iOS", "url": "https://bit.ly/busaty-bus-ios" }
+        {
+          "label": "تحميل Android",
+          "url": "https://bit.ly/busaty-bus"
+        },
+        {
+          "label": "تحميل AppGallery",
+          "url": "https://bit.ly/busaty-bus-appGallery"
+        },
+        {
+          "label": "تحميل iOS",
+          "url": "https://bit.ly/busaty-bus-ios"
+        }
       ]
     },
     "school": {
@@ -109,9 +127,18 @@
         "تنسيق فوري مع المشرفين وإرسال تحديثات مركزية للأهالي."
       ],
       "downloads": [
-        { "label": "تحميل Android", "url": "https://bit.ly/busaty-school" },
-        { "label": "تحميل AppGallery", "url": "https://bit.ly/busaty-school-AppGallery" },
-        { "label": "تحميل iOS", "url": "https://bit.ly/busaty-school-ios" }
+        {
+          "label": "تحميل Android",
+          "url": "https://bit.ly/busaty-school"
+        },
+        {
+          "label": "تحميل AppGallery",
+          "url": "https://bit.ly/busaty-school-AppGallery"
+        },
+        {
+          "label": "تحميل iOS",
+          "url": "https://bit.ly/busaty-school-ios"
+        }
       ]
     }
   }
