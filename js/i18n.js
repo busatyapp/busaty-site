@@ -1,5 +1,3 @@
-const USE_GEOIP = false; // فعّل عند الحاجة
-
 const SUPPORTED_LANGS = ['ar', 'en', 'fr'];
 const COUNTRY_LANG_MAP = {
   EG: 'ar',
@@ -7,6 +5,7 @@ const COUNTRY_LANG_MAP = {
   AE: 'ar',
   FR: 'fr'
 };
+let featureConfig = null;
 
 async function fetchGeoIpLang(defaultLang) {
   try {
@@ -25,7 +24,29 @@ async function fetchGeoIpLang(defaultLang) {
   }
 }
 
+async function ensureFeatureFlags() {
+  if (featureConfig) {
+    return featureConfig;
+  }
+  if (window.__FEATURES) {
+    featureConfig = window.__FEATURES;
+    return featureConfig;
+  }
+  try {
+    const response = await fetch('/content/common.json', { cache: 'no-store' });
+    const json = await response.json();
+    featureConfig = json.features || {};
+    window.__FEATURES = featureConfig;
+  } catch {
+    featureConfig = {};
+  }
+  return featureConfig;
+}
+
 export async function detectLang() {
+  const features = await ensureFeatureFlags();
+  const geoEnabled = features.useGeoIp === true;
+
   const stored = localStorage.getItem('lang');
   if (stored && SUPPORTED_LANGS.includes(stored)) {
     return stored;
@@ -36,7 +57,7 @@ export async function detectLang() {
     lang = 'ar';
   }
 
-  if (!USE_GEOIP) {
+  if (!geoEnabled) {
     return lang;
   }
 

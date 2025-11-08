@@ -25,5 +25,11 @@
       "https://www.facebook.com/busaty",
       "https://www.linkedin.com/company/busaty"
     ]
+  },
+  "features": {
+    "enableAnalytics": true,
+    "analyticsDomain": "busaty-site.vercel.app",
+    "analyticsEmbedUrl": "https://plausible.io/share/busaty-site.vercel.app/busaty-site.vercel.app?embed=true",
+    "useGeoIp": false
   }
 }

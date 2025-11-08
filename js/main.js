@@ -56,6 +56,32 @@ function initSmoothScroll() {
   });
 }
 
+function injectAnalytics(features = {}) {
+  const enabled = features.enableAnalytics !== false;
+  const existing = document.querySelector('script[data-analytics="plausible"]');
+  if (!enabled) {
+    if (existing) {
+      existing.remove();
+    }
+    return;
+  }
+  if (existing) {
+    return;
+  }
+  const domain = features.analyticsDomain || 'busaty-site.vercel.app';
+  const script = document.createElement('script');
+  script.defer = true;
+  script.dataset.analytics = 'plausible';
+  script.setAttribute('data-domain', domain);
+  script.src = 'https://plausible.io/js/script.js';
+  document.head.appendChild(script);
+}
+
+function applyFeatureFlags(features = {}) {
+  window.__FEATURES = { ...(window.__FEATURES || {}), ...features };
+  injectAnalytics(features);
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
   initFormHandler();
   updateYearStamp();
@@ -63,7 +89,8 @@ document.addEventListener('DOMContentLoaded', async () => {
   initSmoothScroll();
 
   const lang = await initLang();
-  await loadContent({ lang });
+  const ctx = await loadContent({ lang });
+  applyFeatureFlags(ctx.features || {});
   initFaqTabs();
   registerServiceWorker();
 });

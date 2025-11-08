@@ -78,6 +78,16 @@ collections:
                 widget: list
                 required: false
                 field: { label: رابط, name: url, widget: string }
+          - label: إعدادات المزايا
+            name: features
+            widget: object
+            required: false
+            collapsed: true
+            fields:
+              - { label: تفعيل التحليلات (Plausible), name: enableAnalytics, widget: boolean, default: true }
+              - { label: نطاق التحليلات (data-domain), name: analyticsDomain, widget: string, default: "busaty-site.vercel.app" }
+              - { label: رابط لوحة Plausible (للتضمين), name: analyticsEmbedUrl, widget: string, required: false }
+              - { label: استخدام GeoIP لتحديد اللغة, name: useGeoIp, widget: boolean, default: false }
 
   - &content_ar
     name: content_ar

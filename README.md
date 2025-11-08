@@ -6,10 +6,10 @@ Static multilingual marketing site for Busaty built with vanilla HTML, CSS, and 
 - Arabic, English, and French localisation with RTL switching and automatic language detection (navigator + optional GeoIP).
 - CMS-driven pages (`home`, `about`, `help`, `terms`) with reusable sections, FAQ tabs, downloadable app cards, and translated Formspree success/error copy.
 - Accessible UI: skip links, focus-visible styles, keyboard-friendly tabs/buttons, and ARIA-friendly feedback messaging.
-- Vite-based pipeline with a richer service worker + `offline.html`, manifest icons, post-build packaging of `admin/` + `content/`, and automated `sitemap.xml` generation.
-- Decap CMS configuration covering logos, app links, contact info, social links, SEO defaults, and per-page blocks.
-- Automated DOM regression test (Vitest snapshot), Playwright smoke tests, and Lighthouse CI configuration to guard performance, accessibility, and SEO budgets.
-- Privacy-friendly analytics (Plausible) wired in every page head (`data-domain="busaty-site.vercel.app"`).
+- Vite-based pipeline مع خدمة عامل (offline cache + `offline.html`)، أيقونات PWA، وتوليد تلقائي لـ `sitemap.xml`.
+- Decap CMS يضبط الشعار، الروابط، المحتوى لكل لغة، وأيضًا **إعدادات المزايا** (تشغيل/إيقاف GeoIP والتحليلات، رابط لوحة Plausible).
+- Automated DOM regression test (Vitest snapshot), Playwright smoke tests، وCI/Lighthouse لضمان الأداء.
+- Privacy-friendly analytics (Plausible) تُحمَّل فقط عندما يكون خيار "تفعيل التحليلات" مفعّلاً من CMS.
 
 ## Getting Started
 1. Install Node.js ≥ 18 (portable build available under `node-v20.11.1-win-x64/` for Windows users).
@@ -53,6 +53,12 @@ Deploy **all** of `dist/` to your hosting provider (Vercel, FTP, cPanel, etc.).
 - Shared strings live in `content/common.json`; per-language copies override via `content/<lang>/common.json`.
 - Page-specific data lives in `content/<lang>/<page>.json` (`home.json` drives `index.html` through the `data-page="home"` marker).
 - Formspree endpoint: swap `https://formspree.io/f/XXXXXXX` for your project. Success/error messages are sourced from each language’s `form.success` / `form.error`.
+- **إعدادات المزايا** (في ملف `content/common.json` عبر CMS):
+  - `enableAnalytics`: تفعيل/تعطيل سكربت Plausible.
+  - `analyticsDomain`: قيمة `data-domain` للسكربت.
+  - `analyticsEmbedUrl`: رابط المشاركة من Plausible لعرضه داخل `/admin/analytics.html`.
+  - `useGeoIp`: لتفعيل اكتشاف اللغة عبر GeoIP دون تعديل الكود.
+- لعرض إحصاءات الزيارات داخل الـ CMS افتح `https://busaty-site.vercel.app/admin/analytics.html` (تظهر البيانات إذا وُضع رابط التضمين في الإعدادات).
 - Assets uploaded through the CMS are stored in `public/assets/images/` and bundled automatically.
 
 ## QA & Budgets
@@ -84,9 +90,9 @@ Deploy **all** of `dist/` to your hosting provider (Vercel, FTP, cPanel, etc.).
 - Configure DNS + HTTPS for the production domain.
 - Set OAuth bridge environment variables (`ORIGINS`, `CLIENT_ID`, `CLIENT_SECRET`) on the Vercel project.
 - Rotate/Formspree credentials and confirm contact emails in `content/common.json`.
-- Enable GeoIP by toggling `USE_GEOIP = true` in `js/i18n.js` (requires public fetch access).
+- تحكم بتشغيل GeoIP أو Plausible من واجهة CMS (إعدادات المزايا) بدل تعديل الكود.
 - After CMS updates, wait for the GitHub commit + Vercel redeploy, then hard-refresh to invalidate CDN caches.
-- Disable Plausible analytics (if desired) by removing the `<script defer data-domain="busaty-site.vercel.app" src="https://plausible.io/js/script.js"></script>` tag.
+- Disable Plausible analytics by إلغاء تفعيل الخيار في CMS أو مسح الحقول المذكورة أعلاه.
 
 ## Notes
 - Optimise the images in `public/assets/images/` (AVIF/WebP/PNG).

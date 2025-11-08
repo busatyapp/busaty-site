@@ -1,6 +1,7 @@
 import { renderFaq, setFaqData } from './faq.js';
 
 const PAGE_KEY_MAP = { index: 'home' };
+const DEFAULT_FEATURES = { enableAnalytics: true };
 
 async function loadJSON(path) {
   const response = await fetch(path, { cache: 'no-store' });
@@ -331,6 +332,8 @@ export async function loadContent(options = {}) {
   const base = `/content/${lang}`;
 
   const globalContent = await loadJSON('/content/common.json').catch(() => ({}));
+  const features = { ...DEFAULT_FEATURES, ...(globalContent.features || {}) };
+  window.__FEATURES = { ...(window.__FEATURES || {}), ...features };
   const langCommon = await loadJSON(`${base}/common.json`).catch(() => ({}));
   const pageContent = await loadJSON(`${base}/${page}.json`).catch(() => ({}));
 
@@ -379,6 +382,7 @@ export async function loadContent(options = {}) {
     pageKey: page,
     globalContent,
     langCommon,
-    pageContent
+    pageContent,
+    features
   };
 }

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>لوحة تحليلات باصاتي</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cairo', system-ui;
+      background: #0f172a;
+      color: #f8fafc;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .card {
+      width: min(1200px, 95vw);
+      height: 90vh;
+      background: #111b3a;
+      border-radius: 20px;
+      padding: 16px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+      display: flex;
+      flex-direction: column;
+    }
+    iframe {
+      flex: 1;
+      border: 0;
+      border-radius: 16px;
+      background: #0ea5b7;
+    }
+    .empty {
+      flex: 1;
+      display: grid;
+      place-items: center;
+      border: 1px dashed rgba(248, 250, 252, 0.3);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>إحصاءات Plausible</h1>
+    <div id="analytics"></div>
+  </div>
+  <script>
+    async function loadEmbed() {
+      try {
+        const response = await fetch('/content/common.json', { cache: 'no-store' });
+        const json = await response.json();
+        const url = json.features?.analyticsEmbedUrl;
+        const mount = document.getElementById('analytics');
+        if (url) {
+          const iframe = document.createElement('iframe');
+          iframe.src = url;
+          iframe.loading = 'lazy';
+          mount.appendChild(iframe);
+        } else {
+          const empty = document.createElement('div');
+          empty.className = 'empty';
+          empty.innerHTML = '<p>أدخل رابط التضمين من Plausible داخل إعدادات CMS (حقل إعدادات المزايا) ليظهر المخطط هنا.</p>';
+          mount.appendChild(empty);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    loadEmbed();
+  </script>
+</body>
+</html>

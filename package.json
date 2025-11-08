@@ -3,10 +3,11 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "build": "node ./node_modules/vite/bin/vite.js build && node scripts/postbuild.js && node scripts/sitemap.js",
+    "build": "npm run optimize:images && node ./node_modules/vite/bin/vite.js build && node scripts/postbuild.js && node scripts/sitemap.js",
     "preview": "vite preview",
     "test": "vitest run",
     "e2e": "npm run build && npx playwright test",
+    "optimize:images": "node scripts/optimize-images.js",
     "validate:content": "node scripts/validate-content.js",
     "lint:perf": "lhci autorun --config=.lighthouserc.json"
   },
@@ -16,7 +17,9 @@
     "@testing-library/dom": "^9.3.4",
     "ajv": "^8.17.1",
     "ajv-formats": "^3.0.1",
+    "fast-glob": "^3.3.3",
     "jsdom": "^24.1.0",
+    "sharp": "^0.34.5",
     "vite": "^5.4.0",
     "vitest": "^2.1.4"
   },
