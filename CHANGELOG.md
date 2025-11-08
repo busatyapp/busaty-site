@@ -15,3 +15,11 @@
 - Added Vitest + jsdom test harness with DOM snapshot coverage for `loadContent`, including mocks for FAQ rendering, and documented `npm run test`.
 - Introduced Lighthouse CI configuration (`npm run lint:perf`) with performance/accessibility budgets, and expanded `.gitignore` for artefacts.
 - Updated README/TODO to reflect the new workflows, future automation plan, and moved build scripts to rely on Vite-managed static assets.
+
+## 2025-11-05
+
+- Added high-resolution manifest icons, Plausible analytics snippet, and an offline fallback page cached via a smarter service worker.
+- Created `scripts/validate-content.js` with AJV schemas plus `npm run validate:content`, and wired the command into CI.
+- Introduced Playwright smoke tests + config (`npm run e2e`), including GitHub Actions workflow that runs validation, unit tests, build, E2E, and Lighthouse.
+- Implemented `public/offline.html`, refreshed README instructions, and trimmed TODOs to new forward-looking items.
+- Fixed Vercel build permissions by invoking Vite through Node directly inside the `build` script.

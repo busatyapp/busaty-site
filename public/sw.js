@@ -1,10 +1,13 @@
-const CACHE_NAME = 'busaty-static-v1';
-const OFFLINE_FALLBACK = '/index.html';
-const OFFLINE_ROUTES = ['/', '/index.html', '/about.html', '/help.html', '/terms.html'];
+const CACHE_NAME = 'busaty-static-v2';
+const OFFLINE_FALLBACK = '/offline.html';
+const OFFLINE_ROUTES = ['/', '/index.html', '/about.html', '/help.html', '/terms.html', OFFLINE_FALLBACK];
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(OFFLINE_ROUTES)).then(() => self.skipWaiting())
+    caches
+      .open(CACHE_NAME)
+      .then(cache => cache.addAll(OFFLINE_ROUTES))
+      .then(() => self.skipWaiting())
   );
 });
 
@@ -37,6 +40,9 @@ self.addEventListener('fetch', event => {
         .catch(() => {
           if (request.mode === 'navigate') {
             return caches.match(OFFLINE_FALLBACK);
+          }
+          if (request.destination === 'image') {
+            return new Response('', { status: 503, statusText: 'Image Unavailable' });
           }
           return new Response('', { status: 503, statusText: 'Service Unavailable' });
         });

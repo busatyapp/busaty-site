@@ -4,6 +4,9 @@ sitemap.xml
 .lighthouseci/
 coverage/
 .vitest/
+test-results/
+playwright-report/
+.playwright/
 .DS_Store
 Thumbs.db
 *.log

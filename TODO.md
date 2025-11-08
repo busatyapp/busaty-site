@@ -1,7 +1,7 @@
 # TODO
 
-- Wire `npm run test` and `npm run lint:perf` into a CI pipeline (e.g., GitHub Actions) so every CMS commit is validated automatically.
-- Add high-resolution PWA icons + splash screens and extend `sw.js` with an offline status page.
-- Validate JSON content via a schema (AJV/Zod) before committing to prevent malformed CMS entries.
-- Introduce end-to-end smoke tests (Playwright) to cover language switching, FAQ toggles, and Formspree integration.
-- Instrument privacy-friendly analytics (e.g., Plausible) and surface metrics inside the CMS dashboard.
+- Surface Plausible metrics داخل لوحة Decap (widget أو iframe) ليشوف الفريق مؤشرات الزيارات من نفس الـ CMS.
+- أضف مفاتيح إعدادات في الـ CMS لتعطيل/تفعيل Plausible وGeoIP من دون تعديل الكود.
+- وسّع اختبارات Playwright لتشمل تبديل اللغات واختبار إرسال نموذج Formspree عبر Mock endpoint.
+- أضف اختبارات بصرية (visual regression) للـ hero والـ FAQ لضمان استقرار التصميم عبر اللغات.
+- فعّل ضغط/تحسين تلقائي للصور المرفوعة في `public/assets/images/` (باستخدام Sharp أو imagemin) أثناء عملية البناء.
