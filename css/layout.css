@@ -187,6 +187,10 @@
   align-items: start;
 }
 
+.section-whatsapp {
+  padding-block: 48px;
+}
+
 .contact-form {
   background: var(--card);
   border-radius: var(--radius);
@@ -278,6 +282,18 @@
 
   section {
     padding-block: 48px;
+  }
+
+  .whatsapp-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .floating-whatsapp {
+    width: 56px;
+    height: 56px;
+    inset-inline-end: 16px;
+    bottom: 24px;
   }
 }
 

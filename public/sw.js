@@ -1,4 +1,4 @@
-const CACHE_NAME = 'busaty-static-v2';
+const CACHE_NAME = 'busaty-static-v3';
 const OFFLINE_FALLBACK = '/offline.html';
 const OFFLINE_ROUTES = ['/', '/index.html', '/about.html', '/help.html', '/terms.html', OFFLINE_FALLBACK];
 
@@ -26,6 +26,19 @@ self.addEventListener('fetch', event => {
     return;
   }
 
+  if (request.mode === 'navigate') {
+    event.respondWith(
+      fetch(request)
+        .then(response => {
+          const clone = response.clone();
+          caches.open(CACHE_NAME).then(cache => cache.put(request, clone));
+          return response;
+        })
+        .catch(() => caches.match(request).then(cached => cached || caches.match(OFFLINE_FALLBACK)))
+    );
+    return;
+  }
+
   event.respondWith(
     caches.match(request).then(cachedResponse => {
       if (cachedResponse) {
@@ -38,9 +51,6 @@ self.addEventListener('fetch', event => {
           return response;
         })
         .catch(() => {
-          if (request.mode === 'navigate') {
-            return caches.match(OFFLINE_FALLBACK);
-          }
           if (request.destination === 'image') {
             return new Response('', { status: 503, statusText: 'Image Unavailable' });
           }

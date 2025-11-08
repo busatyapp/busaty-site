@@ -98,10 +98,10 @@
       ]
     },
     "school": {
-      "title": "Busaty School Portal",
-      "description": "A powerful dashboard for schools to orchestrate fleets, assign students, and analyse trip performance.",
+      "title": "Busaty School App",
+      "description": "A powerful app for schools to orchestrate fleets, assign students, and analyse trip performance.",
       "videoUrl": "https://www.youtube.com/watch?v=zm5kpYXSTN0&t=30s",
-      "videoTitle": "Busaty School Portal overview",
+      "videoTitle": "Busaty School App overview",
       "features": [
         "Add students with full contact details and map-based pickup points.",
         "Assign buses, manage routes, and monitor journeys live.",

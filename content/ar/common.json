@@ -9,7 +9,7 @@
     "whatsapp": "واتساب",
     "downloadParent": "تطبيق ولي الأمر",
     "downloadSupervisor": "تطبيق المشرف",
-    "downloadSchool": "لوحة المدرسة"
+    "downloadSchool": "تطبيق المدرسة"
   },
   "faq": {
     "title": "الأسئلة الشائعة",
@@ -28,7 +28,7 @@
   "apps": {
     "parent": "تطبيق ولي الأمر",
     "supervisor": "تطبيق المشرف",
-    "school": "لوحة المدرسة"
+    "school": "تطبيق المدرسة"
   },
   "form": {
     "name": "الاسم",

@@ -9,14 +9,14 @@
     "whatsapp": "WhatsApp",
     "downloadParent": "Application Parent",
     "downloadSupervisor": "Application Accompagnateur",
-    "downloadSchool": "Portail École"
+    "downloadSchool": "Application École"
   },
   "faq": {
     "title": "Questions fréquentes",
     "tabs": {
       "parent": "Application Parent",
       "supervisor": "Application Accompagnateur",
-      "school": "Portail École"
+      "school": "Application École"
     }
   },
   "footer": {
@@ -28,7 +28,7 @@
   "apps": {
     "parent": "Application Parent",
     "supervisor": "Application Accompagnateur",
-    "school": "Portail École"
+    "school": "Application École"
   },
   "form": {
     "name": "Nom",

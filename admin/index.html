@@ -1,1 +1,98 @@
-<!doctype html>`r`n<html lang="ar">`r`n  <head>`r`n    <meta charset="utf-8">`r`n    <meta name="viewport" content="width=device-width, initial-scale=1">`r`n    <title>Busaty Admin</title>`r`n  </head>`r`n  <body>`r`n    <div id="nc-root">Loading…</div>`r`n    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>`r`n  </body>`r`n</html>`r`n
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>لوحة تحكم باصاتي</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        color-scheme: dark;
+      }
+      body {
+        margin: 0;
+        font-family: 'Cairo', system-ui;
+        background: #0f172a;
+        color: #f8fafc;
+      }
+      .admin-layout {
+        min-height: 100vh;
+        display: flex;
+      }
+      .sidebar {
+        width: 280px;
+        background: #0b1224;
+        padding: 32px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .sidebar h1 {
+        font-size: 1.25rem;
+        margin: 0;
+      }
+      .sidebar p {
+        margin: 0 0 12px;
+        color: rgba(248, 250, 252, 0.8);
+        font-size: 0.9rem;
+      }
+      .quick-links a {
+        display: block;
+        margin-bottom: 8px;
+        padding: 10px 14px;
+        border-radius: 12px;
+        text-decoration: none;
+        color: #f8fafc;
+        background: rgba(14, 165, 183, 0.18);
+        transition: background 0.2s ease;
+      }
+      .quick-links a:hover {
+        background: rgba(37, 99, 235, 0.35);
+      }
+      .analytics-card {
+        margin-top: auto;
+        display: block;
+        text-decoration: none;
+        padding: 14px 16px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, rgba(37, 99, 235, 0.6), rgba(14, 165, 183, 0.6));
+        color: #fff;
+        text-align: center;
+        font-weight: 600;
+      }
+      #nc-root {
+        flex: 1;
+        min-height: 100vh;
+        background: #fff;
+        color: #0f172a;
+      }
+      @media (max-width: 900px) {
+        .admin-layout {
+          flex-direction: column;
+        }
+        .sidebar {
+          width: 100%;
+          border-bottom: 1px solid rgba(248, 250, 252, 0.1);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-layout">
+      <aside class="sidebar">
+        <h1>لوحة تحكم باصاتي</h1>
+        <p>اختر ما تريد تعديله أو راقب التحليلات.</p>
+        <div class="quick-links">
+          <a href="#/collections/settings">إعدادات عامة</a>
+          <a href="#/collections/content_ar">محتوى الصفحات (العربية)</a>
+          <a href="#/collections/content_en">محتوى الصفحات (English)</a>
+          <a href="#/collections/content_fr">محتوى الصفحات (Français)</a>
+        </div>
+        <a class="analytics-card" href="/admin/analytics.html" target="_blank" rel="noopener">إحصاءات الزيارات</a>
+      </aside>
+      <main id="nc-root">Loading…</main>
+    </div>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  </body>
+</html>

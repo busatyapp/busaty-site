@@ -9,14 +9,14 @@
     "whatsapp": "WhatsApp",
     "downloadParent": "Parent App",
     "downloadSupervisor": "Supervisor App",
-    "downloadSchool": "School Portal"
+    "downloadSchool": "School App"
   },
   "faq": {
     "title": "Frequently Asked Questions",
     "tabs": {
       "parent": "Parent App",
       "supervisor": "Supervisor App",
-      "school": "School Portal"
+      "school": "School App"
     }
   },
   "footer": {
@@ -28,7 +28,7 @@
   "apps": {
     "parent": "Parent App",
     "supervisor": "Supervisor App",
-    "school": "School Portal"
+    "school": "School App"
   },
   "form": {
     "name": "Name",

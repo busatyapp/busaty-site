@@ -1,4 +1,4 @@
-﻿backend:
+backend:
   name: github
   repo: busatyapp/busaty-site
   branch: main
@@ -179,7 +179,7 @@ collections:
                 fields:
                   - { label: التسمية, name: label, widget: string }
                   - { label: الرابط, name: url, widget: string }
-          - label: لوحة المدرسة
+          - label: تطبيق المدرسة
             name: school
             widget: object
             required: false
@@ -236,7 +236,7 @@ collections:
             fields:
               - { label: سؤال, name: q, widget: string }
               - { label: جواب, name: a, widget: text }
-          - label: لوحة المدرسة
+          - label: تطبيق المدرسة
             name: school
             widget: list
             fields:

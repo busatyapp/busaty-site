@@ -98,10 +98,10 @@
       ]
     },
     "school": {
-      "title": "Portail Busaty École",
-      "description": "Un tableau de bord complet pour les établissements afin de gérer le parc de bus, affecter les élèves et analyser les performances.",
+      "title": "Application Busaty École",
+      "description": "Une application complète pour gérer le parc de bus, affecter les élèves et analyser les performances.",
       "videoUrl": "https://www.youtube.com/watch?v=zm5kpYXSTN0&t=30s",
-      "videoTitle": "Présentation du portail Busaty École",
+      "videoTitle": "Présentation de l’application Busaty École",
       "features": [
         "Ajout des élèves avec toutes les informations de contact et de localisation.",
         "Affectation des bus, organisation des itinéraires et suivi des trajets en direct.",
