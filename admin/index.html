@@ -16,86 +16,72 @@
         background: #0f172a;
         color: #f8fafc;
       }
-      .admin-container {
-        min-height: 100vh;
-        display: flex;
-      }
-      .sidebar {
-        width: 280px;
+      .toolbar {
         background: #0b1224;
-        padding: 32px 24px;
+        padding: 20px 24px;
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
         gap: 16px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+        position: sticky;
+        top: 0;
+        z-index: 10;
       }
-      .sidebar h1 {
-        font-size: 1.25rem;
+      .toolbar h1 {
         margin: 0;
+        font-size: 1.1rem;
+        color: #f8fafc;
       }
-      .sidebar p {
-        margin: 0 0 12px;
-        color: rgba(248, 250, 252, 0.8);
+      .toolbar p {
+        margin: 0;
+        color: rgba(248, 250, 252, 0.7);
         font-size: 0.9rem;
       }
-      .quick-links a {
-        display: block;
-        margin-bottom: 8px;
-        padding: 10px 14px;
-        border-radius: 12px;
+      .toolbar-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-inline-start: auto;
+      }
+      .toolbar-links a {
         text-decoration: none;
+        padding: 10px 16px;
+        border-radius: 999px;
         color: #f8fafc;
-        background: rgba(14, 165, 183, 0.18);
+        background: rgba(14, 165, 183, 0.25);
+        font-weight: 600;
         transition: background 0.2s ease;
       }
-      .quick-links a:hover {
+      .toolbar-links a:hover {
         background: rgba(37, 99, 235, 0.35);
       }
-      .analytics-card {
-        margin-top: auto;
-        display: block;
-        text-decoration: none;
-        padding: 14px 16px;
-        border-radius: 16px;
+      .toolbar-links a.analytics {
         background: linear-gradient(135deg, rgba(37, 99, 235, 0.6), rgba(14, 165, 183, 0.6));
-        color: #fff;
-        text-align: center;
-        font-weight: 600;
       }
       #nc-root {
-        flex: 1;
-        min-height: 100vh;
+        min-height: calc(100vh - 120px);
         background: #fff;
         color: #0f172a;
-        padding: 24px;
-      }
-      @media (max-width: 1200px) {
-        .sidebar {
-          position: static;
-          width: 100%;
-          height: auto;
-          border-bottom: 1px solid rgba(248, 250, 252, 0.1);
-        }
-        #nc-root {
-          padding: 16px;
-        }
       }
     </style>
   </head>
   <body>
-    <div class="admin-container">
-      <aside class="sidebar">
+    <header class="toolbar">
+      <div>
         <h1>لوحة تحكم باصاتي</h1>
         <p>اختر ما تريد تعديله أو راقب التحليلات.</p>
-        <div class="quick-links">
-          <a href="#/collections/settings">إعدادات عامة</a>
-          <a href="#/collections/content_ar">محتوى الصفحات (العربية)</a>
-          <a href="#/collections/content_en">محتوى الصفحات (English)</a>
-          <a href="#/collections/content_fr">محتوى الصفحات (Français)</a>
-        </div>
-        <a class="analytics-card" href="/admin/analytics.html" target="_blank" rel="noopener">إحصاءات الزيارات</a>
-      </aside>
-      <main id="nc-root">Loading…</main>
-    </div>
+      </div>
+      <nav class="toolbar-links">
+        <a href="#/collections/settings">إعدادات عامة</a>
+        <a href="#/collections/content_ar">محتوى (العربية)</a>
+        <a href="#/collections/content_en">محتوى (English)</a>
+        <a href="#/collections/content_fr">محتوى (Français)</a>
+        <a class="analytics" href="/admin/analytics.html" target="_blank" rel="noopener">إحصاءات الزيارات</a>
+      </nav>
+    </header>
+    <main id="nc-root">Loading…</main>
+
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </body>
 </html>
