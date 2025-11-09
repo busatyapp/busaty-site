@@ -97,16 +97,21 @@
       const hidePanels = () => {
         selectors.forEach(sel => {
           document.querySelectorAll(sel).forEach(el => {
-            if (!el.dataset.hiddenCustom) {
-              el.style.display = 'none';
-              el.dataset.hiddenCustom = 'true';
-            }
+            el.style.display = 'none';
+            el.setAttribute('aria-hidden', 'true');
           });
         });
       };
-      const observer = new MutationObserver(() => hidePanels());
-      observer.observe(document.body, { childList: true, subtree: true });
-      hidePanels();
+      function boot() {
+        hidePanels();
+        const observer = new MutationObserver(hidePanels);
+        observer.observe(document.body, { childList: true, subtree: true });
+      }
+      if (document.readyState === 'complete') {
+        boot();
+      } else {
+        window.addEventListener('load', boot);
+      }
     </script>
   </body>
 </html>
