@@ -299,10 +299,9 @@ function updateMetaTags(pageContent, langCommon) {
 function applyLogoAndApps(pageContent, langCommon, globalContent) {
   const logoPath = pageContent.logoPath || langCommon.logoPath || globalContent.logoPath;
   if (logoPath) {
-    const logo = document.getElementById('site-logo');
-    if (logo) {
-      logo.setAttribute('src', logoPath);
-    }
+    document.querySelectorAll('[data-site-logo]').forEach(img => {
+      img.setAttribute('src', logoPath);
+    });
   }
 
   const appsLinks = pageContent.appsLinks || langCommon.appsLinks || globalContent.appsLinks;
