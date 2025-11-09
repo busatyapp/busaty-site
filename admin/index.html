@@ -275,13 +275,14 @@
             window.location.hash = `#/collections/${currentCollection}`;
           };
           backButton.onclick = goBack;
-          actionBar.querySelector('[data-action="back"]').onclick = goBack;
+          actionBar._goBack = goBack;
           updateEntryState(true);
           scheduleOutlineRefresh();
         } else {
           currentCollection = null;
           backButton.classList.remove('visible');
           updateEntryState(false);
+          actionBar._goBack = null;
         }
       }
 
@@ -321,6 +322,8 @@
           if (target) {
             target.scrollIntoView({ behavior: 'smooth', block: 'center' });
             target.focus({ preventScroll: true });
+            target.dispatchEvent(new Event('focus', { bubbles: true }));
+            target.dispatchEvent(new Event('click', { bubbles: true }));
           }
         }
       });
@@ -329,6 +332,8 @@
         const action = event.target.dataset.action;
         if (action === 'top') {
           window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else if (action === 'back' && typeof actionBar._goBack === 'function') {
+          actionBar._goBack();
         }
       });
 
