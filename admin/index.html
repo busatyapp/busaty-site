@@ -63,6 +63,28 @@
         min-height: calc(100vh - 120px);
         background: #fff;
         color: #0f172a;
+        padding-bottom: 40px;
+      }
+      .back-btn {
+        display: none;
+        padding: 8px 14px;
+        border-radius: 999px;
+        margin-inline-start: 16px;
+        border: 1px solid rgba(248, 250, 252, 0.4);
+        background: transparent;
+        color: #e2e8f0;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .back-btn.visible {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .back-btn svg {
+        width: 18px;
+        height: 18px;
+        fill: currentColor;
       }
       /* Hide Decap default collections pane since we have custom toolbar */
       [class*="AppSidebar-root"],
@@ -81,6 +103,10 @@
         <h1>لوحة تحكم باصاتي</h1>
         <p>اختر ما تريد تعديله أو راقب التحليلات.</p>
       </div>
+      <button id="back-button" class="back-btn" type="button">
+        <svg viewBox="0 0 24 24"><path d="M15.5 5.5 9 12l6.5 6.5-1.5 1.5-8-8 8-8z"/></svg>
+        رجوع
+      </button>
       <nav class="toolbar-links">
         <a href="#/collections/settings">إعدادات عامة</a>
         <a href="#/collections/content_ar">محتوى (العربية)</a>
@@ -116,6 +142,23 @@
 
       observer.observe(document.body, { childList: true, subtree: true });
       window.addEventListener('load', hidePanels);
+
+      function updateBackButton() {
+        const hash = window.location.hash || '';
+        const button = document.getElementById('back-button');
+        const match = hash.match(/#\/collections\/([^/]+)\/entries/);
+        if (match) {
+          button.classList.add('visible');
+          button.onclick = () => {
+            window.location.hash = `#/collections/${match[1]}`;
+          };
+        } else {
+          button.classList.remove('visible');
+        }
+      }
+
+      window.addEventListener('hashchange', updateBackButton);
+      updateBackButton();
     </script>
   </body>
 </html>
