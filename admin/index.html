@@ -97,21 +97,25 @@
       const hidePanels = () => {
         selectors.forEach(sel => {
           document.querySelectorAll(sel).forEach(el => {
-            el.style.display = 'none';
-            el.setAttribute('aria-hidden', 'true');
+            if (!el.dataset.hiddenByBusaty) {
+              el.style.display = 'none';
+              el.setAttribute('aria-hidden', 'true');
+              el.dataset.hiddenByBusaty = 'true';
+            }
           });
         });
       };
-      function boot() {
+
+      const observer = new MutationObserver(() => {
         hidePanels();
-        const observer = new MutationObserver(hidePanels);
-        observer.observe(document.body, { childList: true, subtree: true });
-      }
-      if (document.readyState === 'complete') {
-        boot();
-      } else {
-        window.addEventListener('load', boot);
-      }
+        const portal = document.querySelector('[class*="Portal-root"]');
+        if (portal) {
+          portal.remove();
+        }
+      });
+
+      observer.observe(document.body, { childList: true, subtree: true });
+      window.addEventListener('load', hidePanels);
     </script>
   </body>
 </html>
