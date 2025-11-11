@@ -3,7 +3,7 @@
 exports[`loadContent > hydrates the DOM using fetched content and updates datasets 1`] = `
 "
       <header>
-        <img id="site-logo" data-site-logo="" src="/assets/images/logo.png" alt="">
+        <img id="site-logo" data-site-logo="" src="/assets/images/logo.png" alt="" data-default-logo="/assets/images/logo.png" data-initial-logo="/assets/images/logo.png">
       </header>
       <main>
         <h1 data-i18n="hero.title">عنوان البطل</h1>

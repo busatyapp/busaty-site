@@ -2,6 +2,7 @@ import { renderFaq, setFaqData } from './faq.js';
 
 const PAGE_KEY_MAP = { index: 'home' };
 const DEFAULT_FEATURES = { enableAnalytics: true };
+const DEFAULT_LOGO = '/assets/images/logo.png';
 
 async function loadJSON(path) {
   const response = await fetch(path, { cache: 'no-store' });
@@ -353,13 +354,42 @@ function updateMetaTags(pageContent, langCommon) {
   }
 }
 
-function applyLogoAndApps(pageContent, langCommon, globalContent) {
-  const logoPath = pageContent.logoPath || langCommon.logoPath || globalContent.logoPath;
-  if (logoPath) {
-    document.querySelectorAll('[data-site-logo]').forEach(img => {
-      img.setAttribute('src', logoPath);
-    });
+function setLogoSource(img, nextSrc, fallbackSrc) {
+  if (!nextSrc) {
+    img.setAttribute('src', fallbackSrc);
+    return;
   }
+  if (img.getAttribute('src') === nextSrc) {
+    return;
+  }
+  const handleError = () => {
+    img.removeEventListener('load', handleLoad);
+    img.setAttribute('src', fallbackSrc);
+  };
+  const handleLoad = () => {
+    img.removeEventListener('error', handleError);
+  };
+  img.addEventListener('error', handleError, { once: true });
+  img.addEventListener('load', handleLoad, { once: true });
+  img.setAttribute('src', nextSrc);
+}
+
+function applyLogoAndApps(pageContent, langCommon, globalContent) {
+  const resolvedLogo = pageContent.logoPath || langCommon.logoPath || globalContent.logoPath;
+  const fallbackLogo = globalContent.defaultLogoPath || DEFAULT_LOGO;
+
+  document.querySelectorAll('[data-site-logo]').forEach(img => {
+    const storedFallback =
+      img.dataset.defaultLogo ||
+      img.getAttribute('data-default-logo') ||
+      img.dataset.initialLogo ||
+      img.getAttribute('src') ||
+      fallbackLogo;
+    img.dataset.defaultLogo = storedFallback;
+    img.dataset.initialLogo = storedFallback;
+    const nextSrc = resolvedLogo || storedFallback;
+    setLogoSource(img, nextSrc, storedFallback);
+  });
 
   const appsLinks = pageContent.appsLinks || langCommon.appsLinks || globalContent.appsLinks;
   if (appsLinks) {
