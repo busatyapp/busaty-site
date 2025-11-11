@@ -19,61 +19,57 @@ async function loadJSON(path) {
   return response.json();
 }
 
+function extractYouTubeId(url) {
+  if (!url) return '';
+  try {
+    const parsed = new URL(url);
+    const host = parsed.hostname || '';
+    if (host.includes('youtube.com')) {
+      if (parsed.pathname.includes('/embed/')) {
+        const parts = parsed.pathname.split('/embed/');
+        return parts[1]?.split(/[?&]/)[0] || '';
+      }
+      return parsed.searchParams.get('v') || '';
+    }
+    if (host.includes('youtu.be')) {
+      return parsed.pathname.replace('/', '').split(/[?&]/)[0] || '';
+    }
+    return '';
+  } catch {
+    return '';
+  }
+}
+
 function updateHeroMedia(hero = {}) {
   const heroMedia = document.querySelector('[data-hero-media]');
   if (!heroMedia) return;
 
   const fallbackSrc = hero.image || hero.poster || heroMedia.dataset.defaultImage || '/assets/images/hero-bus.webp';
   const fallbackAlt = hero.imageAlt || hero.videoTitle || heroMedia.dataset.defaultAlt || 'Busaty App Preview';
-  const videoUrl = hero.videoUrl ? normaliseVideoUrl(hero.videoUrl) : '';
+  const videoId = extractYouTubeId(hero.videoUrl);
 
   heroMedia.classList.remove('has-video', 'is-loading');
+  heroMedia.dataset.image = fallbackSrc;
+  heroMedia.dataset.defaultImage = heroMedia.dataset.defaultImage || fallbackSrc;
+  heroMedia.dataset.defaultAlt = heroMedia.dataset.defaultAlt || fallbackAlt;
+  heroMedia.dataset.videoId = videoId || '';
+  heroMedia.dataset.videoTitle = hero.videoTitle || fallbackAlt;
+  heroMedia.dataset.previewRendered = 'false';
   heroMedia.innerHTML = '';
 
-  const createPlaceholder = () => {
-    const placeholder = document.createElement('img');
-    placeholder.src = fallbackSrc;
-    placeholder.alt = fallbackAlt;
-    placeholder.loading = 'lazy';
-    placeholder.setAttribute('data-hero-placeholder', 'true');
-    heroMedia.appendChild(placeholder);
-    return placeholder;
-  };
-
-  if (videoUrl) {
-    heroMedia.classList.add('has-video', 'is-loading');
-    const placeholder = createPlaceholder();
-    const iframe = document.createElement('iframe');
-    iframe.src = videoUrl;
-    iframe.title = hero.videoTitle || 'عرض فيديو تعريفي عن باصاتي';
-    iframe.loading = 'lazy';
-    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
-    iframe.allow =
-      'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-    iframe.setAttribute('allowfullscreen', 'true');
-    iframe.hidden = true;
-    iframe.addEventListener(
-      'load',
-      () => {
-        heroMedia.classList.remove('is-loading');
-        placeholder?.remove();
-        iframe.hidden = false;
-      },
-      { once: true }
-    );
-    iframe.addEventListener(
-      'error',
-      () => {
-        heroMedia.classList.remove('has-video', 'is-loading');
-        iframe.remove();
-      },
-      { once: true }
-    );
-    heroMedia.appendChild(iframe);
+  if (!videoId) {
+    const img = document.createElement('img');
+    img.src = fallbackSrc;
+    img.alt = fallbackAlt;
+    img.loading = 'lazy';
+    heroMedia.appendChild(img);
     return;
   }
 
-  createPlaceholder();
+  heroMedia.classList.add('has-video');
+  if (typeof window.renderHeroVideo === 'function') {
+    window.renderHeroVideo();
+  }
 }
 
 function resolvePageKey() {
