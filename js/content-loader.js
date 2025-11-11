@@ -19,10 +19,22 @@ function updateHeroMedia(hero = {}) {
   const fallbackAlt = hero.imageAlt || hero.videoTitle || heroMedia.dataset.defaultAlt || 'Busaty App Preview';
   const videoUrl = hero.videoUrl ? normaliseVideoUrl(hero.videoUrl) : '';
 
+  heroMedia.classList.remove('has-video', 'is-loading');
   heroMedia.innerHTML = '';
 
+  const createPlaceholder = () => {
+    const placeholder = document.createElement('img');
+    placeholder.src = fallbackSrc;
+    placeholder.alt = fallbackAlt;
+    placeholder.loading = 'lazy';
+    placeholder.setAttribute('data-hero-placeholder', 'true');
+    heroMedia.appendChild(placeholder);
+    return placeholder;
+  };
+
   if (videoUrl) {
-    heroMedia.classList.add('has-video');
+    heroMedia.classList.add('has-video', 'is-loading');
+    const placeholder = createPlaceholder();
     const iframe = document.createElement('iframe');
     iframe.src = videoUrl;
     iframe.title = hero.videoTitle || 'عرض فيديو تعريفي عن باصاتي';
@@ -31,16 +43,29 @@ function updateHeroMedia(hero = {}) {
     iframe.allow =
       'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
     iframe.setAttribute('allowfullscreen', 'true');
+    iframe.hidden = true;
+    iframe.addEventListener(
+      'load',
+      () => {
+        heroMedia.classList.remove('is-loading');
+        placeholder?.remove();
+        iframe.hidden = false;
+      },
+      { once: true }
+    );
+    iframe.addEventListener(
+      'error',
+      () => {
+        heroMedia.classList.remove('has-video', 'is-loading');
+        iframe.remove();
+      },
+      { once: true }
+    );
     heroMedia.appendChild(iframe);
     return;
   }
 
-  heroMedia.classList.remove('has-video');
-  const img = document.createElement('img');
-  img.src = fallbackSrc;
-  img.alt = fallbackAlt;
-  img.loading = 'lazy';
-  heroMedia.appendChild(img);
+  createPlaceholder();
 }
 
 function resolvePageKey() {
