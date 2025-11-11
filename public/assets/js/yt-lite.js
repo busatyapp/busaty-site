@@ -52,14 +52,17 @@
 
     const button = document.createElement('button');
     button.type = 'button';
-    button.className = 'hero-video-play';
+    button.className = 'yt-play';
     button.setAttribute('aria-label', title);
-    button.innerHTML = '<span></span>';
     container.appendChild(button);
 
     button.addEventListener('click', () => {
-      swapToIframe(container, videoId, title);
-    });
+    swapToIframe(container, videoId, title);
+    const iframe = container.querySelector('iframe');
+    if (iframe) {
+      iframe.focus?.();
+    }
+  });
 
     container.dataset.previewRendered = 'preview';
   }
