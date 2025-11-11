@@ -8,6 +8,14 @@
     "videoUrl": "https://www.youtube.com/watch?v=cprfhlc1_oA",
     "videoTitle": "Busaty product overview"
   },
+  "seo": {
+    "title": "Busaty | The smart school transport platform",
+    "description": "One platform, three tailored experiences that keep guardians reassured, attendants organized, and schools in control with live tracking and instant notifications.",
+    "ogImage": "/assets/images/og-cover.webp",
+    "canonical": "https://busaty.org/?lang=en",
+    "locale": "en_US",
+    "siteName": "Busaty"
+  },
   "sections": [
     {
       "heading": "Why Busaty",

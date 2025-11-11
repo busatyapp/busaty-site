@@ -6,6 +6,14 @@
     "title": "About Us",
     "subtitle": "Busaty is an end-to-end school transport platform connecting guardians, attendants, drivers, and school administration in one safe, easy experience."
   },
+  "seo": {
+    "title": "Busaty | About us",
+    "description": "Learn about Busaty’s mission, vision, and values powering our end-to-end school transport platform.",
+    "ogImage": "/assets/images/og-cover.webp",
+    "canonical": "https://busaty.org/about.html?lang=en",
+    "locale": "en_US",
+    "siteName": "Busaty"
+  },
   "sections": [
     {
       "heading": "Our Mission",

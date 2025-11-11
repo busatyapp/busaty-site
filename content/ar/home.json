@@ -8,6 +8,14 @@
     "videoUrl": "https://www.youtube.com/watch?v=cprfhlc1_oA",
     "videoTitle": "لمحة سريعة عن باصاتي"
   },
+  "seo": {
+    "title": "باصاتي | الحلّ الذكي لإدارة النقل المدرسي",
+    "description": "منصّة واحدة تمنح وليّ الأمر الطمأنينة وتُسهّل عمل المشرفين وتوفّر للمدرسة تحكّمًا كاملًا مع تتبّع لحظي وإشعارات فورية.",
+    "ogImage": "/assets/images/og-cover.webp",
+    "canonical": "https://busaty.org/?lang=ar",
+    "locale": "ar_AR",
+    "siteName": "Busaty"
+  },
   "sections": [
     {
       "heading": "لماذا باصاتي؟",

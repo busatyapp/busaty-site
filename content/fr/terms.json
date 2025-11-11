@@ -6,6 +6,14 @@
     "title": "Conditions générales",
     "subtitle": "L’accès ou l’usage de Busaty vaut acceptation des dispositions juridiques suivantes, susceptibles d’être mises à jour."
   },
+  "seo": {
+    "title": "Busaty | Conditions générales",
+    "description": "Cadre juridique de l’utilisation de Busaty, incluant définitions, obligations, confidentialité et mises à jour.",
+    "ogImage": "/assets/images/og-cover.webp",
+    "canonical": "https://busaty.org/terms.html?lang=fr",
+    "locale": "fr_FR",
+    "siteName": "Busaty"
+  },
   "sections": [
     { "heading": "1. Définitions", "body": "Le terme \"Service\" désigne la plateforme et les applications Busaty. Le terme \"Utilisateur\" vise les parents, accompagnateurs, conducteurs ou représentants d’établissement qui créent un compte ou accèdent au service." },
     { "heading": "2. Obligations de l’utilisateur", "body": "L’utilisateur fournit des informations exactes, protège ses identifiants, respecte la réglementation applicable et n’utilise pas le service de façon abusive." },

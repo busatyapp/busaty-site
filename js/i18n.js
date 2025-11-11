@@ -6,6 +6,20 @@ const COUNTRY_LANG_MAP = {
   FR: 'fr'
 };
 let featureConfig = null;
+const LANG_PARAM_KEY = 'lang';
+
+function getQueryLang() {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const param = (params.get(LANG_PARAM_KEY) || '').toLowerCase();
+    if (SUPPORTED_LANGS.includes(param)) {
+      return param;
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
 
 async function fetchGeoIpLang(defaultLang) {
   try {
@@ -47,6 +61,12 @@ export async function detectLang() {
   const features = await ensureFeatureFlags();
   const geoEnabled = features.useGeoIp === true;
 
+  const queryLang = getQueryLang();
+  if (queryLang) {
+    localStorage.setItem('lang', queryLang);
+    return queryLang;
+  }
+
   const stored = localStorage.getItem('lang');
   if (stored && SUPPORTED_LANGS.includes(stored)) {
     return stored;
@@ -80,8 +100,11 @@ export async function initLang() {
   if (select) {
     select.value = resolved;
     select.addEventListener('change', event => {
-      applyLang(event.target.value).then(() => {
-        window.location.reload();
+      const next = event.target.value;
+      applyLang(next).then(() => {
+        const url = new URL(window.location.href);
+        url.searchParams.set(LANG_PARAM_KEY, next);
+        window.location.href = url.toString();
       });
     });
   }

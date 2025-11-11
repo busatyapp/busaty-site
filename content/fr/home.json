@@ -8,6 +8,14 @@
     "videoUrl": "https://www.youtube.com/watch?v=cprfhlc1_oA",
     "videoTitle": "Présentation rapide de Busaty"
   },
+  "seo": {
+    "title": "Busaty | Plateforme intelligente de transport scolaire",
+    "description": "Une plateforme et trois expériences adaptées qui apportent sérénité aux familles, organisation aux accompagnateurs et contrôle total aux écoles.",
+    "ogImage": "/assets/images/og-cover.webp",
+    "canonical": "https://busaty.org/?lang=fr",
+    "locale": "fr_FR",
+    "siteName": "Busaty"
+  },
   "sections": [
     {
       "heading": "Pourquoi Busaty",

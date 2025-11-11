@@ -6,6 +6,14 @@
     "title": "À propos de nous",
     "subtitle": "Busaty est une plateforme complète de transport scolaire reliant parents, accompagnateurs, conducteurs et administration scolaire dans une expérience sûre et simple."
   },
+  "seo": {
+    "title": "Busaty | À propos",
+    "description": "Découvrez la mission, la vision et les valeurs de Busaty, la plateforme complète de transport scolaire.",
+    "ogImage": "/assets/images/og-cover.webp",
+    "canonical": "https://busaty.org/about.html?lang=fr",
+    "locale": "fr_FR",
+    "siteName": "Busaty"
+  },
   "sections": [
     {
       "heading": "Notre mission",

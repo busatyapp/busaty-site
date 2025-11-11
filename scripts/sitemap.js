@@ -8,6 +8,7 @@ const pages = [
   { path: '/help.html', source: 'help.html' },
   { path: '/terms.html', source: 'terms.html' }
 ];
+const languages = ['ar', 'en', 'fr'];
 
 const distDir = path.resolve(__dirname, '..', 'dist');
 const outputFile = path.join(distDir, 'sitemap.xml');
@@ -31,12 +32,17 @@ function buildUrlEntry(loc, lastmod) {
   ].join('');
 }
 
-const urlEntries = pages.map(({ path: pagePath, source }) => {
-  const filePath = path.join(distDir, source);
-  const loc = `${baseUrl}${pagePath}`;
-  const lastmod = getLastModified(filePath);
-  return buildUrlEntry(loc, lastmod);
-});
+const urlEntries = pages
+  .map(({ path: pagePath, source }) => {
+    const filePath = path.join(distDir, source);
+    const lastmod = getLastModified(filePath);
+    return languages.map(langCode => {
+      const url = new URL(pagePath, baseUrl);
+      url.searchParams.set('lang', langCode);
+      return buildUrlEntry(url.toString(), lastmod);
+    });
+  })
+  .flat();
 
 const xml = [
   '<?xml version="1.0" encoding="UTF-8"?>',

@@ -6,6 +6,14 @@
     "title": "من نحن",
     "subtitle": "باصاتي نظامٌ متكاملٌ لإدارة النقل المدرسي يربط وليّ الأمر والمشرف والسائق وإدارة المدرسة في تجربةٍ واحدةٍ آمنةٍ وسهلة."
   },
+  "seo": {
+    "title": "باصاتي | من نحن",
+    "description": "تعرف على رسالتنا ورؤيتنا وقيمنا في باصاتي، النظام المتكامل لإدارة النقل المدرسي.",
+    "ogImage": "/assets/images/og-cover.webp",
+    "canonical": "https://busaty.org/about.html?lang=ar",
+    "locale": "ar_AR",
+    "siteName": "Busaty"
+  },
   "sections": [
     {
       "heading": "رسالتنا",

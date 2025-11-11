@@ -6,6 +6,14 @@
     "title": "الشروط والأحكام",
     "subtitle": "باستخدامك لباصاتي فإنك توافق على البنود القانونية التالية مع الاحتفاظ بأي تحديث يصدر لاحقًا."
   },
+  "seo": {
+    "title": "باصاتي | الشروط والأحكام",
+    "description": "الإطار القانوني لاستخدام منصة وتطبيقات باصاتي، بما في ذلك التعاريف والالتزامات وحدود المسؤولية.",
+    "ogImage": "/assets/images/og-cover.webp",
+    "canonical": "https://busaty.org/terms.html?lang=ar",
+    "locale": "ar_AR",
+    "siteName": "Busaty"
+  },
   "sections": [
     {
       "heading": "1. التعاريف",

@@ -6,27 +6,43 @@
     "title": "Help Center",
     "subtitle": "Quick guides and short tutorials to get started — from install and activation to daily operations."
   },
+  "seo": {
+    "title": "Busaty | Help Center",
+    "description": "Quick start checklists, day-to-day tips, and direct support channels for every Busaty role.",
+    "ogImage": "/assets/images/og-cover.webp",
+    "canonical": "https://busaty.org/help.html?lang=en",
+    "locale": "en_US",
+    "siteName": "Busaty"
+  },
   "sections": [
     {
       "heading": "Quick Start",
-      "items": [
-        { "body": "Install the app for your role." },
-        { "body": "Create your account and verify." },
-        { "body": "Add children/buses or join with a school code." },
-        { "body": "Enable notifications and location services." }
-      ]
+      "body": "Install the app for your role, create and verify your account, add children or buses (or join with a school code), then enable notifications and location services."
     },
     {
       "heading": "Everyday tips",
-      "body": "Browse the in-page tutorials to learn how to activate tracking, alerts, and dashboard views."
+      "body": "Use the embedded tutorials to refresh tracking, alerts, and dashboard workflows so every trip stays on schedule."
     },
     {
-      "heading": "Contact & Support",
+      "heading": "Frequently asked questions",
+      "body": "Pick the appropriate app tab to see the most common questions and step-by-step answers."
+    },
+    {
+      "heading": "Guides & resources",
       "items": [
-        { "body": "support@busaty.org" },
-        { "body": "In-page contact form" },
-        { "body": "Floating WhatsApp button (optional)" }
+        { "body": "Short videos covering sign-up, tracking, and alert activation." },
+        { "body": "Printable PDFs that guide guardians through onboarding." },
+        { "body": "An emergency checklist schools can execute when plans change." }
       ]
     }
-  ]
+  ],
+  "contact": {
+    "title": "Contact & Support",
+    "subtitle": "Reach us anytime via email, the in-page form, or WhatsApp for urgent questions.",
+    "items": [
+      "support@busaty.org",
+      "In-page contact form",
+      "Floating WhatsApp button (optional)"
+    }
+  }
 }

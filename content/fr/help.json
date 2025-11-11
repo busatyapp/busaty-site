@@ -6,27 +6,43 @@
     "title": "Centre d’aide",
     "subtitle": "Guides rapides et tutoriels courts pour démarrer — de l’installation et l’activation jusqu’à l’usage quotidien."
   },
+  "seo": {
+    "title": "Busaty | Centre d’aide",
+    "description": "Guides rapides, tutoriels vidéo et canaux de support pour chaque rôle Busaty.",
+    "ogImage": "/assets/images/og-cover.webp",
+    "canonical": "https://busaty.org/help.html?lang=fr",
+    "locale": "fr_FR",
+    "siteName": "Busaty"
+  },
   "sections": [
     {
       "heading": "Démarrage rapide",
-      "items": [
-        { "body": "Installez l’application correspondant à votre rôle." },
-        { "body": "Créez votre compte et vérifiez-le." },
-        { "body": "Ajoutez enfants/bus ou rejoignez avec un code école." },
-        { "body": "Activez les notifications et la localisation." }
-      ]
+      "body": "Installez l’application adaptée à votre rôle, créez et validez votre compte, ajoutez enfants/bus ou rejoignez avec un code école, puis activez notifications et localisation."
     },
     {
       "heading": "Conseils quotidiens",
-      "body": "Consultez les tutoriels intégrés pour activer le suivi, les alertes et les vues du tableau de bord."
+      "body": "Consultez les tutoriels intégrés pour maîtriser le suivi, les alertes et les vues du tableau de bord afin de rester ponctuel."
     },
     {
-      "heading": "Contact & Support",
+      "heading": "Questions fréquentes",
+      "body": "Choisissez l’onglet correspondant à votre application pour afficher les questions-réponses détaillées."
+    },
+    {
+      "heading": "Guides & ressources",
       "items": [
-        { "body": "support@busaty.org" },
-        { "body": "Formulaire de contact" },
-        { "body": "Bouton WhatsApp flottant (optionnel)" }
+        { "body": "Vidéos courtes sur l’inscription, le suivi et l’activation des alertes." },
+        { "body": "PDF imprimables détaillant les étapes d’onboarding des parents." },
+        { "body": "Liste de vérification pour la gestion des urgences côté école." }
       ]
     }
-  ]
+  ],
+  "contact": {
+    "title": "Contact & Support",
+    "subtitle": "Écrivez-nous par e-mail, via le formulaire sur la page ou par WhatsApp pour toute question.",
+    "items": [
+      "support@busaty.org",
+      "Formulaire de contact",
+      "Bouton WhatsApp flottant (optionnel)"
+    }
+  }
 }

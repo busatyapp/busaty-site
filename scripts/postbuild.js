@@ -7,7 +7,7 @@ const adminSourceDir = path.join(projectRoot, 'admin');
 const adminOutputDir = path.join(distDir, 'admin');
 const contentSourceDir = path.join(projectRoot, 'content');
 const contentOutputDir = path.join(distDir, 'content');
-const staticFiles = [];
+const staticFiles = ['robots.txt'];
 
 function copyDirectory(src, dest) {
   if (!fs.existsSync(dest)) {

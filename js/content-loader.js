@@ -2,6 +2,13 @@ import { renderFaq, setFaqData } from './faq.js';
 
 const PAGE_KEY_MAP = { index: 'home' };
 const DEFAULT_FEATURES = { enableAnalytics: true };
+const DEFAULT_OG_IMAGE = '/assets/images/og-cover.webp';
+const DEFAULT_TWITTER_CARD = 'summary_large_image';
+const LANG_LOCALE_MAP = {
+  ar: 'ar_AR',
+  en: 'en_US',
+  fr: 'fr_FR'
+};
 const DEFAULT_LOGO = '/assets/images/logo.png';
 
 async function loadJSON(path) {
@@ -183,6 +190,28 @@ function normaliseSameAs(value) {
     .filter(Boolean);
 }
 
+function upsertMeta(attr, key, value) {
+  if (!value) return;
+  let meta = document.querySelector(`meta[${attr}="${key}"]`);
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.setAttribute(attr, key);
+    document.head.appendChild(meta);
+  }
+  meta.setAttribute('content', value);
+}
+
+function upsertLink(rel, href) {
+  if (!href) return;
+  let link = document.querySelector(`link[rel="${rel}"]`);
+  if (!link) {
+    link = document.createElement('link');
+    link.setAttribute('rel', rel);
+    document.head.appendChild(link);
+  }
+  link.setAttribute('href', href);
+}
+
 function updateStructuredData(globalContent, pageContent = {}) {
   const script = document.querySelector('script[type="application/ld+json"]');
   if (!script) return;
@@ -308,50 +337,43 @@ function populateAppDetails(details) {
 
 function updateMetaTags(pageContent, langCommon) {
   const seo = pageContent.seo || {};
+  const lang = (document.documentElement.lang || 'ar').slice(0, 2);
   const title = seo.title || pageContent.title;
   if (title) {
-    document.title = `${title} – Busaty`;
+    document.title = title;
   }
 
   const description = seo.description || pageContent.description || langCommon.description;
   if (description) {
-    let meta = document.querySelector('meta[name="description"]');
-    if (!meta) {
-      meta = document.createElement('meta');
-      meta.setAttribute('name', 'description');
-      document.head.appendChild(meta);
-    }
-    meta.setAttribute('content', description);
+    upsertMeta('name', 'description', description);
   }
 
   const canonicalUrl = seo.canonical;
   if (canonicalUrl) {
-    let canonicalLink = document.querySelector('link[rel="canonical"]');
-    if (!canonicalLink) {
-      canonicalLink = document.createElement('link');
-      canonicalLink.setAttribute('rel', 'canonical');
-      document.head.appendChild(canonicalLink);
-    }
-    canonicalLink.setAttribute('href', canonicalUrl);
+    upsertLink('canonical', canonicalUrl);
+    upsertMeta('property', 'og:url', canonicalUrl);
+    upsertMeta('name', 'twitter:url', canonicalUrl);
   }
 
-  const ogTitle = document.querySelector('meta[property="og:title"]');
-  if (ogTitle && title) {
-    ogTitle.setAttribute('content', title);
-  }
+  const ogTitle = seo.ogTitle || title;
+  const ogDescription = seo.ogDescription || description;
+  const ogImage = seo.ogImage || seo.ogImageUrl || langCommon.ogImage || DEFAULT_OG_IMAGE;
+  const twitterImage = seo.twitterImage || ogImage;
+  const twitterTitle = seo.twitterTitle || ogTitle;
+  const twitterDescription = seo.twitterDescription || ogDescription;
+  const locale = seo.locale || LANG_LOCALE_MAP[lang] || 'ar_AR';
+  const siteName = seo.siteName || 'Busaty';
 
-  const ogDescription = document.querySelector('meta[property="og:description"]');
-  if (ogDescription && description) {
-    ogDescription.setAttribute('content', description);
-  }
+  upsertMeta('property', 'og:title', ogTitle);
+  upsertMeta('property', 'og:description', ogDescription);
+  upsertMeta('property', 'og:image', ogImage);
+  upsertMeta('property', 'og:locale', locale);
+  upsertMeta('property', 'og:site_name', siteName);
 
-  const ogImage = seo.ogImage || seo.ogImageUrl;
-  if (ogImage) {
-    const ogImageMeta = document.querySelector('meta[property="og:image"]');
-    if (ogImageMeta) {
-      ogImageMeta.setAttribute('content', ogImage);
-    }
-  }
+  upsertMeta('name', 'twitter:card', seo.twitterCard || DEFAULT_TWITTER_CARD);
+  upsertMeta('name', 'twitter:title', twitterTitle);
+  upsertMeta('name', 'twitter:description', twitterDescription);
+  upsertMeta('name', 'twitter:image', twitterImage);
 }
 
 function setLogoSource(img, nextSrc, fallbackSrc) {

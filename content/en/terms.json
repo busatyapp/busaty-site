@@ -6,6 +6,14 @@
     "title": "Terms & Conditions",
     "subtitle": "By accessing or using Busaty you agree to the legal terms below, updated as required."
   },
+  "seo": {
+    "title": "Busaty | Terms & Conditions",
+    "description": "Read the legal terms that govern the use of Busaty’s platform and apps, including user obligations and privacy commitments.",
+    "ogImage": "/assets/images/og-cover.webp",
+    "canonical": "https://busaty.org/terms.html?lang=en",
+    "locale": "en_US",
+    "siteName": "Busaty"
+  },
   "sections": [
     { "heading": "1. Definitions", "body": "\"Service\" refers to the Busaty platform and apps. \"User\" covers guardians, attendants, drivers, and school representatives who create an account or access the service." },
     { "heading": "2. User obligations", "body": "Users must provide accurate information, keep credentials confidential, comply with applicable laws, and refrain from misusing the service." },
