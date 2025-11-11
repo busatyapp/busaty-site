@@ -1,5 +1,3 @@
-import { renderFaq, setFaqData } from './faq.js';
-
 const PAGE_KEY_MAP = { index: 'home' };
 const DEFAULT_FEATURES = { enableAnalytics: true };
 const DEFAULT_OG_IMAGE = '/assets/images/og-cover.webp';
@@ -10,6 +8,15 @@ const LANG_LOCALE_MAP = {
   fr: 'fr_FR'
 };
 const DEFAULT_LOGO = '/assets/images/logo.png';
+
+let faqModulePromise = null;
+
+function ensureFaqModule() {
+  if (!faqModulePromise) {
+    faqModulePromise = import('./faq.js');
+  }
+  return faqModulePromise;
+}
 
 async function loadJSON(path) {
   const response = await fetch(path, { cache: 'no-store' });
@@ -474,12 +481,16 @@ export async function loadContent(options = {}) {
 
   try {
     const faq = await loadJSON(`${base}/faq.json`);
-    setFaqData(faq);
+    const module = await ensureFaqModule();
+    module.setFaqData(faq);
     if (document.getElementById('faq-list')) {
-      renderFaq(options.defaultFaqKey || 'parent');
+      module.renderFaq(options.defaultFaqKey || 'parent');
     }
   } catch {
-    setFaqData(null);
+    if (faqModulePromise) {
+      const module = await faqModulePromise;
+      module.setFaqData(null);
+    }
   }
 
   return {

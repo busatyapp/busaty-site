@@ -1,7 +1,15 @@
 import { initLang } from './i18n.js';
-import { initFaqTabs } from './faq.js';
 import { loadContent } from './content-loader.js';
 import { initFormHandler } from './form.js';
+
+let faqModulePromise = null;
+
+function ensureFaqModule() {
+  if (!faqModulePromise) {
+    faqModulePromise = import('./faq.js');
+  }
+  return faqModulePromise;
+}
 
 async function registerServiceWorker() {
   if (!('serviceWorker' in navigator)) {
@@ -91,6 +99,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   const lang = await initLang();
   const ctx = await loadContent({ lang });
   applyFeatureFlags(ctx.features || {});
-  initFaqTabs();
+  if (document.querySelector('.faq-tabs')) {
+    const module = await ensureFaqModule();
+    module.initFaqTabs();
+  }
   registerServiceWorker();
 });
