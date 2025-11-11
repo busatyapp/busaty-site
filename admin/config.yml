@@ -112,6 +112,8 @@ collections:
         fields:
           - { label: عنوان, name: title, widget: string, required: false }
           - { label: وصف, name: subtitle, widget: text, required: false }
+          - { label: رابط فيديو البطل (YouTube), name: videoUrl, widget: string, required: false }
+          - { label: عنوان الفيديو, name: videoTitle, widget: string, required: false }
       - label: أقسام
         name: sections
         widget: list

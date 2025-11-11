@@ -11,6 +11,38 @@ async function loadJSON(path) {
   return response.json();
 }
 
+function updateHeroMedia(hero = {}) {
+  const heroMedia = document.querySelector('[data-hero-media]');
+  if (!heroMedia) return;
+
+  const fallbackSrc = hero.image || hero.poster || heroMedia.dataset.defaultImage || '/assets/images/hero-bus.webp';
+  const fallbackAlt = hero.imageAlt || hero.videoTitle || heroMedia.dataset.defaultAlt || 'Busaty App Preview';
+  const videoUrl = hero.videoUrl ? normaliseVideoUrl(hero.videoUrl) : '';
+
+  heroMedia.innerHTML = '';
+
+  if (videoUrl) {
+    heroMedia.classList.add('has-video');
+    const iframe = document.createElement('iframe');
+    iframe.src = videoUrl;
+    iframe.title = hero.videoTitle || 'عرض فيديو تعريفي عن باصاتي';
+    iframe.loading = 'lazy';
+    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+    iframe.allow =
+      'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+    iframe.setAttribute('allowfullscreen', 'true');
+    heroMedia.appendChild(iframe);
+    return;
+  }
+
+  heroMedia.classList.remove('has-video');
+  const img = document.createElement('img');
+  img.src = fallbackSrc;
+  img.alt = fallbackAlt;
+  img.loading = 'lazy';
+  heroMedia.appendChild(img);
+}
+
 function resolvePageKey() {
   const fromDataset = document.body?.dataset?.page;
   if (fromDataset) {
@@ -341,6 +373,7 @@ export async function loadContent(options = {}) {
   updateMetaTags(pageContent, langCommon);
   applyTranslations(dictionary);
   applyLogoAndApps(pageContent, langCommon, globalContent);
+  updateHeroMedia(dictionary.hero || {});
 
   const formMessages = dictionary.form;
   if (formMessages && typeof formMessages === 'object') {

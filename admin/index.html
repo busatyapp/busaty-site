@@ -86,16 +86,6 @@
         height: 18px;
         fill: currentColor;
       }
-      .back-btn.visible {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-      }
-      .back-btn svg {
-        width: 18px;
-        height: 18px;
-        fill: currentColor;
-      }
       #busaty-field-outline {
         position: fixed;
         top: 120px;
@@ -317,19 +307,23 @@
       }
 
       outlineList.addEventListener('click', event => {
-        if (event.target.dataset.field) {
-          const target = document.getElementById(event.target.dataset.field);
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            target.focus({ preventScroll: true });
-            target.dispatchEvent(new Event('focus', { bubbles: true }));
-            target.dispatchEvent(new Event('click', { bubbles: true }));
-          }
+        const trigger = event.target.closest('button[data-field]');
+        if (!trigger) return;
+        const target = document.getElementById(trigger.dataset.field);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          target.focus({ preventScroll: true });
+          target.dispatchEvent(new Event('focus', { bubbles: true }));
+          target.dispatchEvent(new Event('click', { bubbles: true }));
         }
       });
 
       actionBar.addEventListener('click', event => {
-        const action = event.target.dataset.action;
+        const actionTarget = event.target.closest('[data-action]');
+        if (!actionTarget) {
+          return;
+        }
+        const action = actionTarget.dataset.action;
         if (action === 'top') {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         } else if (action === 'back' && typeof actionBar._goBack === 'function') {
@@ -342,14 +336,3 @@
     </script>
   </body>
 </html>
-      .back-btn {
-        display: none;
-        padding: 8px 14px;
-        border-radius: 999px;
-        margin-inline-start: 16px;
-        border: 1px solid rgba(248, 250, 252, 0.4);
-        background: transparent;
-        color: #e2e8f0;
-        cursor: pointer;
-        font-weight: 600;
-      }

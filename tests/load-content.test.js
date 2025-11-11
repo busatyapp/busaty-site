@@ -93,7 +93,7 @@ describe('loadContent', () => {
     document.body.dataset.page = 'home';
     document.body.innerHTML = `
       <header>
-        <img id="site-logo" src="" alt="">
+        <img id="site-logo" data-site-logo src="" alt="">
       </header>
       <main>
         <h1 data-i18n="hero.title"></h1>

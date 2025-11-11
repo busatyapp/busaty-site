@@ -1,5 +1,11 @@
 # Changelog
 
+## 2025-11-10
+
+- Enabled CMS-managed hero videos: homepage now swaps the hero image with a responsive YouTube embed (with proper title/allow policies) whenever `hero.videoUrl` is provided, and gracefully falls back to the static preview when it is not.
+- Synced floating WhatsApp CTA with icon + text so the contact action stays visible after refresh and matches the new UX guidelines.
+- Hardened the Decap dashboard helpers: cleaned duplicated styles, removed leftover markup, and fixed the outline/action toolbar to use delegated events so buttons (including “Back” and numeric jump links) work reliably no matter where users click.
+
 ## 2025-11-03
 
 - Consolidated client-side code into ES modules with a single `main.js` entrypoint orchestrating language detection, content loading, FAQ tabs, and Formspree handling.
