@@ -115,10 +115,10 @@
 
 .yt-play {
   position: absolute;
-  inset: 50% auto auto 50%;
-  transform: translate(-50%, -50%);
-  width: 68px;
-  height: 68px;
+  inset: auto 50% 50% auto;
+  transform: translate(50%, 50%);
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   border: none;
   background: rgba(0, 0, 0, 0.55);
@@ -136,17 +136,26 @@
   display: block;
   width: 0;
   height: 0;
-  margin: 22px 0 0 26px;
-  border-left: 16px solid #fff;
+  margin: 22px 0 0 24px;
+  border-left: 14px solid #fff;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
 }
 
 .yt-play:focus-visible,
 .yt-play:hover {
-  transform: translate(-50%, -50%) scale(1.05);
+  transform: translate(50%, 50%) scale(1.05);
   background: rgba(0, 0, 0, 0.7);
   opacity: 1;
+}
+
+.floating-whatsapp {
+  min-width: 180px;
+  min-height: 52px;
+}
+
+.header-cta select {
+  min-width: 120px;
 }
 
 @keyframes hero-spin {

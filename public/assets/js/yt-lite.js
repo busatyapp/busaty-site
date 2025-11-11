@@ -1,6 +1,15 @@
 (function () {
   const SELECTOR = '[data-hero-media]';
 
+  function getDimensions(container) {
+    const width = parseInt(container.dataset.imageWidth || '1280', 10);
+    const height = parseInt(container.dataset.imageHeight || '720', 10);
+    return {
+      width: Number.isFinite(width) && width > 0 ? width : 1280,
+      height: Number.isFinite(height) && height > 0 ? height : 720
+    };
+  }
+
   function setPlaceholder(container, src, alt) {
     container.innerHTML = '';
     if (!src) {
@@ -9,8 +18,11 @@
     const img = document.createElement('img');
     img.loading = 'lazy';
     img.decoding = 'async';
+    const { width, height } = getDimensions(container);
     img.src = src;
     img.alt = alt || 'Busaty video preview';
+    img.width = width;
+    img.height = height;
     container.appendChild(img);
   }
 
@@ -41,12 +53,16 @@
     const title = container.dataset.videoTitle || 'تشغيل الفيديو';
     container.innerHTML = '';
 
+    const { width, height } = getDimensions(container);
+
     if (image) {
       const img = document.createElement('img');
       img.loading = 'lazy';
       img.decoding = 'async';
       img.src = image;
       img.alt = title;
+      img.width = width;
+      img.height = height;
       container.appendChild(img);
     }
 
