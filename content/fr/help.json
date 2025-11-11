@@ -1,36 +1,31 @@
-{
+﻿{
   "category": "page",
-  "title": "Centre d’aide Busaty",
-  "description": "Apprenez à utiliser Busaty efficacement grâce à des guides rapides, des FAQ et des conseils pratiques.",
+  "title": "Centre d’aide",
+  "description": "Guides rapides et tutoriels courts pour démarrer — de l’installation et l’activation jusqu’à l’usage quotidien.",
   "hero": {
     "title": "Centre d’aide",
-    "subtitle": "Guides et ressources pour profiter pleinement de Busaty."
+    "subtitle": "Guides rapides et tutoriels courts pour démarrer — de l’installation et l’activation jusqu’à l’usage quotidien."
   },
   "sections": [
     {
-      "heading": "Commencer avec Busaty",
-      "body": "Téléchargez l’application adaptée, créez votre profil et ajoutez élèves ou bus en quelques étapes."
-    },
-    {
-      "heading": "Conseils pour les accompagnateurs",
-      "body": "Activez le mode conduite, gardez les notifications actives et validez chaque arrêt pour rester ponctuel."
-    },
-    {
-      "heading": "Questions fréquentes",
-      "body": "Sélectionnez l’application pour obtenir immédiatement les réponses dont vous avez besoin."
-    },
-    {
-      "heading": "Guides et ressources",
+      "heading": "Démarrage rapide",
       "items": [
-        {
-          "body": "Vidéos courtes pour l’inscription, le suivi et l’activation des alertes."
-        },
-        {
-          "body": "PDF imprimables avec les étapes d’onboarding pour les parents."
-        },
-        {
-          "body": "Plan d’intervention d’urgence destiné aux équipes scolaires."
-        }
+        { "body": "Installez l’application correspondant à votre rôle." },
+        { "body": "Créez votre compte et vérifiez-le." },
+        { "body": "Ajoutez enfants/bus ou rejoignez avec un code école." },
+        { "body": "Activez les notifications et la localisation." }
+      ]
+    },
+    {
+      "heading": "Conseils quotidiens",
+      "body": "Consultez les tutoriels intégrés pour activer le suivi, les alertes et les vues du tableau de bord."
+    },
+    {
+      "heading": "Contact & Support",
+      "items": [
+        { "body": "support@busaty.org" },
+        { "body": "Formulaire de contact" },
+        { "body": "Bouton WhatsApp flottant (optionnel)" }
       ]
     }
   ]

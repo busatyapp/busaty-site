@@ -1,40 +1,32 @@
-{
+﻿{
   "category": "page",
-  "title": "About Busaty",
-  "description": "Learn about the mission and team behind Busaty, the smarter school transportation platform.",
+  "title": "About Us",
+  "description": "Busaty is an end-to-end school transport platform connecting guardians, attendants, drivers, and school administration in one safe, easy experience.",
   "hero": {
-    "title": "Meet the Busaty team",
-    "subtitle": "We started in classrooms and now support every parent, supervisor, and school."
+    "title": "About Us",
+    "subtitle": "Busaty is an end-to-end school transport platform connecting guardians, attendants, drivers, and school administration in one safe, easy experience."
   },
   "sections": [
     {
-      "heading": "Our mission",
-      "body": "We believe school transportation should be safe, efficient, and human-centered, so we built Busaty to combine technology with care."
+      "heading": "Our Mission",
+      "body": "Make school transport safe, smooth, and transparent — from pickup to arrival."
     },
     {
-      "heading": "Our vision",
-      "body": "Become the trusted partner for schools seeking smart transportation and families seeking real peace of mind."
+      "heading": "Our Vision",
+      "body": "Be the trusted partner for schools seeking smart solutions to simplify operations and reassure families."
     },
     {
-      "heading": "Core values",
+      "heading": "Our Values",
       "items": [
-        {
-          "title": "Safety first",
-          "body": "We prioritise student safety and data privacy across every feature."
-        },
-        {
-          "title": "Transparency",
-          "body": "Live information keeps every user informed and aligned."
-        },
-        {
-          "title": "Innovation",
-          "body": "We deliver modern solutions for everyday transportation challenges."
-        }
+        { "title": "Safety first", "body": "We prioritize student safety and data privacy across every feature." },
+        { "title": "Real-time transparency", "body": "Live information keeps every user aligned and informed." },
+        { "title": "Practical innovation", "body": "We deliver useful technology for everyday transport challenges." },
+        { "title": "Dependable support", "body": "A responsive team that stands behind schools and families." }
       ]
     },
     {
-      "heading": "Multidisciplinary team",
-      "body": "Our experts in education, mobility, and technology collaborate to deliver a product that matches regional needs."
+      "heading": "What sets us apart",
+      "body": "We blend education, mobility, and technology expertise to deliver a localized experience that fits regional needs."
     }
   ]
 }

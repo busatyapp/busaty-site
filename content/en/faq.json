@@ -1,44 +1,20 @@
-{
+﻿{
   "parent": [
-    {
-      "q": "How do I create a parent account?",
-      "a": "Download the parent app, enter your details plus the student’s info, and your account will be activated in minutes."
-    },
-    {
-      "q": "Can I follow multiple children?",
-      "a": "Yes, add every child to your profile and monitor each trip from one dashboard."
-    },
-    {
-      "q": "How do I receive alerts?",
-      "a": "Enable notifications in the app and allow permissions on your device to stay informed."
-    }
+    { "q": "Does Busaty work offline?", "a": "An internet connection is required for live tracking and notifications; offline events sync later once you reconnect." },
+    { "q": "Can I add more than one child?", "a": "Yes, add every child to your profile and follow each trip separately." },
+    { "q": "How do I contact support?", "a": "Use the WhatsApp button or email support@busaty.org." },
+    { "q": "How do I track the bus?", "a": "Open the in-app map to see live location and ETA." },
+    { "q": "I’m not receiving notifications. What should I do?", "a": "Enable notifications and location permissions, then update the app." },
+    { "q": "How do I add or edit the home address?", "a": "Go to the student profile → Addresses → Add/Edit." }
   ],
   "supervisor": [
-    {
-      "q": "How do I enable trip tracking?",
-      "a": "Start the trip inside the app and allow background location permissions for precise tracking."
-    },
-    {
-      "q": "Can I adjust a route?",
-      "a": "You can re-order stops or contact administration to update the route assignments."
-    },
-    {
-      "q": "What if there is an emergency?",
-      "a": "Use the quick alert button to message the school and guardians with the latest status."
-    }
+    { "q": "How do I record attendance?", "a": "On the trip screen, confirm each student’s boarding/drop-off in order." },
+    { "q": "A student is absent — what happens?", "a": "They are marked absent automatically and a guardian alert can be sent if needed." },
+    { "q": "How do I assign students to buses?", "a": "From the dashboard: import students, then assign them to lines/buses." },
+    { "q": "Are performance reports available?", "a": "Yes — trip, delay, and usage indicators are available in the dashboard." }
   ],
   "school": [
-    {
-      "q": "How do I add a new bus?",
-      "a": "Open the school portal, choose fleet management, then add the driver and vehicle details."
-    },
-    {
-      "q": "Can I export trip reports?",
-      "a": "Yes, download daily or monthly summaries in CSV or PDF format."
-    },
-    {
-      "q": "Which permissions can staff receive?",
-      "a": "Assign roles with tailored permissions so each staff member sees just what they need."
-    }
+    { "q": "How do I assign attendants and drivers?", "a": "Use the control panel to choose each line and select the attendant/driver for every bus." },
+    { "q": "How do I notify families during emergencies?", "a": "Send a broadcast via the built-in alerts or WhatsApp button with the latest status." }
   ]
 }

@@ -1,0 +1,21 @@
+﻿{
+  "category": "page",
+  "title": "Politique de confidentialité",
+  "description": "La manière dont Busaty collecte, utilise et protège les données ainsi que vos droits.",
+  "hero": {
+    "title": "Politique de confidentialité",
+    "subtitle": "Nous détaillons ce que nous collectons, pourquoi et comment exercer vos droits."
+  },
+  "sections": [
+    {
+      "heading": "Résumé bref",
+      "items": [
+        { "body": "Ce que nous collectons et pourquoi : données fournies par l’utilisateur + données automatiques (localisation/appareil) pour activer le suivi et améliorer le service." },
+        { "body": "Base légale : exploitation du service, conformité et amélioration de l’expérience." },
+        { "body": "Conservation & suppression : conservation du nécessaire puis suppression/anonymisation." },
+        { "body": "Vos droits : accès, rectification, suppression ou restriction conformément à la loi." },
+        { "body": "Contact : support@busaty.org" }
+      ]
+    }
+  ]
+}

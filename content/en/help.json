@@ -1,36 +1,31 @@
-{
+﻿{
   "category": "page",
-  "title": "Busaty Help Center",
-  "description": "Discover how to use Busaty effectively with quick lessons, FAQs, and tips for supervisors and families.",
+  "title": "Help Center",
+  "description": "Quick guides and short tutorials to get started — from install and activation to daily operations.",
   "hero": {
     "title": "Help Center",
-    "subtitle": "Quick guides and resources to make every Busaty experience smooth."
+    "subtitle": "Quick guides and short tutorials to get started — from install and activation to daily operations."
   },
   "sections": [
     {
-      "heading": "Get started",
-      "body": "Download the right app, create your profile, and add students or buses in a few steps."
-    },
-    {
-      "heading": "Supervisor tips",
-      "body": "Use driving mode, keep notifications on, and confirm every stop to stay on schedule."
-    },
-    {
-      "heading": "Frequently asked questions",
-      "body": "Pick an app to find the answers you need in seconds."
-    },
-    {
-      "heading": "Guides and resources",
+      "heading": "Quick Start",
       "items": [
-        {
-          "body": "Short videos showing sign-up, tracking, and alert activation."
-        },
-        {
-          "body": "Printable PDFs with onboarding steps for guardians."
-        },
-        {
-          "body": "Emergency response checklist for school administrators."
-        }
+        { "body": "Install the app for your role." },
+        { "body": "Create your account and verify." },
+        { "body": "Add children/buses or join with a school code." },
+        { "body": "Enable notifications and location services." }
+      ]
+    },
+    {
+      "heading": "Everyday tips",
+      "body": "Browse the in-page tutorials to learn how to activate tracking, alerts, and dashboard views."
+    },
+    {
+      "heading": "Contact & Support",
+      "items": [
+        { "body": "support@busaty.org" },
+        { "body": "In-page contact form" },
+        { "body": "Floating WhatsApp button (optional)" }
       ]
     }
   ]

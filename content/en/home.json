@@ -1,65 +1,71 @@
 {
   "category": "page",
-  "title": "Busaty – Smart School Transportation",
-  "description": "Busaty delivers a complete school transportation platform for parents, supervisors, and schools with live tracking and proactive alerts.",
+  "title": "Busaty — The smart school transport platform",
+  "description": "One platform, three tailored experiences that keep guardians reassured, attendants organized, and schools in full control with live tracking and instant notifications.",
   "hero": {
-    "title": "Busaty – The smart way to move students",
-    "subtitle": "Peace of mind for parents, supervisors, and schools with safe, live monitoring.",
+    "title": "Busaty — The smart school transport platform",
+    "subtitle": "Peace of mind for guardians, streamlined workflows for attendants, and full control for schools — with live tracking and instant notifications.",
     "videoUrl": "https://www.youtube.com/watch?v=cprfhlc1_oA",
     "videoTitle": "Busaty product overview"
   },
   "sections": [
     {
       "heading": "Why Busaty",
-      "body": "A unified platform that keeps every trip efficient and transparent.",
+      "body": "One platform, three tailored experiences that simplify operations and enhance safety.",
       "items": [
         {
-          "title": "Real-time tracking",
-          "body": "Follow buses on the map and confirm every pick-up and drop-off."
+          "title": "Reliable live tracking",
+          "body": "See bus location and estimated arrival times in real time."
         },
         {
           "title": "Smart notifications",
-          "body": "Receive instant alerts for departures, arrivals, and unexpected delays."
+          "body": "Departure/arrival alerts and urgent change notices."
         },
         {
-          "title": "Actionable analytics",
-          "body": "Review performance dashboards tailored for schools and supervisors."
+          "title": "School control",
+          "body": "Manage students, trips, and staff from a single dashboard."
+        },
+        {
+          "title": "Data protection",
+          "body": "Encryption in transit/at rest and role-based access."
+        },
+        {
+          "title": "Responsive support",
+          "body": "Quick help via email or WhatsApp."
         }
       ]
     },
     {
-      "heading": "Three tailored experiences",
-      "body": "Choose the app that matches your role and get started in minutes.",
+      "heading": "Experiences for every role",
+      "body": "Pick the app that matches your role and launch in minutes.",
       "items": [
         {
-          "body": "Track buses, manage students, and stay informed wherever you are."
+          "title": "Parent App",
+          "body": "Real-time trip tracking, arrival/departure alerts, and child profile/address management."
         },
         {
-          "body": "Manage routes, confirm attendance, and message guardians instantly."
+          "title": "Attendant/Driver App",
+          "body": "Record check-in/out, access addresses on the map, and send instant updates to guardians."
         },
         {
-          "body": "Keep schedules accurate and manage your fleet with precise controls."
+          "title": "School App",
+          "body": "Add students, assign them to buses and attendants, and monitor fleet KPIs in real time."
         }
       ]
     },
     {
-      "heading": "Security around the clock",
-      "body": "We invest in enterprise-grade safeguards to protect every rider and data point.",
+      "heading": "Security & privacy",
+      "body": "We protect school transport data with enterprise safeguards.",
       "items": [
-        {
-          "body": "End-to-end data encryption"
-        },
-        {
-          "body": "Role-based access for every stakeholder"
-        },
-        {
-          "body": "Responsive support whenever you need it"
-        }
+        { "body": "Encryption in transit and at rest." },
+        { "body": "Separated roles and permissions." },
+        { "body": "Regular audits and updates." },
+        { "body": "Clear view of collected data and user rights." }
       ]
     },
     {
-      "heading": "Support on demand",
-      "body": "Everything you need to learn about Busaty’s apps in one place."
+      "heading": "Support & contact",
+      "body": "Email: support@busaty.org — in-page contact form — floating WhatsApp button (if enabled)."
     }
   ],
   "appDetails": {

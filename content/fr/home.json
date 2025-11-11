@@ -1,65 +1,71 @@
 {
   "category": "page",
-  "title": "Busaty – Transport scolaire intelligent",
-  "description": "Busaty réunit parents, accompagnateurs et écoles autour d’une plateforme complète avec suivi en direct et alertes proactives.",
+  "title": "Busaty — La plateforme intelligente de transport scolaire",
+  "description": "Une plateforme et trois expériences adaptées pour offrir sérénité aux familles, workflows organisés aux accompagnateurs et contrôle total aux établissements.",
   "hero": {
-    "title": "Busaty – La solution intelligente pour le transport scolaire",
-    "subtitle": "Parents, accompagnateurs et écoles profitent d’un suivi sécurisé en temps réel.",
+    "title": "Busaty — La plateforme intelligente de transport scolaire",
+    "subtitle": "Sérénité pour les parents, processus organisés pour les accompagnateurs, et contrôle total pour l’école — avec suivi en temps réel et notifications instantanées.",
     "videoUrl": "https://www.youtube.com/watch?v=cprfhlc1_oA",
     "videoTitle": "Présentation rapide de Busaty"
   },
   "sections": [
     {
       "heading": "Pourquoi Busaty",
-      "body": "Une plateforme unifiée qui garantit des trajets efficaces et transparents.",
+      "body": "Une plateforme et trois expériences adaptées pour simplifier l’exploitation et renforcer la sécurité.",
       "items": [
         {
-          "title": "Suivi en temps réel",
-          "body": "Suivez les bus sur la carte et validez chaque montée et descente."
+          "title": "Suivi fiable en temps réel",
+          "body": "Localisation du bus et heures d’arrivée estimées."
         },
         {
-          "title": "Alertes intelligentes",
-          "body": "Recevez des notifications dès le départ, l’arrivée ou en cas de retard."
+          "title": "Notifications intelligentes",
+          "body": "Alertes de départ/arrivée et messages urgents."
         },
         {
-          "title": "Analyses exploitables",
-          "body": "Accédez à des tableaux de bord dédiés aux écoles et accompagnateurs."
+          "title": "Contrôle pour l’école",
+          "body": "Gérer élèves, trajets et équipes depuis un tableau de bord unique."
+        },
+        {
+          "title": "Protection des données",
+          "body": "Chiffrement en transit/au repos et accès basé sur les rôles."
+        },
+        {
+          "title": "Support réactif",
+          "body": "Assistance rapide par e-mail ou WhatsApp."
         }
       ]
     },
     {
-      "heading": "Trois expériences sur mesure",
+      "heading": "Des expériences pour chaque rôle",
       "body": "Choisissez l’application correspondant à votre rôle et démarrez en quelques minutes.",
       "items": [
         {
-          "body": "Suivez les bus, gérez les élèves et restez informé où que vous soyez."
+          "title": "Application Parent",
+          "body": "Suivi du trajet en temps réel, alertes d’arrivée/départ et gestion des profils/adresses."
         },
         {
-          "body": "Gérez les trajets, confirmez les arrêts et contactez les parents instantanément."
+          "title": "Application Accompagnateur/Conducteur",
+          "body": "Enregistrement des présences, accès aux adresses sur la carte et notifications instantanées aux parents."
         },
         {
-          "body": "Gardez des horaires fiables et pilotez votre flotte avec précision."
+          "title": "Application École",
+          "body": "Ajouter les élèves, les affecter aux bus/lignes et superviser la flotte en temps réel."
         }
       ]
     },
     {
-      "heading": "Sécurité 24h/24",
-      "body": "Nous protégeons chaque passager et chaque donnée grâce à des standards élevés.",
+      "heading": "Sécurité & confidentialité",
+      "body": "Nous appliquons des normes de sécurité de niveau entreprise.",
       "items": [
-        {
-          "body": "Chiffrement complet des données"
-        },
-        {
-          "body": "Accès par rôle pour chaque profil"
-        },
-        {
-          "body": "Support réactif à toute heure"
-        }
+        { "body": "Chiffrement des données en transit et au repos." },
+        { "body": "Rôles et autorisations séparés." },
+        { "body": "Audits et mises à jour réguliers." },
+        { "body": "Visibilité claire des données collectées et des droits des utilisateurs." }
       ]
     },
     {
-      "heading": "Support immédiat",
-      "body": "Toutes les réponses sur les applications Busaty réunies au même endroit."
+      "heading": "Support & contact",
+      "body": "E-mail : support@busaty.org — formulaire de contact — bouton WhatsApp flottant (si activé)."
     }
   ],
   "appDetails": {

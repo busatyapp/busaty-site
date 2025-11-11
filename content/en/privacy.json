@@ -1,0 +1,21 @@
+﻿{
+  "category": "page",
+  "title": "Privacy Policy",
+  "description": "How Busaty collects, uses, and protects data, plus your available rights.",
+  "hero": {
+    "title": "Privacy Policy",
+    "subtitle": "We explain what we collect, why we collect it, and how you can exercise your rights."
+  },
+  "sections": [
+    {
+      "heading": "Short Summary",
+      "items": [
+        { "body": "What we collect and why: user-provided data plus automatic data (e.g., location/device) to enable tracking and improve service." },
+        { "body": "Legal basis: operating the service, compliance, and experience improvement." },
+        { "body": "Retention & deletion: keep only what is needed, then delete or anonymize per policy." },
+        { "body": "Your rights: access, rectification, deletion, or restriction as allowed by law." },
+        { "body": "Contact: support@busaty.org" }
+      ]
+    }
+  ]
+}

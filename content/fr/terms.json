@@ -1,31 +1,16 @@
-{
+﻿{
   "category": "page",
-  "title": "Conditions d’utilisation",
-  "description": "Prenez connaissance des conditions qui régissent l’utilisation de la plateforme et des applications Busaty.",
+  "title": "Conditions générales",
+  "description": "Le cadre juridique régissant l’utilisation de la plateforme et des applications Busaty.",
   "hero": {
-    "title": "Conditions d’utilisation",
-    "subtitle": "En accédant à Busaty, vous acceptez les règles présentées ci-dessous."
+    "title": "Conditions générales",
+    "subtitle": "L’accès ou l’usage de Busaty vaut acceptation des dispositions juridiques suivantes, susceptibles d’être mises à jour."
   },
   "sections": [
-    {
-      "heading": "1. Définitions",
-      "body": "\"Service\" désigne la plateforme et les applications Busaty. \"Utilisateur\" désigne tout parent, accompagnateur ou représentant d’établissement ayant un compte ou utilisant la plateforme."
-    },
-    {
-      "heading": "2. Obligations de l’utilisateur",
-      "body": "L’utilisateur s’engage à fournir des informations exactes, à protéger ses identifiants et à ne pas diffuser de contenu illicite."
-    },
-    {
-      "heading": "3. Protection des données",
-      "body": "Nous protégeons les données des élèves et des familles et ne les partageons qu’avec consentement ou obligation légale."
-    },
-    {
-      "heading": "4. Limitation de responsabilité",
-      "body": "Busaty n’est pas responsable des dommages causés par un usage abusif ou par des interruptions indépendantes de notre volonté, tout en offrant un support rapide."
-    },
-    {
-      "heading": "5. Modifications",
-      "body": "Ces conditions peuvent être mises à jour régulièrement et la dernière version sera toujours disponible ici."
-    }
+    { "heading": "1. Définitions", "body": "Le terme \"Service\" désigne la plateforme et les applications Busaty. Le terme \"Utilisateur\" vise les parents, accompagnateurs, conducteurs ou représentants d’établissement qui créent un compte ou accèdent au service." },
+    { "heading": "2. Obligations de l’utilisateur", "body": "L’utilisateur fournit des informations exactes, protège ses identifiants, respecte la réglementation applicable et n’utilise pas le service de façon abusive." },
+    { "heading": "3. Confidentialité des données", "body": "Nous protégeons les données des élèves et des familles selon notre politique de confidentialité et ne les partageons qu’avec consentement ou obligation légale." },
+    { "heading": "4. Limitation de responsabilité", "body": "Busaty n’est pas responsable des dommages résultant d’un mauvais usage ou d’événements hors de notre contrôle, tout en fournissant un support diligent." },
+    { "heading": "5. Modifications", "body": "Nous pouvons mettre à jour les présentes conditions ; la version révisée et la date de mise à jour seront publiées, et la poursuite de l’utilisation vaudra acceptation." }
   ]
 }

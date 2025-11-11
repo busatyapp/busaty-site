@@ -7,16 +7,16 @@
   },
   "cta": {
     "whatsapp": "واتساب",
-    "downloadParent": "تطبيق ولي الأمر",
-    "downloadSupervisor": "تطبيق المشرف",
+    "downloadParent": "تطبيق وليّ الأمر",
+    "downloadSupervisor": "تطبيق المشرف/السائق",
     "downloadSchool": "تطبيق المدرسة"
   },
   "faq": {
     "title": "الأسئلة الشائعة",
     "tabs": {
-      "parent": "تطبيق ولي الأمر",
-      "supervisor": "تطبيق المشرف",
-      "school": "تطبيق المدرسة"
+      "parent": "وليّ الأمر",
+      "supervisor": "المشرف/السائق",
+      "school": "المدرسة"
     }
   },
   "footer": {

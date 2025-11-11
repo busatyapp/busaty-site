@@ -1,40 +1,32 @@
-{
+﻿{
   "category": "page",
-  "title": "À propos de Busaty",
-  "description": "Découvrez la mission et l’équipe derrière Busaty, la plateforme de transport scolaire plus intelligente.",
+  "title": "À propos de nous",
+  "description": "Busaty est une plateforme complète de transport scolaire reliant parents, accompagnateurs, conducteurs et administration scolaire dans une expérience sûre et simple.",
   "hero": {
-    "title": "Rencontrez l’équipe Busaty",
-    "subtitle": "Née dans les salles de classe, notre aventure accompagne désormais chaque parent, accompagnateur et école."
+    "title": "À propos de nous",
+    "subtitle": "Busaty est une plateforme complète de transport scolaire reliant parents, accompagnateurs, conducteurs et administration scolaire dans une expérience sûre et simple."
   },
   "sections": [
     {
       "heading": "Notre mission",
-      "body": "Offrir un transport scolaire sûr, efficace et humain en réunissant technologie et accompagnement."
+      "body": "Rendre le transport scolaire sûr, fluide et transparent — de la prise en charge à l’arrivée."
     },
     {
       "heading": "Notre vision",
-      "body": "Devenir le partenaire de confiance des écoles à la recherche de solutions intelligentes et des familles en quête de sérénité."
+      "body": "Être le partenaire de confiance des écoles à la recherche de solutions intelligentes qui simplifient l’exploitation et rassurent les familles."
     },
     {
       "heading": "Nos valeurs",
       "items": [
-        {
-          "title": "Sécurité absolue",
-          "body": "La protection des élèves et de leurs données guide chacune de nos décisions."
-        },
-        {
-          "title": "Transparence",
-          "body": "Des informations en temps réel pour garder tout le monde aligné."
-        },
-        {
-          "title": "Innovation",
-          "body": "Des solutions modernes pour répondre aux défis du transport scolaire."
-        }
+        { "title": "La sécurité d’abord", "body": "Nous protégeons les élèves et leurs données à chaque étape." },
+        { "title": "La transparence en temps réel", "body": "Des informations en direct pour aligner tous les acteurs." },
+        { "title": "L’innovation pratique", "body": "Des solutions concrètes pour les défis quotidiens du transport." },
+        { "title": "Un support fiable", "body": "Une équipe réactive qui accompagne écoles et familles." }
       ]
     },
     {
-      "heading": "Une équipe pluridisciplinaire",
-      "body": "Des experts en éducation, mobilité et technologie unissent leurs forces pour répondre aux besoins locaux."
+      "heading": "Ce qui nous distingue",
+      "body": "Nous combinons les expertises de l’éducation, de la mobilité et de la technologie pour proposer une expérience adaptée au contexte local."
     }
   ]
 }

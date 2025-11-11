@@ -1,31 +1,16 @@
-{
+﻿{
   "category": "page",
   "title": "Terms & Conditions",
-  "description": "Understand the terms that govern your use of Busaty’s platform and applications.",
+  "description": "The legal framework governing your use of the Busaty platform and apps.",
   "hero": {
     "title": "Terms & Conditions",
-    "subtitle": "By accessing Busaty you agree to follow the policies outlined below."
+    "subtitle": "By accessing or using Busaty you agree to the legal terms below, updated as required."
   },
   "sections": [
-    {
-      "heading": "1. Definitions",
-      "body": "\"Services\" refers to the Busaty platform and applications. A \"user\" is any guardian, supervisor, or school representative who creates an account or uses the platform."
-    },
-    {
-      "heading": "2. User obligations",
-      "body": "Users must provide accurate information, keep credentials safe, and avoid sharing unlawful or abusive content."
-    },
-    {
-      "heading": "3. Data privacy",
-      "body": "We protect student and guardian data and only share it with third parties when consent is granted or when required by law."
-    },
-    {
-      "heading": "4. Liability limits",
-      "body": "Busaty is not liable for damages caused by misuse of the app or outages beyond our control, although we aim to resolve issues quickly."
-    },
-    {
-      "heading": "5. Updates",
-      "body": "We may adjust these terms from time to time and will publish the latest version here with an updated timestamp."
-    }
+    { "heading": "1. Definitions", "body": "\"Service\" refers to the Busaty platform and apps. \"User\" covers guardians, attendants, drivers, and school representatives who create an account or access the service." },
+    { "heading": "2. User obligations", "body": "Users must provide accurate information, keep credentials confidential, comply with applicable laws, and refrain from misusing the service." },
+    { "heading": "3. Data privacy", "body": "We protect student and guardian data under our privacy policy and only share it with third parties when required by law or with explicit consent." },
+    { "heading": "4. Limitation of liability", "body": "Busaty is not liable for damages caused by misuse or events beyond our control, while we commit to reasonable care and timely support." },
+    { "heading": "5. Changes", "body": "We may update these terms from time to time; the revised version and last-updated date will be posted, and continued use constitutes acceptance." }
   ]
 }

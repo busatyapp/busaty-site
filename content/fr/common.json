@@ -8,15 +8,15 @@
   "cta": {
     "whatsapp": "WhatsApp",
     "downloadParent": "Application Parent",
-    "downloadSupervisor": "Application Accompagnateur",
+    "downloadSupervisor": "Application Accompagnateur/Conducteur",
     "downloadSchool": "Application École"
   },
   "faq": {
     "title": "Questions fréquentes",
     "tabs": {
-      "parent": "Application Parent",
-      "supervisor": "Application Accompagnateur",
-      "school": "Application École"
+      "parent": "Parent",
+      "supervisor": "Accompagnateur/Conducteur",
+      "school": "École"
     }
   },
   "footer": {

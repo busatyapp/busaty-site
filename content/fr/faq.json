@@ -1,44 +1,20 @@
-{
+﻿{
   "parent": [
-    {
-      "q": "Comment créer un compte parent ?",
-      "a": "Téléchargez l’application Parent, saisissez vos informations et celles de l’élève ; votre compte sera activé en quelques minutes."
-    },
-    {
-      "q": "Puis-je suivre plusieurs enfants ?",
-      "a": "Oui, ajoutez chaque enfant à votre profil et surveillez tous les trajets depuis un seul tableau de bord."
-    },
-    {
-      "q": "Comment recevoir les alertes ?",
-      "a": "Activez les notifications dans l’application et autorisez-les sur votre appareil pour rester informé."
-    }
+    { "q": "Busaty fonctionne-t-il hors ligne ?", "a": "Une connexion est requise pour le suivi et les notifications ; les événements hors ligne sont synchronisés dès que la connexion revient." },
+    { "q": "Puis-je ajouter plusieurs enfants ?", "a": "Oui, ajoutez tous vos enfants et suivez chacun séparément." },
+    { "q": "Comment contacter le support ?", "a": "Utilisez le bouton WhatsApp ou écrivez à support@busaty.org." },
+    { "q": "Comment suivre le bus ?", "a": "Ouvrez la carte pour voir la position en direct et l’heure d’arrivée estimée." },
+    { "q": "Je ne reçois pas les notifications ; que faire ?", "a": "Activez les autorisations de notifications et de localisation, puis mettez l’application à jour." },
+    { "q": "Comment ajouter ou modifier l’adresse du domicile ?", "a": "Profil de l’élève → Adresses → Ajouter/Modifier." }
   ],
   "supervisor": [
-    {
-      "q": "Comment activer le suivi d’un trajet ?",
-      "a": "Lancez le trajet dans l’application et accordez les droits de localisation en arrière-plan pour un suivi précis."
-    },
-    {
-      "q": "Puis-je modifier un itinéraire ?",
-      "a": "Vous pouvez réorganiser les arrêts ou contacter l’administration pour ajuster l’affectation."
-    },
-    {
-      "q": "Que faire en cas d’urgence ?",
-      "a": "Utilisez le bouton d’alerte pour prévenir immédiatement l’école et les parents."
-    }
+    { "q": "Comment enregistrer la présence ?", "a": "Depuis l’écran du trajet, confirmez la montée et la descente de chaque élève." },
+    { "q": "Élève absent — que se passe-t-il ?", "a": "Il est marqué absent et une alerte peut être envoyée aux parents si nécessaire." },
+    { "q": "Comment affecter les élèves aux bus ?", "a": "Depuis le tableau de bord : importez les élèves puis affectez-les aux lignes/bus." },
+    { "q": "Des rapports de performance sont-ils disponibles ?", "a": "Oui, les trajets, retards et indicateurs d’usage sont consultables dans la plateforme." }
   ],
   "school": [
-    {
-      "q": "Comment ajouter un nouveau bus ?",
-      "a": "Depuis le portail École, ouvrez la gestion de flotte puis ajoutez le conducteur et les informations du véhicule."
-    },
-    {
-      "q": "Puis-je exporter des rapports de trajets ?",
-      "a": "Oui, téléchargez des synthèses quotidiennes ou mensuelles aux formats CSV ou PDF."
-    },
-    {
-      "q": "Quelles permissions attribuer au personnel ?",
-      "a": "Assignez des rôles avec des droits personnalisés pour que chacun accède aux bonnes informations."
-    }
+    { "q": "Comment affecter accompagnateurs et conducteurs ?", "a": "Sélectionnez chaque ligne puis choisissez les accompagnateurs ou conducteurs pour chaque bus." },
+    { "q": "Comment prévenir les familles en cas d’urgence ?", "a": "Envoyez une notification groupée via les alertes intégrées ou le bouton WhatsApp." }
   ]
 }
