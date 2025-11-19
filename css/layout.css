@@ -161,6 +161,14 @@
   min-width: 120px;
 }
 
+.header-cta .btn {
+  min-width: 140px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @keyframes hero-spin {
   from {
     transform: translate(-50%, -50%) rotate(0deg);
