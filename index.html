@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="/css/theme.css">
 
   <script type="module" src="/js/main.js" defer></script>
-  <script src="/assets/js/video-links.js" defer></script>
+  <script src="/assets/js/video-player.js" defer></script>
 
   <script type="application/ld+json">
   {
@@ -100,11 +100,22 @@
         </div>
       </div>
       <div class="hero-visual">
-        <button type="button" class="btn btn-secondary video-play-btn hero-video-btn" data-hero-video-button>
-          تشغيل الفيديو
-        </button>
         <div class="hero-media" data-hero-media>
-          <div class="video-placeholder" data-hero-placeholder></div>
+          <img
+            src="/assets/images/hero-bus.webp"
+            alt="Busaty App Preview"
+            width="1280"
+            height="720"
+            loading="lazy"
+            decoding="async"
+            data-hero-image
+          />
+          <div class="video-placeholder" data-hero-placeholder>
+            <p class="video-placeholder-title" data-video-text>لمحة سريعة عن باصاتي</p>
+            <button type="button" class="btn btn-secondary video-play-btn hero-video-btn" data-hero-video-button>
+              تشغيل الفيديو
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -162,11 +173,13 @@
 
       <article class="app-detail" id="app-parent-section" data-app-detail="parent">
         <div class="app-media">
-          <button type="button" class="btn btn-secondary video-play-btn" data-role="app-video-button">
-            تشغيل الفيديو
-          </button>
           <div class="video-wrapper" data-role="app-video-card">
-            <div class="video-placeholder"></div>
+            <div class="video-placeholder">
+              <p class="video-placeholder-title" data-video-text>شرح تطبيق باصاتي لولي الأمر</p>
+              <button type="button" class="btn btn-secondary video-play-btn" data-role="app-video-button">
+                تشغيل الفيديو
+              </button>
+            </div>
           </div>
         </div>
         <div class="app-info">
@@ -179,11 +192,13 @@
 
       <article class="app-detail" id="app-supervisor-section" data-app-detail="supervisor">
         <div class="app-media">
-          <button type="button" class="btn btn-secondary video-play-btn" data-role="app-video-button">
-            تشغيل الفيديو
-          </button>
           <div class="video-wrapper" data-role="app-video-card">
-            <div class="video-placeholder"></div>
+            <div class="video-placeholder">
+              <p class="video-placeholder-title" data-video-text>شرح تطبيق باصاتي للمشرفين والسائقين</p>
+              <button type="button" class="btn btn-secondary video-play-btn" data-role="app-video-button">
+                تشغيل الفيديو
+              </button>
+            </div>
           </div>
         </div>
         <div class="app-info">
@@ -196,11 +211,13 @@
 
       <article class="app-detail" id="app-school-section" data-app-detail="school">
         <div class="app-media">
-          <button type="button" class="btn btn-secondary video-play-btn" data-role="app-video-button">
-            تشغيل الفيديو
-          </button>
           <div class="video-wrapper" data-role="app-video-card">
-            <div class="video-placeholder"></div>
+            <div class="video-placeholder">
+              <p class="video-placeholder-title" data-video-text>شرح لوحة باصاتي للمدرسة</p>
+              <button type="button" class="btn btn-secondary video-play-btn" data-role="app-video-button">
+                تشغيل الفيديو
+              </button>
+            </div>
           </div>
         </div>
         <div class="app-info">

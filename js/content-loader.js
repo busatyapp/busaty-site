@@ -37,36 +37,47 @@ function composeVideoPrompt(title, videoCopy = {}) {
 
 function updateHeroMedia(hero = {}, videoCopy = {}) {
   const heroMedia = document.querySelector('[data-hero-media]');
-  const heroButton = document.querySelector('[data-hero-video-button]');
   if (!heroMedia) return;
 
-  const fallbackSrc = hero.image || hero.poster || heroMedia.dataset.defaultImage || '/assets/images/hero-bus.webp';
-  const fallbackAlt = hero.imageAlt || hero.videoTitle || hero.title || heroMedia.dataset.defaultAlt || 'Busaty App Preview';
+  const heroImage = heroMedia.querySelector('[data-hero-image]');
+  const heroPlaceholder = heroMedia.querySelector('[data-hero-placeholder]');
+  const heroButton = heroPlaceholder?.querySelector('[data-hero-video-button]') || document.querySelector('[data-hero-video-button]');
+  const placeholderTextNode = heroPlaceholder?.querySelector('[data-video-text]') || heroPlaceholder;
+
+  const fallbackSrc =
+    hero.image || hero.poster || heroMedia.dataset.defaultImage || heroImage?.getAttribute('src') || '/assets/images/hero-bus.webp';
+  const fallbackAlt =
+    hero.imageAlt ||
+    hero.videoTitle ||
+    hero.title ||
+    heroMedia.dataset.defaultAlt ||
+    heroImage?.getAttribute('alt') ||
+    'Busaty App Preview';
   const defaultButtonLabel =
     (heroButton?.dataset.defaultLabel || heroButton?.textContent?.trim()) || (videoCopy.button || 'Play video');
-  const placeholderText = composeVideoPrompt(hero.videoTitle || hero.subtitle || hero.title, videoCopy) || fallbackAlt;
+  const placeholderCopy =
+    composeVideoPrompt(hero.videoTitle || hero.subtitle || hero.title, videoCopy) || fallbackAlt;
   const videoUrl = hero.videoUrl || '';
 
   heroMedia.dataset.defaultImage = fallbackSrc;
   heroMedia.dataset.defaultAlt = fallbackAlt;
-  heroMedia.innerHTML = '';
 
-  const width = parseInt(heroMedia.dataset.imageWidth || '1280', 10);
-  const height = parseInt(heroMedia.dataset.imageHeight || '720', 10);
-  const heroImage = document.createElement('img');
-  heroImage.src = fallbackSrc;
-  heroImage.alt = fallbackAlt;
-  heroImage.decoding = 'async';
-  heroImage.loading = 'eager';
-  heroImage.width = Number.isFinite(width) ? width : 1280;
-  heroImage.height = Number.isFinite(height) ? height : 720;
-  heroMedia.appendChild(heroImage);
+  if (heroImage) {
+    heroImage.src = fallbackSrc;
+    heroImage.alt = fallbackAlt;
+    heroImage.loading = 'eager';
+    heroImage.decoding = 'async';
+    const width = parseInt(heroMedia.dataset.imageWidth || '1280', 10);
+    const height = parseInt(heroMedia.dataset.imageHeight || '720', 10);
+    heroImage.width = Number.isFinite(width) ? width : 1280;
+    heroImage.height = Number.isFinite(height) ? height : 720;
+  }
 
-  const placeholder = document.createElement('div');
-  placeholder.className = 'video-placeholder';
-  placeholder.dataset.heroPlaceholder = 'true';
-  placeholder.textContent = placeholderText;
-  heroMedia.appendChild(placeholder);
+  if (placeholderTextNode) {
+    placeholderTextNode.textContent = placeholderCopy;
+  } else if (heroPlaceholder) {
+    heroPlaceholder.textContent = placeholderCopy;
+  }
 
   if (heroButton) {
     heroButton.dataset.defaultLabel = heroButton.dataset.defaultLabel || defaultButtonLabel;
@@ -322,7 +333,8 @@ function populateAppDetails(details, videoCopy = {}) {
     }
 
     if (placeholder) {
-      placeholder.textContent = composeVideoPrompt(videoTitle, videoCopy) || videoTitle;
+      const textNode = placeholder.querySelector('[data-video-text]') || placeholder;
+      textNode.textContent = composeVideoPrompt(videoTitle, videoCopy) || videoTitle;
     }
   });
 }
