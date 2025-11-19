@@ -37,6 +37,32 @@
   <link rel="stylesheet" href="/css/components.css">
   <link rel="stylesheet" href="/css/theme.css">
 
+  <script>
+    (function () {
+      var supported = { ar: 'rtl', en: 'ltr', fr: 'ltr' };
+      try {
+        var params = new URLSearchParams(window.location.search);
+        var query = (params.get('lang') || '').toLowerCase();
+        var lang = supported[query] ? query : null;
+        if (!lang) {
+          var stored = localStorage.getItem('lang');
+          if (stored && supported[stored]) {
+            lang = stored;
+          }
+        }
+        if (!lang) {
+          var nav = (navigator.language || 'ar').slice(0, 2).toLowerCase();
+          lang = supported[nav] ? nav : 'ar';
+        }
+        document.documentElement.lang = lang;
+        document.documentElement.dir = supported[lang] || 'rtl';
+      } catch (error) {
+        document.documentElement.lang = document.documentElement.lang || 'ar';
+        document.documentElement.dir = document.documentElement.dir || 'rtl';
+      }
+    })();
+  </script>
+
   <script type="module" src="/js/main.js" defer></script>
   <script src="/assets/js/video-player.js" defer></script>
 
