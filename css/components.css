@@ -30,13 +30,13 @@
 }
 
 .btn-secondary {
-  background: var(--brand);
-  color: #fff;
+  background: #0f9abf;
+  color: #03141f;
   box-shadow: 0 12px 24px rgba(14, 165, 183, 0.25);
 }
 
 .btn-secondary:hover {
-  background: var(--brand-600);
+  background: #0d7c99;
 }
 
 .btn-outline {

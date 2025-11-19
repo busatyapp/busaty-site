@@ -141,12 +141,12 @@
           <a class="btn btn-whatsapp" href="https://wa.me/+201098924835" data-contact-link="whatsapp" target="_blank" rel="noopener" data-i18n="cta.whatsapp">تواصل عبر واتساب</a>
         </div>
         <form class="contact-form" data-formspree action="https://formspree.io/f/XXXXXXX" method="POST" data-success="تم الإرسال" data-error="خطأ بالإرسال">
-          <label data-i18n="form.name">الاسم</label>
-          <input type="text" name="name" required>
-          <label data-i18n="form.email">البريد الإلكتروني</label>
-          <input type="email" name="email" required>
-          <label data-i18n="form.message">رسالتك</label>
-          <textarea name="message" rows="4" required></textarea>
+          <label for="help-name" data-i18n="form.name">الاسم</label>
+          <input id="help-name" type="text" name="name" required>
+          <label for="help-email" data-i18n="form.email">البريد الإلكتروني</label>
+          <input id="help-email" type="email" name="email" required>
+          <label for="help-message" data-i18n="form.message">رسالتك</label>
+          <textarea id="help-message" name="message" rows="4" required></textarea>
           <button class="btn btn-primary" type="submit" data-i18n="form.send">إرسال</button>
           <p class="form-message" aria-live="polite"></p>
         </form>
