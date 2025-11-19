@@ -22,6 +22,9 @@
 
 .logo img {
   display: block;
+  width: 140px;
+  height: auto;
+  object-fit: contain;
 }
 
 .main-nav {
@@ -311,6 +314,12 @@
   background: #0f172a;
   color: #f8fafc;
   padding-block: 48px;
+}
+
+.site-footer [data-site-logo] {
+  width: 120px;
+  height: auto;
+  object-fit: contain;
 }
 
 .footer-cols {
