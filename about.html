@@ -56,8 +56,12 @@
 <a class="skip-link" href="#main-content">تخطي إلى المحتوى الرئيس</a>
 <header class="site-header">
   <div class="container">
-    <a href="/index.html" class="logo">
-      <img id="site-logo" data-site-logo src="/assets/images/logo.png" alt="Busaty" width="140" height="40" loading="eager">
+    <a href="/index.html" class="logo" aria-label="Busaty Home">
+      <picture>
+        <source type="image/avif" srcset="/assets/images/logo.avif" width="140" height="40">
+        <source type="image/webp" srcset="/assets/images/logo.webp" width="140" height="40">
+        <img id="site-logo" data-site-logo src="/assets/images/logo.png" alt="Busaty" width="140" height="40" loading="eager" decoding="async">
+      </picture>
     </a>
     <nav class="main-nav" aria-label="التنقل الرئيسي">
       <a href="/index.html" data-i18n="nav.home">الرئيسية</a>
@@ -132,7 +136,11 @@
           <p data-i18n="sections.3.body">يجمع فريق باصاتي بين خبراء التعليم، النقل، والتقنية لنضمن تقديم منتج متكامل متوافق مع احتياجات السوق المحلي والإقليمي.</p>
         </div>
         <div class="illustration">
-          <img src="/assets/images/team.webp" alt="Busaty Team" width="420" height="320" loading="lazy">
+          <picture>
+            <source type="image/avif" srcset="/assets/images/team.avif" width="420" height="320">
+            <source type="image/webp" srcset="/assets/images/team.webp" width="420" height="320">
+            <img src="/assets/images/team.webp" alt="Busaty Team" width="420" height="320" loading="lazy" decoding="async">
+          </picture>
         </div>
       </div>
     </div>
@@ -143,7 +151,11 @@
   <div class="container">
     <div class="footer-cols">
       <div>
-        <img data-site-logo src="/assets/images/logo.png" alt="Busaty" width="120" height="34" loading="lazy">
+        <picture>
+          <source type="image/avif" srcset="/assets/images/logo.avif" width="120" height="34">
+          <source type="image/webp" srcset="/assets/images/logo.webp" width="120" height="34">
+          <img data-site-logo src="/assets/images/logo.png" alt="Busaty" width="120" height="34" loading="lazy" decoding="async">
+        </picture>
         <p data-i18n="footer.tagline">باصاتي: نقل مدرسي أذكى وأسهل.</p>
         <ul class="footer-social" data-social-list aria-label="روابط التواصل الاجتماعي"></ul>
       </div>
