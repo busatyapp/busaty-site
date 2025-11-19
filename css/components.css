@@ -6,10 +6,10 @@
   gap: 8px;
   padding: 12px 20px;
   border-radius: 999px;
-  border: none;
+  border: 1px solid rgba(15, 23, 42, 0.12);
   font-weight: 600;
   transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-  background: rgba(15, 23, 42, 0.04);
+  background: rgba(15, 23, 42, 0.08);
   color: var(--text);
 }
 
@@ -30,13 +30,14 @@
 }
 
 .btn-secondary {
-  background: #0f9abf;
-  color: #03141f;
+  background: var(--brand-600);
+  color: #fff;
+  border: none;
   box-shadow: 0 12px 24px rgba(14, 165, 183, 0.25);
 }
 
 .btn-secondary:hover {
-  background: #0d7c99;
+  background: #086479;
 }
 
 .btn-outline {
@@ -199,6 +200,10 @@ details[open] summary::after {
   text-decoration: none;
   box-shadow: 0 20px 40px rgba(34, 197, 94, 0.4);
   z-index: 400;
+}
+
+.floating-whatsapp__label {
+  font-weight: 700;
 }
 
 .floating-whatsapp svg {

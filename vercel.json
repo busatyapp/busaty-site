@@ -30,7 +30,7 @@
         },
         {
           "key": "Content-Security-Policy",
-          "value": "default-src 'self'; img-src 'self' data: https:; script-src 'self' https://www.youtube-nocookie.com https://www.google.com https://www.gstatic.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-src https://www.youtube-nocookie.com"
+          "value": "default-src 'self'; img-src 'self' data: https:; script-src 'self' https://www.youtube-nocookie.com https://www.google.com https://www.gstatic.com https://plausible.io 'unsafe-inline' 'unsafe-eval'; connect-src 'self' https://plausible.io; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; frame-src https://www.youtube-nocookie.com"
         }
       ]
     }
