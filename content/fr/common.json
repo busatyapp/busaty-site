@@ -11,6 +11,10 @@
     "downloadSupervisor": "Application Accompagnateur/Conducteur",
     "downloadSchool": "Application École"
   },
+  "video": {
+    "watchPrompt": "Voir",
+    "button": "Lire la vidéo"
+  },
   "faq": {
     "title": "Questions fréquentes",
     "tabs": {

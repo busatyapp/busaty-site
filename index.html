@@ -38,7 +38,7 @@
   <link rel="stylesheet" href="/css/theme.css">
 
   <script type="module" src="/js/main.js" defer></script>
-  <script src="/assets/js/yt-lite.js" defer></script>
+  <script src="/assets/js/video-links.js" defer></script>
 
   <script type="application/ld+json">
   {
@@ -100,12 +100,11 @@
         </div>
       </div>
       <div class="hero-visual">
-        <div class="hero-media" data-hero-media data-default-image="/assets/images/hero-bus.webp" data-default-alt="Busaty App Preview" data-image="/assets/images/hero-bus.webp" data-image-width="1280" data-image-height="720">
-          <picture>
-            <source type="image/avif" srcset="/assets/images/hero-bus.avif" width="1280" height="720">
-            <source type="image/webp" srcset="/assets/images/hero-bus.webp" width="1280" height="720">
-            <img src="/assets/images/hero-bus.webp" alt="Busaty App Preview" width="1280" height="720" loading="lazy" decoding="async">
-          </picture>
+        <button type="button" class="btn btn-secondary video-play-btn hero-video-btn" data-hero-video-button>
+          تشغيل الفيديو
+        </button>
+        <div class="hero-media" data-hero-media>
+          <div class="video-placeholder" data-hero-placeholder></div>
         </div>
       </div>
     </div>
@@ -163,8 +162,11 @@
 
       <article class="app-detail" id="app-parent-section" data-app-detail="parent">
         <div class="app-media">
-          <div class="video-wrapper">
-            <iframe data-role="app-video" src="" title="Busaty Parent App" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          <button type="button" class="btn btn-secondary video-play-btn" data-role="app-video-button">
+            تشغيل الفيديو
+          </button>
+          <div class="video-wrapper" data-role="app-video-card">
+            <div class="video-placeholder"></div>
           </div>
         </div>
         <div class="app-info">
@@ -177,8 +179,11 @@
 
       <article class="app-detail" id="app-supervisor-section" data-app-detail="supervisor">
         <div class="app-media">
-          <div class="video-wrapper">
-            <iframe data-role="app-video" src="" title="Busaty Supervisor App" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          <button type="button" class="btn btn-secondary video-play-btn" data-role="app-video-button">
+            تشغيل الفيديو
+          </button>
+          <div class="video-wrapper" data-role="app-video-card">
+            <div class="video-placeholder"></div>
           </div>
         </div>
         <div class="app-info">
@@ -191,8 +196,11 @@
 
       <article class="app-detail" id="app-school-section" data-app-detail="school">
         <div class="app-media">
-          <div class="video-wrapper">
-            <iframe data-role="app-video" src="" title="Busaty School App" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+          <button type="button" class="btn btn-secondary video-play-btn" data-role="app-video-button">
+            تشغيل الفيديو
+          </button>
+          <div class="video-wrapper" data-role="app-video-card">
+            <div class="video-placeholder"></div>
           </div>
         </div>
         <div class="app-info">

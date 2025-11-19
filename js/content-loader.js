@@ -26,56 +26,64 @@ async function loadJSON(path) {
   return response.json();
 }
 
-function extractYouTubeId(url) {
-  if (!url) return '';
-  try {
-    const parsed = new URL(url);
-    const host = parsed.hostname || '';
-    if (host.includes('youtube.com')) {
-      if (parsed.pathname.includes('/embed/')) {
-        const parts = parsed.pathname.split('/embed/');
-        return parts[1]?.split(/[?&]/)[0] || '';
-      }
-      return parsed.searchParams.get('v') || '';
-    }
-    if (host.includes('youtu.be')) {
-      return parsed.pathname.replace('/', '').split(/[?&]/)[0] || '';
-    }
-    return '';
-  } catch {
-    return '';
+function composeVideoPrompt(title, videoCopy = {}) {
+  const prompt = (videoCopy.watchPrompt || '').trim();
+  const label = (title || '').trim();
+  if (prompt && label) {
+    return `${prompt} ${label}`.trim();
   }
+  return label || prompt;
 }
 
-function updateHeroMedia(hero = {}) {
+function updateHeroMedia(hero = {}, videoCopy = {}) {
   const heroMedia = document.querySelector('[data-hero-media]');
+  const heroButton = document.querySelector('[data-hero-video-button]');
   if (!heroMedia) return;
 
   const fallbackSrc = hero.image || hero.poster || heroMedia.dataset.defaultImage || '/assets/images/hero-bus.webp';
-  const fallbackAlt = hero.imageAlt || hero.videoTitle || heroMedia.dataset.defaultAlt || 'Busaty App Preview';
-  const videoId = extractYouTubeId(hero.videoUrl);
+  const fallbackAlt = hero.imageAlt || hero.videoTitle || hero.title || heroMedia.dataset.defaultAlt || 'Busaty App Preview';
+  const defaultButtonLabel =
+    (heroButton?.dataset.defaultLabel || heroButton?.textContent?.trim()) || (videoCopy.button || 'Play video');
+  const placeholderText = composeVideoPrompt(hero.videoTitle || hero.subtitle || hero.title, videoCopy) || fallbackAlt;
+  const videoUrl = hero.videoUrl || '';
 
-  heroMedia.classList.remove('has-video', 'is-loading');
-  heroMedia.dataset.image = fallbackSrc;
-  heroMedia.dataset.defaultImage = heroMedia.dataset.defaultImage || fallbackSrc;
-  heroMedia.dataset.defaultAlt = heroMedia.dataset.defaultAlt || fallbackAlt;
-  heroMedia.dataset.videoId = videoId || '';
-  heroMedia.dataset.videoTitle = hero.videoTitle || fallbackAlt;
-  heroMedia.dataset.previewRendered = 'false';
+  heroMedia.dataset.defaultImage = fallbackSrc;
+  heroMedia.dataset.defaultAlt = fallbackAlt;
   heroMedia.innerHTML = '';
 
-  if (!videoId) {
-    const img = document.createElement('img');
-    img.src = fallbackSrc;
-    img.alt = fallbackAlt;
-    img.loading = 'lazy';
-    heroMedia.appendChild(img);
-    return;
-  }
+  const width = parseInt(heroMedia.dataset.imageWidth || '1280', 10);
+  const height = parseInt(heroMedia.dataset.imageHeight || '720', 10);
+  const heroImage = document.createElement('img');
+  heroImage.src = fallbackSrc;
+  heroImage.alt = fallbackAlt;
+  heroImage.decoding = 'async';
+  heroImage.loading = 'eager';
+  heroImage.width = Number.isFinite(width) ? width : 1280;
+  heroImage.height = Number.isFinite(height) ? height : 720;
+  heroMedia.appendChild(heroImage);
 
-  heroMedia.classList.add('has-video');
-  if (typeof window.renderHeroVideo === 'function') {
-    window.renderHeroVideo();
+  const placeholder = document.createElement('div');
+  placeholder.className = 'video-placeholder';
+  placeholder.dataset.heroPlaceholder = 'true';
+  placeholder.textContent = placeholderText;
+  heroMedia.appendChild(placeholder);
+
+  if (heroButton) {
+    heroButton.dataset.defaultLabel = heroButton.dataset.defaultLabel || defaultButtonLabel;
+    const nextLabel = hero.videoButtonLabel || videoCopy.button || heroButton.dataset.defaultLabel;
+    heroButton.textContent = nextLabel;
+    const ariaLabelSource = hero.videoTitle || hero.subtitle || hero.title;
+    const ariaLabel = ariaLabelSource ? `${nextLabel} — ${ariaLabelSource}`.trim() : nextLabel;
+    heroButton.setAttribute('aria-label', ariaLabel);
+    if (videoUrl) {
+      heroButton.dataset.videoUrl = videoUrl;
+      heroButton.removeAttribute('aria-disabled');
+      heroButton.removeAttribute('disabled');
+    } else {
+      heroButton.dataset.videoUrl = '';
+      heroButton.setAttribute('aria-disabled', 'true');
+      heroButton.setAttribute('disabled', 'true');
+    }
   }
 }
 
@@ -248,43 +256,7 @@ function updateStructuredData(globalContent, pageContent = {}) {
   }
 }
 
-function normaliseVideoUrl(url) {
-  if (!url) return '';
-  try {
-    const parsed = new URL(url);
-    const host = parsed.hostname || '';
-    let videoId = '';
-    let startParam = '';
-
-    if (host.includes('youtube.com')) {
-      if (parsed.pathname.includes('/embed/')) {
-        return url;
-      }
-      videoId = parsed.searchParams.get('v') || '';
-      startParam = parsed.searchParams.get('t') || '';
-    } else if (host.includes('youtu.be')) {
-      videoId = parsed.pathname.replace('/', '');
-      startParam = parsed.searchParams.get('t') || '';
-    }
-
-    if (!videoId) {
-      return url;
-    }
-
-    let embedUrl = `https://www.youtube.com/embed/${videoId}`;
-    if (startParam) {
-      const seconds = /(\d+)s?$/i.test(startParam) ? parseInt(startParam, 10) : parseInt(startParam, 10);
-      if (!Number.isNaN(seconds) && seconds > 0) {
-        embedUrl += `?start=${seconds}`;
-      }
-    }
-    return embedUrl;
-  } catch (error) {
-    return url;
-  }
-}
-
-function populateAppDetails(details) {
+function populateAppDetails(details, videoCopy = {}) {
   if (!details) return;
   const sections = document.querySelectorAll('[data-app-detail]');
   sections.forEach(section => {
@@ -325,15 +297,32 @@ function populateAppDetails(details) {
       });
     }
 
-    const videoFrame = section.querySelector('[data-role="app-video"]');
-    if (videoFrame && data.videoUrl) {
-      const src = normaliseVideoUrl(data.videoUrl);
-      if (src) {
-        videoFrame.setAttribute('src', src);
+    const videoButton = section.querySelector('[data-role="app-video-button"]');
+    const placeholder = section.querySelector('[data-role="app-video-card"] .video-placeholder');
+    const videoUrl = data.videoUrl || '';
+    const videoTitle = data.videoTitle || data.title || '';
+
+    if (videoButton) {
+      const defaultLabel =
+        videoButton.dataset.defaultLabel || videoButton.textContent.trim() || videoCopy.button || 'Play video';
+      videoButton.dataset.defaultLabel = defaultLabel;
+      const nextLabel = data.videoButtonLabel || videoCopy.button || defaultLabel;
+      videoButton.textContent = nextLabel;
+      const ariaLabel = videoTitle ? `${nextLabel} — ${videoTitle}`.trim() : nextLabel;
+      videoButton.setAttribute('aria-label', ariaLabel);
+      if (videoUrl) {
+        videoButton.dataset.videoUrl = videoUrl;
+        videoButton.removeAttribute('aria-disabled');
+        videoButton.removeAttribute('disabled');
+      } else {
+        videoButton.dataset.videoUrl = '';
+        videoButton.setAttribute('aria-disabled', 'true');
+        videoButton.setAttribute('disabled', 'true');
       }
-      if (data.videoTitle) {
-        videoFrame.setAttribute('title', data.videoTitle);
-      }
+    }
+
+    if (placeholder) {
+      placeholder.textContent = composeVideoPrompt(videoTitle, videoCopy) || videoTitle;
     }
   });
 }
@@ -449,11 +438,12 @@ export async function loadContent(options = {}) {
   const pageContent = await loadJSON(`${base}/${page}.json`).catch(() => ({}));
 
   const dictionary = { ...langCommon, ...pageContent };
+  const videoCopy = dictionary.video || {};
 
   updateMetaTags(pageContent, langCommon);
   applyTranslations(dictionary);
   applyLogoAndApps(pageContent, langCommon, globalContent);
-  updateHeroMedia(dictionary.hero || {});
+  updateHeroMedia(dictionary.hero || {}, videoCopy);
 
   const formMessages = dictionary.form;
   if (formMessages && typeof formMessages === 'object') {
@@ -476,7 +466,7 @@ export async function loadContent(options = {}) {
   updateStructuredData(globalContent, pageContent);
 
   if (dictionary.appDetails) {
-    populateAppDetails(dictionary.appDetails);
+    populateAppDetails(dictionary.appDetails, videoCopy);
   }
 
   try {

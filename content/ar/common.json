@@ -11,6 +11,10 @@
     "downloadSupervisor": "تطبيق المشرف/السائق",
     "downloadSchool": "تطبيق المدرسة"
   },
+  "video": {
+    "watchPrompt": "شاهد",
+    "button": "تشغيل الفيديو"
+  },
   "faq": {
     "title": "الأسئلة الشائعة",
     "tabs": {

@@ -221,6 +221,48 @@
   border: 0;
 }
 
+.video-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.video-wrapper .video-placeholder {
+  color: #f8fafc;
+  background: rgba(15, 23, 42, 0.5);
+  font-size: 1rem;
+}
+
+.hero-media .video-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px;
+  color: var(--text);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.app-media .video-play-btn {
+  margin-bottom: 12px;
+}
+
+.hero-video-btn {
+  margin-bottom: 16px;
+  width: 100%;
+  max-width: 280px;
+  justify-content: center;
+}
+
 .download-buttons {
   display: flex;
   flex-wrap: wrap;

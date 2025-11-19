@@ -11,6 +11,10 @@
     "downloadSupervisor": "Attendant/Driver App",
     "downloadSchool": "School App"
   },
+  "video": {
+    "watchPrompt": "Watch",
+    "button": "Play video"
+  },
   "faq": {
     "title": "Frequently Asked Questions",
     "tabs": {
