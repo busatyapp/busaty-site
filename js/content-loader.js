@@ -74,9 +74,11 @@ function updateHeroMedia(hero = {}, videoCopy = {}) {
   }
 
   if (placeholderTextNode) {
-    placeholderTextNode.textContent = placeholderCopy;
+    const shouldHideText = heroPlaceholder?.dataset?.hideText === 'true';
+    placeholderTextNode.textContent = shouldHideText ? '' : placeholderCopy;
   } else if (heroPlaceholder) {
-    heroPlaceholder.textContent = placeholderCopy;
+    const shouldHideText = heroPlaceholder?.dataset?.hideText === 'true';
+    heroPlaceholder.textContent = shouldHideText ? '' : placeholderCopy;
   }
 
   if (heroButton) {
